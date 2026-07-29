@@ -34,7 +34,7 @@ tokens đã có
 
 ## Causal attention
 
-Decoder dùng causal attention để tránh "ăn gian" token tương lai. Attention mask che các vị trí phía sau token hiện tại.
+Decoder dùng causal attention để tránh "ăn gian" token tương lai. [[Attention Mask]] che các vị trí phía sau token hiện tại.
 
 Ví dụ sequence:
 
@@ -65,7 +65,7 @@ Trong decoder-only model, mỗi decoder block thường có:
 2. Feed-forward/MLP layer.
 3. Residual connections và layer normalization quanh các sublayers.
 
-Trong encoder-decoder model, decoder còn có thêm **cross-attention** để nhìn output của encoder:
+Trong encoder-decoder model, decoder còn có thêm [[Cross-Attention|cross-attention]] để nhìn output của encoder:
 
 ```text
 decoder self-attention: nhìn các token output đã sinh
@@ -97,7 +97,8 @@ decoder hidden state
 - Decoder-only models như GPT dùng causal/autoregressive attention.
 - Decoder phù hợp với text generation vì nó sinh token theo thứ tự từ trái sang phải.
 - Causal mask là điểm làm decoder khác encoder trong generation.
-- Trong encoder-decoder models, decoder vừa dùng causal self-attention vừa dùng cross-attention sang encoder output.
+- Causal mask thường là một mask matrix dạng tam giác dưới, quy định token hiện tại chỉ được nhìn chính nó và prefix trước nó.
+- Trong encoder-decoder models, decoder vừa dùng causal self-attention vừa dùng [[Cross-Attention|cross-attention]] sang encoder output.
 - Decoder không chỉ "copy token trước"; nó tạo representation ngữ cảnh từ prefix rồi dự đoán phân phối token tiếp theo.
 
 ## Khi áp dụng
@@ -127,6 +128,8 @@ decoder hidden state
 - [[Transformer]]
 - [[Self-Attention]]
 - [[Multi-Head Attention]]
+- [[Cross-Attention]]
+- [[Attention Mask]]
 - [[Feed-Forward Layer]]
 - [[Bidirectional Attention]]
 - [[Encoder-Decoder Architecture]]

@@ -184,6 +184,9 @@
   },
   "active": "7d58f568e1e8dfa9",
   "lastOpenFiles": [
+    "Knowledge Hub/04 - Concepts/Cross-Attention.md",
+    "Knowledge Hub/04 - Concepts/Encoder-Decoder Architecture.md",
+    "Knowledge Hub/04 - Concepts/Attention Mask.md",
     "push_code.sh",
     "Knowledge Hub/04 - Concepts/Decoder.md",
     "Knowledge Hub/04 - Concepts/Classification Head.md",
@@ -197,7 +200,6 @@
     "rclone-logs",
     "sync-to-gdrive.bat",
     "sync-to-gdrive.sh",
-    "Knowledge Hub/00 - Sources/PDFs/Books/Hands-On Large Language Models.pdf",
     "Knowledge Hub/00 - Inbox/Inbox.md",
     "Knowledge Hub/00 - Sources/README.md",
     "Knowledge Hub/2026-07-23.md",

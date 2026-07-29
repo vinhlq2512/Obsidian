@@ -101,10 +101,11 @@ Các con số chỉ để minh họa. Ý nghĩa là embedding mới của `flies
 
 ## Cần biết
 
-- Self-attention hoạt động trong cùng một sequence; khác với cross-attention, nơi decoder chú ý sang output của encoder.
+- Self-attention hoạt động trong cùng một sequence; khác với [[Cross-Attention|cross-attention]], nơi decoder chú ý sang output của encoder.
 - Self-attention tạo [[Embedding|contextualized embeddings]]: cùng một token có thể có representation khác nhau tùy ngữ cảnh.
 - Mỗi token được biến thành ba vector chính: query, key và value.
 - Attention score đo mức phù hợp giữa query của token hiện tại và key của các token khác.
+- [[Attention Mask]] có thể được áp dụng trước softmax để che padding hoặc token tương lai.
 - Softmax biến attention score thành trọng số, sau đó model lấy tổng có trọng số của các value vector.
 - Scaling bằng $\sqrt{d_k}$ giúp attention scores không quá lớn trước softmax.
 - [[Multi-Head Attention]] chạy nhiều attention head song song để học nhiều kiểu quan hệ khác nhau.
@@ -115,6 +116,8 @@ Các con số chỉ để minh họa. Ý nghĩa là embedding mới của `flies
 
 - [[Transformer]]
 - [[Multi-Head Attention]]
+- [[Cross-Attention]]
+- [[Attention Mask]]
 - [[Bidirectional Attention]]
 - [[NLP Transformers - Chapter 01 - Hello Transformers]]
 - [[NLP Transformers - Chapter 03 - Transformer Anatomy]]

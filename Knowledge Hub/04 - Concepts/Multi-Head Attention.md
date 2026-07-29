@@ -95,7 +95,7 @@ So sánh:
 
 - Encoder dùng multi-head self-attention để mỗi token nhìn toàn bộ input theo nhiều góc nhìn.
 - Decoder dùng masked multi-head self-attention để mỗi token nhìn quá khứ theo nhiều góc nhìn.
-- Encoder-decoder models dùng cross-attention, nơi query đến từ decoder còn key/value đến từ encoder output.
+- Encoder-decoder models dùng [[Cross-Attention|cross-attention]], nơi query đến từ decoder còn key/value đến từ encoder output.
 
 ## Cần biết
 
@@ -109,6 +109,7 @@ So sánh:
 ## Liên kết
 
 - [[Self-Attention]]
+- [[Cross-Attention]]
 - [[Bidirectional Attention]]
 - [[Transformer]]
 - [[NLP Transformers - Chapter 03 - Transformer Anatomy]]
