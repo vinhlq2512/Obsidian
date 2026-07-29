@@ -54,6 +54,11 @@ jobs:
           # Copy toàn bộ file Obsidian từ vault vào thư mục content của Quartz
           # Bỏ qua các file cấu hình và ẩn để tránh lỗi
           rsync -av --exclude='.git' --exclude='.github' --exclude='.obsidian' --exclude='quartz' vault/ quartz/content/
+          
+          # Đổi tên README.md thành index.md để Quartz nhận diện làm trang chủ
+          if [ -f "quartz/content/README.md" ]; then
+            mv quartz/content/README.md quartz/content/index.md
+          fi
 
       - name: Install Dependencies
         working-directory: quartz
