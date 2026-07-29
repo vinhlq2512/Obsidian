@@ -1,0 +1,206 @@
+{
+  "main": {
+    "id": "5c7fb311812ecca3",
+    "type": "split",
+    "children": [
+      {
+        "id": "c7c97b8f2ac25508",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c39ab8f9542155d8",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Knowledge Hub/00 - Sources/PDFs/Books/Natural Language Processing with Transformers.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "Natural Language Processing with Transformers"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "baac9ab7e9c2c63b",
+    "type": "split",
+    "children": [
+      {
+        "id": "a39a847acb2367d3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7d58f568e1e8dfa9",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "565ddffc8a822815",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "3804bec1c4439ae3",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "de687f47270a5dc7",
+    "type": "split",
+    "children": [
+      {
+        "id": "0f1ee16f776c19c1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3d890ebe589a3801",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Knowledge Hub/00 - Sources/PDFs/Books/Natural Language Processing with Transformers.pdf",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Natural Language Processing with Transformers"
+            }
+          },
+          {
+            "id": "601dedb1be6ae5a7",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Knowledge Hub/00 - Sources/PDFs/Books/Natural Language Processing with Transformers.pdf",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Natural Language Processing with Transformers"
+            }
+          },
+          {
+            "id": "9ebee3fe2cca98b5",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "e60a3e3620b939af",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "0e54b8c6316ec30b",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Knowledge Hub/00 - Sources/PDFs/Books/Natural Language Processing with Transformers.pdf",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Natural Language Processing with Transformers"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "7d58f568e1e8dfa9",
+  "lastOpenFiles": [
+    "Knowledge Hub/04 - Concepts/Decoder.md",
+    "Knowledge Hub/04 - Concepts/Classification Head.md",
+    "Knowledge Hub/04 - Concepts/Positional Embeddings.md",
+    "rclone-logs/rclone-sync-20260724-210436.log",
+    "rclone-logs/rclone-sync-20260724-210301.log",
+    "rclone-logs/rclone-sync-20260724-210235.log",
+    "rclone-logs/rclone-sync-20260724-210113.log",
+    "rclone-logs/gdrive-sync-20260724-205616.log",
+    "rclone-logs/gdrive-sync-20260724-205429.log",
+    "rclone-logs",
+    "sync-to-gdrive.bat",
+    "sync-to-gdrive.sh",
+    "Knowledge Hub/00 - Sources/PDFs/Books/Hands-On Large Language Models.pdf",
+    "Knowledge Hub/00 - Inbox/Inbox.md",
+    "Knowledge Hub/00 - Sources/README.md",
+    "Knowledge Hub/2026-07-23.md",
+    "Knowledge Hub/Untitled.canvas",
+    "Knowledge Hub/01 - Books/Clean Architecture.md.md"
+  ]
+}

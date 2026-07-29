@@ -1,0 +1,4 @@
+interface:
+  display_name: "Obsidian Book Reading"
+  short_description: "Maintain book reading notes in Obsidian"
+  default_prompt: "Use $obsidian-book-reading to update today's book reading note, related section notes, and reusable concepts."

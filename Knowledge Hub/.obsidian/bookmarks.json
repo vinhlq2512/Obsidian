@@ -1,0 +1,38 @@
+{
+  "items": [
+    {
+      "type": "group",
+      "ctime": 1784762428129,
+      "items": [
+        {
+          "type": "graph",
+          "ctime": 1784762297777,
+          "title": "Knowledge graph",
+          "options": {
+            "collapse-filter": false,
+            "search": "-path:\"03 - Daily Reading\"  ",
+            "showTags": false,
+            "showAttachments": false,
+            "hideUnresolved": true,
+            "showOrphans": false,
+            "collapse-color-groups": true,
+            "colorGroups": [],
+            "collapse-display": true,
+            "showArrow": false,
+            "textFadeMultiplier": 0,
+            "nodeSizeMultiplier": 1,
+            "lineSizeMultiplier": 1,
+            "collapse-forces": true,
+            "centerStrength": 0.518713248970312,
+            "repelStrength": 10,
+            "linkStrength": 1,
+            "linkDistance": 250,
+            "scale": 1.2501924124312773,
+            "close": false
+          }
+        }
+      ],
+      "title": "Graph"
+    }
+  ]
+}

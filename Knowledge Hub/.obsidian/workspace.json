@@ -1,0 +1,285 @@
+{
+  "main": {
+    "id": "a7281231f836e2a8",
+    "type": "split",
+    "children": [
+      {
+        "id": "707ff58e7676815c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9b82278228028c5f",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "03 - Daily Reading/Natural Language Processing with Transformers/27-07-2026.md",
+                "mode": "preview",
+                "source": false
+              },
+              "pinned": true,
+              "icon": "lucide-file",
+              "title": "27-07-2026"
+            }
+          },
+          {
+            "id": "2e212c4ae96aaf56",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "04 - Concepts/Layer Normalization.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Layer Normalization"
+            }
+          },
+          {
+            "id": "6aa27045c7dc51b2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "04 - Concepts/Positional Embeddings.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Positional Embeddings"
+            }
+          },
+          {
+            "id": "0647b1565143761d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "04 - Concepts/Classification Head.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Classification Head"
+            }
+          },
+          {
+            "id": "ddda2bd170190dd0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "04 - Concepts/Decoder.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Decoder"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "302727777ea4c1ce",
+    "type": "split",
+    "children": [
+      {
+        "id": "3b2aa9eade64460b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "84026849ed1b78bb",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": true
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "a36d00aabe99d9b5",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "7bbc5006ef3040a0",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 449.5
+  },
+  "right": {
+    "id": "3f770d9999f1d4fe",
+    "type": "split",
+    "children": [
+      {
+        "id": "98aa35ea816742fb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5def39ce4191779f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Clean Architecture - Section 03.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Clean Architecture - Section 03"
+            }
+          },
+          {
+            "id": "b33bb0a0410e6782",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Clean Architecture - Section 03.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Clean Architecture - Section 03"
+            }
+          },
+          {
+            "id": "62b4261481212a73",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "1dc288113ca0eb56",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "c88195acc0c0fe66",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Clean Architecture - Section 03.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Clean Architecture - Section 03"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "ddda2bd170190dd0",
+  "lastOpenFiles": [
+    "03 - Daily Reading/Natural Language Processing with Transformers/27-07-2026.md",
+    "04 - Concepts/Classification Head.md",
+    "04 - Concepts/Decoder.md",
+    "04 - Concepts/Positional Embeddings.md",
+    "04 - Concepts/Bidirectional Attention.md",
+    "04 - Concepts/Layer Normalization.md",
+    "03 - Daily Reading/Natural Language Processing with Transformers/26-07-2026.md",
+    "Untitled.md",
+    "README.md",
+    "AGENTS.md",
+    "04 - Concepts/Multi-Head Attention.md",
+    "02 - Sections/Natural Language Processing with Transformers/NLP Transformers - Chapter 03 - Transformer Anatomy.md",
+    "02 - Sections/Natural Language Processing with Transformers/NLP Transformers - Chapter 04 - Multilingual Named Entity Recognition.md",
+    "01 - Books/Natural Language Processing with Transformers.md",
+    "02 - Sections/Natural Language Processing with Transformers/NLP Transformers - Chapter 05 - Text Generation.md",
+    "02 - Sections/Natural Language Processing with Transformers/NLP Transformers - Chapter 02 - Text Classification.md",
+    "03 - Daily Reading/Natural Language Processing with Transformers/25-07-2026.md",
+    "03 - Daily Reading/Reading Dashboard.md",
+    "04 - Concepts/Feed-Forward Layer.md",
+    "00 - Sources/PDFs/Books/Natural Language Processing with Transformers.pdf",
+    "03 - Daily Reading/Natural Language Processing with Transformers/23-07-2026.md",
+    "03 - Daily Reading/Natural Language Processing with Transformers/24-07-2026.md",
+    "04 - Concepts/Contrastive Learning.md",
+    "04 - Concepts/Loss Function.md",
+    "00 - Sources/PDFs/Books/Hands-On Large Language Models.pdf",
+    "04 - Concepts/Transfer Learning.md",
+    "04 - Concepts/Hugging Face.md",
+    "20 - Research/Research Dashboard.md",
+    "00 - Sources/PDFs/Papers",
+    "00 - Sources/PDFs/Docs",
+    "00 - Sources/PDFs/Books",
+    "00 - Sources/Web Clips",
+    "00 - Sources/Datasets",
+    "00 - Sources/PDFs",
+    "00 - Sources/Images",
+    "00 - Sources",
+    "Untitled.canvas"
+  ]
+}

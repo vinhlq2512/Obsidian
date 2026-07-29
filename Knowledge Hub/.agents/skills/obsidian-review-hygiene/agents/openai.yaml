@@ -1,0 +1,4 @@
+interface:
+  display_name: "Obsidian Review Hygiene"
+  short_description: "Fix review metadata and dashboard queries"
+  default_prompt: "Use $obsidian-review-hygiene to check Obsidian metadata, review dates, and reading dashboard reminders."
