@@ -51,9 +51,13 @@ jobs:
           # Xoá file md mẫu của Quartz
           rm -rf quartz/content/*
           
-          # Copy toàn bộ file Obsidian từ vault vào thư mục content của Quartz
+          # Copy toàn bộ file Obsidian từ thư mục Knowledge Hub của vault vào thư mục content của Quartz
           # Bỏ qua các file cấu hình và ẩn để tránh lỗi
-          rsync -av --exclude='.git' --exclude='.github' --exclude='.obsidian' --exclude='quartz' vault/ quartz/content/
+          if [ -d "vault/Knowledge Hub" ]; then
+            rsync -av --exclude='.git' --exclude='.github' --exclude='.obsidian' --exclude='quartz' "vault/Knowledge Hub/" quartz/content/
+          else
+            rsync -av --exclude='.git' --exclude='.github' --exclude='.obsidian' --exclude='quartz' vault/ quartz/content/
+          fi
           
           # Đổi tên README.md thành index.md để Quartz nhận diện làm trang chủ
           if [ -f "quartz/content/README.md" ]; then
