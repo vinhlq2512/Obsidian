@@ -28,6 +28,7 @@ Transformer cập nhật biểu diễn của từng token bằng cách cho token
 - Encoder-decoder phù hợp sequence-to-sequence như translation hoặc summarization.
 - Transformer gốc được thiết kế cho sequence-to-sequence tasks như machine translation, nhưng encoder và decoder block sau đó được dùng riêng thành các model family độc lập.
 - Phần lớn Transformer models có thể gom vào ba nhóm: encoder-only, decoder-only, encoder-decoder.
+- [[Multilingual Transformer]] là hướng dùng cùng một Transformer đã pretrain trên nhiều ngôn ngữ để hỗ trợ transfer giữa các ngôn ngữ.
 
 ## Ba nhóm Transformer chính
 
@@ -49,3 +50,4 @@ Mental model ngắn: encoder để hiểu, decoder để sinh, encoder-decoder �
 - [[Embedding]]
 - [[Positional Embeddings]]
 - [[Generative Model]]
+- [[Multilingual Transformer]]
