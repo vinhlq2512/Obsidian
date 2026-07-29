@@ -25,10 +25,13 @@ Model không đọc chữ như con người. Tokenizer cắt text thành đơn v
 - Tokenizer khác nhau tạo số token khác nhau cho cùng một text.
 - Token count ảnh hưởng chi phí, context window và latency.
 - Special tokens có thể điều khiển sequence, padding, mask hoặc classification.
+- [[Tokenizer Pipeline]] thường gồm normalization, pretokenization, tokenizer model và postprocessing.
+- [[SentencePiece]] là một kiểu subword tokenizer học pieces từ raw text, hữu ích cho multilingual NLP vì không phụ thuộc mạnh vào tách từ bằng khoảng trắng.
 
 ## Liên kết
 
 - [[Embedding]]
 - [[Large Language Model]]
 - [[Transformer]]
-
+- [[Tokenizer Pipeline]]
+- [[SentencePiece]]

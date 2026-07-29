@@ -24,10 +24,12 @@ Trong NLP hiện đại, mình thường không bắt đầu từ model rỗng. 
 - Pretraining học biểu diễn tổng quát từ dữ liệu lớn.
 - Fine-tuning điều chỉnh model cho downstream task.
 - Transfer learning đặc biệt hữu ích khi dữ liệu có nhãn ít hoặc chi phí train từ đầu quá cao.
+- [[Zero-shot Learning]] là một trường hợp transfer khi model được dùng cho task, nhãn, domain hoặc ngôn ngữ mới mà không có dữ liệu gán nhãn trực tiếp cho trường hợp đó.
 - Chất lượng transfer phụ thuộc vào độ phù hợp giữa dữ liệu pretraining, domain mới, task mới và metric đánh giá.
 
 ## Liên kết
 
 - [[Transformer]]
 - [[Fine-tuning]]
+- [[Zero-shot Learning]]
 - [[NLP Transformers - Chapter 01 - Hello Transformers]]

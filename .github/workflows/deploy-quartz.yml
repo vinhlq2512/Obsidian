@@ -1,0 +1,80 @@
+name: Deploy Quartz site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - update-* # Build khi có push lên nhánh main hoặc nhánh update-*
+  workflow_dispatch: # Cho phép trigger thủ công từ giao diện GitHub
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Obsidian Vault
+        uses: actions/checkout@v4
+        with:
+          path: vault
+          fetch-depth: 0
+
+      - name: Checkout Quartz v4
+        uses: actions/checkout@v4
+        with:
+          repository: jackyzha0/quartz
+          ref: v4
+          path: quartz
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Configure Quartz
+        working-directory: quartz
+        run: |
+          # Đổi baseUrl sang repo của bạn để Quartz map link chính xác
+          sed -i 's/baseUrl: "quartz.jzhao.xyz"/baseUrl: "vinhlq2512.github.io\/Obsidian"/' quartz.config.ts
+          # Đổi tiêu đề trang web
+          sed -i 's/pageTitle: "Quartz 4.0"/pageTitle: "Knowledge Hub"/' quartz.config.ts
+
+      - name: Copy Vault into Quartz Content
+        run: |
+          # Xoá file md mẫu của Quartz
+          rm -rf quartz/content/*
+          
+          # Copy toàn bộ file Obsidian từ vault vào thư mục content của Quartz
+          # Bỏ qua các file cấu hình và ẩn để tránh lỗi
+          rsync -av --exclude='.git' --exclude='.github' --exclude='.obsidian' --exclude='quartz' vault/ quartz/content/
+
+      - name: Install Dependencies
+        working-directory: quartz
+        run: npm ci
+
+      - name: Build Quartz
+        working-directory: quartz
+        run: npx quartz build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: quartz/public
+
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

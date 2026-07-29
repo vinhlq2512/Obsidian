@@ -8,47 +8,19 @@
         "type": "tabs",
         "children": [
           {
-            "id": "9b82278228028c5f",
+            "id": "0647b1565143761d",
             "type": "leaf",
             "pinned": true,
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03 - Daily Reading/Natural Language Processing with Transformers/27-07-2026.md",
+                "file": "03 - Daily Reading/Natural Language Processing with Transformers/28-07-2026.md",
                 "mode": "preview",
                 "source": false
               },
               "pinned": true,
               "icon": "lucide-file",
-              "title": "27-07-2026"
-            }
-          },
-          {
-            "id": "cd2fe5f6a47794f0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "04 - Concepts/Encoder-Decoder Architecture.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Encoder-Decoder Architecture"
-            }
-          },
-          {
-            "id": "0647b1565143761d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "04 - Concepts/Classification Head.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Classification Head"
+              "title": "28-07-2026"
             }
           },
           {
@@ -78,9 +50,37 @@
               "icon": "lucide-file",
               "title": "Attention Mask"
             }
+          },
+          {
+            "id": "deb94ca8caec5e2c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "04 - Concepts/Transfer Learning.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Transfer Learning"
+            }
+          },
+          {
+            "id": "59d8acd9255b84ec",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "04 - Concepts/Tokenizer Pipeline.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Tokenizer Pipeline"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -100,7 +100,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": true
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -112,7 +112,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "Cross-attention",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -133,8 +133,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -243,15 +242,23 @@
       "bases:Create new base": false
     }
   },
-  "active": "a36d00aabe99d9b5",
+  "active": "59d8acd9255b84ec",
   "lastOpenFiles": [
-    "04 - Concepts/Cross-Attention.md",
+    "03 - Daily Reading/Natural Language Processing with Transformers/28-07-2026.md",
+    "04 - Concepts/Tokenizer Pipeline.md",
+    "04 - Concepts/Transfer Learning.md",
+    "04 - Concepts/SentencePiece.md",
+    "04 - Concepts/Multilingual Transformer.md",
+    "04 - Concepts/Attention Mask.md",
+    "04 - Concepts/Zero-shot Learning.md",
+    "03 - Daily Reading/Natural Language Processing with Transformers/27-07-2026.md",
+    "03 - Daily Reading/Natural Language Processing with Transformers/01-08-2026.md",
+    "02 - Sections/Hands-On Large Language Models/Hands-On LLM - Chapter 03 - Looking Inside Large Language Models.md",
     "04 - Concepts/Classification Head.md",
+    "04 - Concepts/Encoder-Decoder Architecture.md",
+    "04 - Concepts/Cross-Attention.md",
     "04 - Concepts/Positional Embeddings.md",
     "04 - Concepts/Layer Normalization.md",
-    "03 - Daily Reading/Natural Language Processing with Transformers/27-07-2026.md",
-    "04 - Concepts/Encoder-Decoder Architecture.md",
-    "04 - Concepts/Attention Mask.md",
     "04 - Concepts/Decoder.md",
     "04 - Concepts/Bidirectional Attention.md",
     "03 - Daily Reading/Natural Language Processing with Transformers/26-07-2026.md",
@@ -263,15 +270,7 @@
     "02 - Sections/Natural Language Processing with Transformers/NLP Transformers - Chapter 04 - Multilingual Named Entity Recognition.md",
     "01 - Books/Natural Language Processing with Transformers.md",
     "02 - Sections/Natural Language Processing with Transformers/NLP Transformers - Chapter 05 - Text Generation.md",
-    "02 - Sections/Natural Language Processing with Transformers/NLP Transformers - Chapter 02 - Text Classification.md",
-    "03 - Daily Reading/Natural Language Processing with Transformers/25-07-2026.md",
-    "03 - Daily Reading/Reading Dashboard.md",
-    "04 - Concepts/Feed-Forward Layer.md",
     "00 - Sources/PDFs/Books/Natural Language Processing with Transformers.pdf",
-    "03 - Daily Reading/Natural Language Processing with Transformers/23-07-2026.md",
-    "03 - Daily Reading/Natural Language Processing with Transformers/24-07-2026.md",
-    "04 - Concepts/Contrastive Learning.md",
-    "04 - Concepts/Loss Function.md",
     "00 - Sources/PDFs/Books/Hands-On Large Language Models.pdf",
     "00 - Sources/PDFs/Papers",
     "00 - Sources/PDFs/Docs",

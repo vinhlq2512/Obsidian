@@ -11,12 +11,14 @@
             "id": "c39ab8f9542155d8",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "Knowledge Hub/00 - Sources/PDFs/Books/Natural Language Processing with Transformers.pdf"
+                "file": "Knowledge Hub/05 - Templates/Concept.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "Natural Language Processing with Transformers"
+              "icon": "lucide-file",
+              "title": "Concept"
             }
           }
         ]
@@ -182,8 +184,15 @@
       "bases:Create new base": false
     }
   },
-  "active": "7d58f568e1e8dfa9",
+  "active": "c39ab8f9542155d8",
   "lastOpenFiles": [
+    "Knowledge Hub/04 - Concepts/Tokenizer Pipeline.md",
+    "Knowledge Hub/04 - Concepts/SentencePiece.md",
+    "Knowledge Hub/04 - Concepts/Multilingual Transformer.md",
+    "Knowledge Hub/04 - Concepts/Zero-shot Learning.md",
+    "2026-07-29.md",
+    "Knowledge Hub/05 - Templates/Concept.md",
+    "Knowledge Hub/00 - Sources/PDFs/Books/Natural Language Processing with Transformers.pdf",
     "Knowledge Hub/04 - Concepts/Cross-Attention.md",
     "Knowledge Hub/04 - Concepts/Encoder-Decoder Architecture.md",
     "Knowledge Hub/04 - Concepts/Attention Mask.md",
@@ -199,7 +208,6 @@
     "rclone-logs/gdrive-sync-20260724-205429.log",
     "rclone-logs",
     "sync-to-gdrive.bat",
-    "sync-to-gdrive.sh",
     "Knowledge Hub/00 - Inbox/Inbox.md",
     "Knowledge Hub/00 - Sources/README.md",
     "Knowledge Hub/2026-07-23.md",
