@@ -42,7 +42,7 @@ tags:
 - **Self-attention**: cơ chế để mỗi token tính trọng số chú ý với các token khác trong cùng sequence và tạo representation mới từ tổng có trọng số của các value vectors.
 - **Bidirectional attention**: self-attention trong đó token có thể dùng cả context bên trái và context bên phải. Đây là lý do encoder-only models rất mạnh cho language understanding.
 - **Causal attention**: self-attention có mask để token chỉ nhìn các token trước nó. Đây là cơ chế phù hợp với decoder-only generation.
-- **Attention mask**: ma trận/mask quy định token nào được phép chú ý tới token nào.
+- **[[Attention Mask|Attention mask]]**: ma trận/mask quy định token nào được phép chú ý tới token nào.
 - **Encoder-only model**: Transformer chỉ dùng encoder stack, phù hợp để hiểu input và tạo representation.
 - **[[Decoder|Decoder-only model]]**: Transformer chỉ dùng decoder stack, phù hợp để sinh văn bản theo next-token prediction.
 - **Encoder-decoder model**: Transformer dùng cả encoder và decoder, phù hợp cho bài toán biến đổi một sequence thành sequence khác.
@@ -385,6 +385,7 @@ print("context shape:", context.shape)
 - [[Layer Normalization]]
 - [[Positional Embeddings]]
 - [[Decoder]]
+- [[Attention Mask]]
 - [[Encoder-Decoder Architecture]]
 
 ## Active Recall
@@ -437,4 +438,6 @@ print("context shape:", context.shape)
 - [x] Tách concept quan trọng: [[Positional Embeddings]]
 - [x] Tách concept quan trọng: [[Classification Head]]
 - [x] Tách concept quan trọng: [[Decoder]]
+- [x] Tách concept quan trọng: [[Attention Mask]]
+- [x] Tách concept quan trọng: [[Encoder-Decoder Architecture]]
 - [x] Cập nhật tiến độ sách

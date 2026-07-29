@@ -44,6 +44,7 @@ Mental model ngắn: encoder để hiểu, decoder để sinh, encoder-decoder �
 - [[Self-Attention]]
 - [[Bidirectional Attention]]
 - [[Decoder]]
+- [[Encoder-Decoder Architecture]]
 - [[Tokenization]]
 - [[Embedding]]
 - [[Positional Embeddings]]
