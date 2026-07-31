@@ -31,6 +31,7 @@ tags:
 - [[Tokenizer Pipeline]] gồm normalization, pretokenization, tokenizer model và postprocessing; mỗi bước đều có thể ảnh hưởng đến token IDs, offsets và alignment nhãn.
 - Khi tokenizer tách một từ thành nhiều subword, nhãn cần được căn chỉnh lại.
 - [[SentencePiece]] hữu ích cho multilingual Transformer vì nó học subword từ raw text và ít phụ thuộc vào quy ước tách từ bằng khoảng trắng.
+- [[Transformers Model Class]] trong Hugging Face tách pretrained body khỏi task-specific head; với NER, token classification head dự đoán logits cho từng token/subword.
 - [[Multilingual Transformer]] như XLM-R có thể transfer giữa các ngôn ngữ nếu representation đủ chia sẻ.
 - Multilingual Transformer học từ nhiều ngôn ngữ bằng shared tokenizer và shared model parameters, nên có thể tạo một representation space chung cho các pattern ngôn ngữ tương tự.
 - [[Zero-shot Learning]] trong chapter này nên hiểu như zero-shot cross-lingual transfer: model được fine-tune trên ngôn ngữ nguồn có nhãn NER, rồi áp dụng trực tiếp sang ngôn ngữ đích không có nhãn.
@@ -65,6 +66,7 @@ for text in texts:
 - [[Token Classification]]
 - [[Tokenizer Pipeline]]
 - [[SentencePiece]]
+- [[Transformers Model Class]]
 - [[Cross-Lingual Transfer]]
 - [[Multilingual Transformer]]
 - [[Zero-shot Learning]]
@@ -76,8 +78,9 @@ for text in texts:
 2. Vì sao token-level labels khó hơn sequence-level labels?
 3. Tokenizer pipeline gồm những bước nào và mỗi bước làm gì?
 4. SentencePiece tokenizer làm thay đổi cách align nhãn NER như thế nào?
-5. Zero-shot transfer nên dùng khi nào?
-6. Error analysis trong NER nên nhìn những lỗi nào?
+5. Transformers model class tách body và head như thế nào?
+6. Zero-shot transfer nên dùng khi nào?
+7. Error analysis trong NER nên nhìn những lỗi nào?
 
 ## Checklist
 
