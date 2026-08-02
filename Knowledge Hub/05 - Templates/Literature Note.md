@@ -5,6 +5,8 @@ topic:
 scope:
 papers:
 related_concepts:
+created_at: {{date}}
+updated_at: {{date}}
 tags:
   - literature-note
 ---

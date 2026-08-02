@@ -9,6 +9,8 @@ dataset:
 method:
 metric:
 result:
+created_at: {{date}}
+updated_at: {{date}}
 tags:
   - experiment
 ---

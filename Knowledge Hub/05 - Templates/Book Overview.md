@@ -7,6 +7,8 @@ started:
 target_date:
 priority: medium
 source_file:
+created_at: {{date}}
+updated_at: {{date}}
 tags:
   - book
 ---

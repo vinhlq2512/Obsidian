@@ -1,7 +1,7 @@
 ---
 type: concept
 status: seed
-source:
+sources:
   - "[[Hands-On LLM - Chapter 03 - Looking Inside Large Language Models]]"
   - "[[NLP Transformers - Chapter 03 - Transformer Anatomy]]"
 tags:

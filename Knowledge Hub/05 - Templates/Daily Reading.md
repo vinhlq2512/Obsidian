@@ -17,6 +17,8 @@ need_review: true
 review_date:
 next_section:
 related_concepts:
+created_at: {{date}}
+updated_at: {{date}}
 tags:
   - daily-reading
 ---

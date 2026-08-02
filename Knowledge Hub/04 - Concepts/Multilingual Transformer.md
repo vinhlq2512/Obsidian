@@ -1,7 +1,7 @@
 ---
 type: concept
 status: seed
-source:
+sources:
   - "[[NLP Transformers - Chapter 04 - Multilingual Named Entity Recognition]]"
   - "[[28-07-2026]]"
 tags:
@@ -35,6 +35,7 @@ Nếu representation đủ chia sẻ, model có thể nhận ra một số patte
 
 - Dùng khi cần hỗ trợ nhiều ngôn ngữ nhưng không có đủ dữ liệu gán nhãn cho từng ngôn ngữ.
 - Hữu ích cho [[Zero-shot Learning|zero-shot transfer]] và few-shot transfer trong các ngôn ngữ ít tài nguyên.
+- [[Fine-Tuning XLM-RoBERTa]] là workflow cụ thể dùng multilingual Transformer cho NER.
 - Phù hợp với task understanding như [[Named Entity Recognition]], token classification, text classification và semantic retrieval.
 
 ## Cần biết
@@ -43,11 +44,14 @@ Nếu representation đủ chia sẻ, model có thể nhận ra một số patte
 - Không phải ngôn ngữ nào cũng được hưởng lợi như nhau; ngôn ngữ ít xuất hiện trong pretraining hoặc khác domain có thể yếu hơn.
 - Cần đánh giá theo từng ngôn ngữ và từng entity type, thay vì chỉ nhìn một điểm trung bình.
 - Multilingual model thường đánh đổi giữa độ phủ nhiều ngôn ngữ và capacity dành riêng cho một ngôn ngữ.
+- [[Cross-Lingual Transfer]] là một mục tiêu chính của multilingual models: fine-tune hoặc học từ source language rồi dùng cho target language.
 
 ## Liên kết
 
 - [[Transformer]]
 - [[Transfer Learning]]
+- [[Cross-Lingual Transfer]]
 - [[Zero-shot Learning]]
+- [[Fine-Tuning XLM-RoBERTa]]
 - [[Named Entity Recognition]]
 - [[NLP Transformers - Chapter 04 - Multilingual Named Entity Recognition]]

@@ -1,7 +1,7 @@
 ---
 type: concept
 status: seed
-source:
+sources:
   - "[[NLP Transformers - Chapter 02 - Text Classification]]"
   - "[[NLP Transformers - Chapter 03 - Transformer Anatomy]]"
 tags:
@@ -115,6 +115,7 @@ Ví dụ nếu `hidden_dim = 768` và có 6 emotion labels:
 - Dropout trong classification head là regularization: nó giúp giảm overfitting khi fine-tuning.
 - Linear layer cuối cùng biến hidden state thành logits có kích thước bằng số class.
 - Với token classification như NER, classification head thường áp dụng lên hidden state của từng token, không chỉ `[CLS]`.
+- Trong [[Custom Model for Token Classification]], head thường là dropout + linear layer chạy trên toàn bộ `last_hidden_state` để tạo logits cho từng token/subword.
 - Logits chưa phải xác suất; cần softmax cho single-label classification hoặc sigmoid cho multi-label classification.
 - Classification head có thể rất đơn giản, nhưng chất lượng vẫn phụ thuộc mạnh vào representation bên dưới và dữ liệu fine-tuning.
 
@@ -149,6 +150,7 @@ Ví dụ nếu `hidden_dim = 768` và có 6 emotion labels:
 - [[Text Classification]]
 - [[Fine-tuning]]
 - [[Transformer]]
+- [[Custom Model for Token Classification]]
 - [[Bidirectional Attention]]
 - [[NLP Transformers - Chapter 02 - Text Classification]]
 - [[NLP Transformers - Chapter 03 - Transformer Anatomy]]

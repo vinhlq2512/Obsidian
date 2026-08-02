@@ -5,7 +5,8 @@ topic:
 priority: medium
 related_papers:
 related_concepts:
-created: {{date}}
+created_at: {{date}}
+updated_at: {{date}}
 tags:
   - research-question
 ---

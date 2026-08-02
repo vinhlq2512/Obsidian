@@ -26,6 +26,9 @@ This repository is an Obsidian knowledge vault named Knowledge Hub. It is used f
 - Store reusable concepts in `04 - Concepts`.
 - Store reusable templates in `05 - Templates`.
 - Store attachments in `06 - Attachments`.
+- Store reusable learning questions in `07 - Questions`.
+- Store multi-source synthesis notes in `08 - Syntheses`.
+- Store maps of content in `09 - MOCs`.
 - Store developer knowledge in `10 - Technical`.
 - Store academic research notes in `20 - Research`.
 - Store coding and research project notes in `30 - Projects`.
@@ -120,15 +123,92 @@ tags:
 - Create a concept note when an idea is reused across multiple books, papers, projects, or technical notes.
 - Avoid duplicate concept notes; search existing concepts before creating a new one.
 - Concept notes should define the idea, explain it in Vietnamese, list what must be known, and link to sources.
+- Concept notes are source-independent canonical knowledge. A concept may be enriched by books, papers, courses, documentation, articles, projects, or experiments.
+- When new source material discusses an existing concept, reconcile it into the canonical concept note instead of creating a duplicate note.
+- Preserve source attribution with `sources` and `source_sections` when possible.
+- Do not silently overwrite the user's own explanation; distinguish source claims from synthesized understanding.
 
 Recommended concept properties:
 
 ```yaml
 type: concept
 status:
-source:
+sources:
+source_sections:
+first_seen:
+last_updated:
 tags:
   - concept
+```
+
+Recommended concept maturity values:
+
+```text
+seed
+developing
+understood
+verified
+mastered
+```
+
+Only mark a concept `verified` when it is supported by at least two independent sources. Only mark it `mastered` when it can be applied, implemented, or taught confidently.
+
+## Learning Questions
+
+- Store reusable personal learning questions in `07 - Questions`.
+- Use `type: question`.
+- Use research questions under `20 - Research/Research Questions` only for academic or experiment-driven research.
+- Link each question to relevant concepts and sources.
+- Mark questions resolved when a later source provides a satisfactory answer.
+
+Recommended question properties:
+
+```yaml
+type: question
+status:
+concepts:
+sources:
+created_at:
+updated_at:
+tags:
+  - question
+```
+
+## Synthesis Notes And MOCs
+
+- Store multi-source synthesis notes in `08 - Syntheses`.
+- Store maps of content in `09 - MOCs`.
+- Use synthesis notes for larger mechanisms or comparisons that require several concepts.
+- Use MOCs as navigational maps for a domain, not as long explanations.
+- Book overview notes should remain source maps; do not turn them into MOCs.
+
+Recommended synthesis properties:
+
+```yaml
+type: synthesis
+status:
+concepts:
+sources:
+questions:
+created_at:
+updated_at:
+tags:
+  - synthesis
+```
+
+Recommended MOC properties:
+
+```yaml
+type: moc
+status:
+area:
+concepts:
+syntheses:
+questions:
+created_at:
+updated_at:
+tags:
+  - moc
 ```
 
 ## Technical Knowledge
@@ -201,7 +281,7 @@ tags:
 - Recommended Graph filter for core knowledge:
 
 ```text
-path:"01 - Books" OR path:"02 - Sections" OR path:"04 - Concepts" OR path:"20 - Research" OR path:"30 - Projects"
+path:"01 - Books" OR path:"02 - Sections" OR path:"04 - Concepts" OR path:"07 - Questions" OR path:"08 - Syntheses" OR path:"09 - MOCs" OR path:"20 - Research" OR path:"30 - Projects"
 ```
 
 ## Dashboards

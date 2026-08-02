@@ -159,10 +159,37 @@ LIMIT 7
 
 ```dataview
 TABLE
-  source AS "Nguồn",
+  sources AS "Nguồn",
   status AS "Trạng thái"
 FROM "04 - Concepts"
 WHERE type = "concept"
+SORT file.mtime DESC
+LIMIT 10
+```
+
+## Câu hỏi học tập đang mở
+
+```dataview
+TABLE
+  concepts AS "Concept",
+  sources AS "Nguồn",
+  updated_at AS "Cập nhật"
+FROM "07 - Questions"
+WHERE type = "question"
+  AND status != "resolved"
+SORT file.mtime DESC
+LIMIT 10
+```
+
+## Synthesis mới
+
+```dataview
+TABLE
+  concepts AS "Concept",
+  sources AS "Nguồn",
+  status AS "Trạng thái"
+FROM "08 - Syntheses"
+WHERE type = "synthesis"
 SORT file.mtime DESC
 LIMIT 10
 ```

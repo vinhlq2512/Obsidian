@@ -1,7 +1,7 @@
 ---
 type: concept
 status: seed
-source:
+sources:
   - "[[Hands-On LLM - Chapter 01 - An Introduction to Large Language Models]]"
 tags:
   - concept

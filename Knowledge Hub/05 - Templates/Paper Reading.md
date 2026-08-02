@@ -9,6 +9,8 @@ reading_goal:
 completed: false
 need_review: true
 review_date:
+created_at: {{date}}
+updated_at: {{date}}
 tags:
   - paper-reading
 ---

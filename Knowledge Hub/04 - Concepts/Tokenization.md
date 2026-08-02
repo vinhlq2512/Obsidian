@@ -1,7 +1,7 @@
 ---
 type: concept
 status: seed
-source:
+sources:
   - "[[Hands-On LLM - Chapter 02 - Tokens and Embeddings]]"
 tags:
   - concept

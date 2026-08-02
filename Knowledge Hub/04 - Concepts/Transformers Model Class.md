@@ -1,7 +1,7 @@
 ---
 type: concept
 status: seed
-source:
+sources:
   - "[[NLP Transformers - Chapter 04 - Multilingual Named Entity Recognition]]"
   - "[[28-07-2026]]"
 tags:
@@ -84,6 +84,8 @@ Output thường là object có cấu trúc, ví dụ `TokenClassifierOutput`, g
 - Khi fine-tune task mới và cần hiểu head nào đang được thêm vào body.
 - Khi label set thay đổi và cần set `num_labels`, `id2label`, `label2id`.
 - Khi custom model cho NER, ví dụ thêm CRF hoặc head riêng.
+- Khi cần tạo [[Custom Model for Token Classification]] để kiểm soát body, head, loss và output format thay vì dùng sẵn `AutoModelForTokenClassification`.
+- Khi cần [[Loading a Custom Model]] để nạp checkpoint vào class tự viết và phân biệt layer nào dùng pretrained weights, layer nào được khởi tạo mới.
 - Khi debug shape: luôn kiểm tra hidden states, logits và labels có cùng chiều sequence hay không.
 
 ## Cần biết
@@ -98,5 +100,7 @@ Output thường là object có cấu trúc, ví dụ `TokenClassifierOutput`, g
 - [[Hugging Face]]
 - [[Transformer]]
 - [[Classification Head]]
+- [[Custom Model for Token Classification]]
+- [[Loading a Custom Model]]
 - [[Named Entity Recognition]]
 - [[NLP Transformers - Chapter 04 - Multilingual Named Entity Recognition]]

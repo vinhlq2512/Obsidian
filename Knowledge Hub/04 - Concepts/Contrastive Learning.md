@@ -1,7 +1,7 @@
 ---
 type: concept
 status: seed
-source:
+sources:
   - "[[Hands-On LLM - Chapter 10 - Creating Text Embedding Models]]"
 tags:
   - concept

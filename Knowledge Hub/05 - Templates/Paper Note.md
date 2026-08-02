@@ -16,6 +16,8 @@ priority: medium
 reading_status: not-started
 rating:
 related_concepts:
+created_at: {{date}}
+updated_at: {{date}}
 tags:
   - paper
 ---
