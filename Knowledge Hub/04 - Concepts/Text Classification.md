@@ -1,7 +1,7 @@
 ---
 type: concept
 status: seed
-source:
+sources:
   - "[[Hands-On LLM - Chapter 04 - Text Classification]]"
 tags:
   - concept

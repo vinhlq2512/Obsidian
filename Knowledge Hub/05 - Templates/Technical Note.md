@@ -7,6 +7,8 @@ framework:
 difficulty:
 source:
 related_concepts:
+created_at: {{date}}
+updated_at: {{date}}
 tags:
   - technical
 ---

@@ -1,7 +1,7 @@
 ---
 type: concept
 status: seed
-source:
+sources:
   - "[[NLP Transformers - Chapter 04 - Multilingual Named Entity Recognition]]"
   - "[[28-07-2026]]"
 tags:
@@ -41,11 +41,13 @@ Nếu representation của hai ngôn ngữ đủ gần nhau, model có thể chu
 - Zero-shot không có nghĩa là không cần dữ liệu nào cả; model thường đã được pretrain trên dữ liệu lớn.
 - Hiệu quả phụ thuộc vào độ gần giữa source và target, chất lượng tokenizer, domain, nhãn cần dự đoán và dữ liệu pretraining.
 - Trong multilingual NLP, zero-shot transfer là chiến lược mạnh khi target language thiếu dữ liệu gán nhãn.
+- Trong [[Cross-Lingual Transfer]], zero-shot là trường hợp không dùng nhãn target language khi fine-tune.
 - Cần đánh giá bằng metric thực tế, vì representation chung không đảm bảo mọi entity type đều transfer tốt.
 
 ## Liên kết
 
 - [[Transfer Learning]]
+- [[Cross-Lingual Transfer]]
 - [[Named Entity Recognition]]
 - [[Natural Language Processing with Transformers]]
 - [[NLP Transformers - Chapter 04 - Multilingual Named Entity Recognition]]

@@ -1,7 +1,7 @@
 ---
 type: concept
 status: seed
-source:
+sources:
   - "[[NLP Transformers - Chapter 04 - Multilingual Named Entity Recognition]]"
   - "[[28-07-2026]]"
 tags:

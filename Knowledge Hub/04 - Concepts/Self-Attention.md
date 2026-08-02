@@ -1,7 +1,7 @@
 ---
 type: concept
 status: seed
-source:
+sources:
   - "[[NLP Transformers - Chapter 01 - Hello Transformers]]"
   - "[[Transformer]]"
 tags:

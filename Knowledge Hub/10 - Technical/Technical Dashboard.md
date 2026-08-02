@@ -41,10 +41,23 @@ SORT target_date ASC
 
 ```dataview
 TABLE
-  source AS "Nguồn",
+  sources AS "Nguồn",
   status AS "Trạng thái"
 FROM "04 - Concepts"
 WHERE type = "concept"
 SORT file.mtime DESC
 LIMIT 15
+```
+
+## Synthesis kỹ thuật gần đây
+
+```dataview
+TABLE
+  concepts AS "Concept",
+  sources AS "Nguồn",
+  status AS "Trạng thái"
+FROM "08 - Syntheses"
+WHERE type = "synthesis"
+SORT file.mtime DESC
+LIMIT 10
 ```

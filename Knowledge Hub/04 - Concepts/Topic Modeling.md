@@ -1,7 +1,7 @@
 ---
 type: concept
 status: seed
-source:
+sources:
   - "[[Hands-On LLM - Chapter 05 - Text Clustering and Topic Modeling]]"
 tags:
   - concept

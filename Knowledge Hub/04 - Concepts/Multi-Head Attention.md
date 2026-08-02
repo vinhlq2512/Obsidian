@@ -1,7 +1,7 @@
 ---
 type: concept
 status: seed
-source:
+sources:
   - "[[NLP Transformers - Chapter 03 - Transformer Anatomy]]"
   - "[[Self-Attention]]"
 tags:

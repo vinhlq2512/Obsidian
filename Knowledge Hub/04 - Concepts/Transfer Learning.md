@@ -1,7 +1,7 @@
 ---
 type: concept
 status: seed
-source:
+sources:
   - "[[NLP Transformers - Chapter 01 - Hello Transformers]]"
 tags:
   - concept
@@ -25,6 +25,7 @@ Trong NLP hiện đại, mình thường không bắt đầu từ model rỗng. 
 - Fine-tuning điều chỉnh model cho downstream task.
 - Transfer learning đặc biệt hữu ích khi dữ liệu có nhãn ít hoặc chi phí train từ đầu quá cao.
 - [[Zero-shot Learning]] là một trường hợp transfer khi model được dùng cho task, nhãn, domain hoặc ngôn ngữ mới mà không có dữ liệu gán nhãn trực tiếp cho trường hợp đó.
+- [[Cross-Lingual Transfer]] là transfer learning giữa các ngôn ngữ, ví dụ fine-tune NER trên source language rồi đánh giá trên target language.
 - Chất lượng transfer phụ thuộc vào độ phù hợp giữa dữ liệu pretraining, domain mới, task mới và metric đánh giá.
 
 ## Liên kết
@@ -32,4 +33,5 @@ Trong NLP hiện đại, mình thường không bắt đầu từ model rỗng. 
 - [[Transformer]]
 - [[Fine-tuning]]
 - [[Zero-shot Learning]]
+- [[Cross-Lingual Transfer]]
 - [[NLP Transformers - Chapter 01 - Hello Transformers]]

@@ -1,7 +1,7 @@
 ---
 type: concept
 status: seed
-source:
+sources:
   - "[[NLP Transformers - Chapter 04 - Multilingual Named Entity Recognition]]"
   - "[[28-07-2026]]"
 tags:
@@ -95,6 +95,8 @@ Với NER, dữ liệu thường có nhãn theo word hoặc span, còn model nh�
 
 Nếu bước align sai, model có thể học sai ranh giới entity dù kiến trúc Transformer vẫn đúng.
 
+Xem chi tiết hơn ở [[Tokenizing Texts for NER]].
+
 ## Cần biết
 
 - Tokenizer phải khớp với pretrained model; không nên tùy tiện đổi tokenizer khi dùng lại model.
@@ -106,6 +108,7 @@ Nếu bước align sai, model có thể học sai ranh giới entity dù kiến
 
 - [[Tokenization]]
 - [[SentencePiece]]
+- [[Tokenizing Texts for NER]]
 - [[Multilingual Transformer]]
 - [[Named Entity Recognition]]
 - [[NLP Transformers - Chapter 04 - Multilingual Named Entity Recognition]]

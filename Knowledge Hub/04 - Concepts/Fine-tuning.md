@@ -1,7 +1,7 @@
 ---
 type: concept
 status: seed
-source:
+sources:
   - "[[Hands-On LLM - Chapter 11 - Fine-Tuning Representation Models for Classification]]"
   - "[[Hands-On LLM - Chapter 12 - Fine-Tuning Generation Models]]"
 tags:
@@ -25,12 +25,13 @@ Pretraining cho model kiến thức/ngôn ngữ nền. Fine-tuning dạy model d
 - Fine-tuning cần dữ liệu chất lượng và metric rõ.
 - Full fine-tuning cập nhật toàn bộ model, tốn compute hơn.
 - PEFT/LoRA chỉ học phần adapter nhỏ, phù hợp tài nguyên hạn chế.
+- [[Fine-Tuning XLM-RoBERTa]] là ví dụ fine-tuning encoder multilingual cho token classification/NER.
 - Nếu chỉ thiếu kiến thức ngoài, RAG có thể tốt hơn fine-tuning.
 
 ## Liên kết
 
 - [[Parameter-Efficient Fine-Tuning]]
+- [[Fine-Tuning XLM-RoBERTa]]
 - [[Representation Model]]
 - [[Generative Model]]
 - [[DPO]]
-

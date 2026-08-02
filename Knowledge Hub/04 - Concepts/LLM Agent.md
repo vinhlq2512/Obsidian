@@ -1,7 +1,7 @@
 ---
 type: concept
 status: seed
-source:
+sources:
   - "[[Hands-On LLM - Chapter 07 - Advanced Text Generation Techniques and Tools]]"
 tags:
   - concept

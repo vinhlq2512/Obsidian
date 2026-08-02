@@ -6,6 +6,8 @@ started: {{date}}
 target_date:
 related_papers:
 related_concepts:
+created_at: {{date}}
+updated_at: {{date}}
 tags:
   - project
 ---

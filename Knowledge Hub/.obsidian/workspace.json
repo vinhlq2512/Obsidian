@@ -4,96 +4,69 @@
     "type": "split",
     "children": [
       {
-        "id": "707ff58e7676815c",
+        "id": "81948c3e28d5db1a",
         "type": "tabs",
         "children": [
           {
-            "id": "0647b1565143761d",
+            "id": "641ef0ec0e750797",
             "type": "leaf",
             "pinned": true,
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03 - Daily Reading/Natural Language Processing with Transformers/28-07-2026.md",
-                "mode": "preview",
+                "file": "03 - Daily Reading/Natural Language Processing with Transformers/01-08-2026.md",
+                "mode": "source",
                 "source": false
               },
               "pinned": true,
               "icon": "lucide-file",
-              "title": "28-07-2026"
+              "title": "01-08-2026"
             }
           },
           {
-            "id": "ddda2bd170190dd0",
+            "id": "172825a36ad5ef9f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "04 - Concepts/Decoder.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Decoder"
-            }
-          },
-          {
-            "id": "582fe7b5747a3c25",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "04 - Concepts/Attention Mask.md",
+                "file": "04 - Concepts/Question Answering.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Attention Mask"
+              "title": "Question Answering"
             }
           },
           {
-            "id": "deb94ca8caec5e2c",
+            "id": "6c79cabc2fe3dd7b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "04 - Concepts/Transfer Learning.md",
+                "file": "04 - Concepts/Building a Review-Based QA System.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Transfer Learning"
+              "title": "Building a Review-Based QA System"
             }
           },
           {
-            "id": "59d8acd9255b84ec",
+            "id": "318bbcfd94755e55",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03 - Daily Reading/Natural Language Processing with Transformers/28-07-2026.md",
+                "file": "02 - Sections/CS224N/2013 - Distributed Representations of Words and Phrases and their Compositionality - NeurIPS.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "28-07-2026"
-            }
-          },
-          {
-            "id": "ad60184fdac29a93",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "04 - Concepts/Tokenizer Pipeline.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Tokenizer Pipeline"
+              "title": "2013 - Distributed Representations of Words and Phrases and their Compositionality - NeurIPS"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -255,44 +228,44 @@
       "bases:Create new base": false
     }
   },
-  "active": "0647b1565143761d",
+  "active": "318bbcfd94755e55",
   "lastOpenFiles": [
-    "04 - Concepts/Tokenizer Pipeline.md",
-    "03 - Daily Reading/Natural Language Processing with Transformers/28-07-2026.md",
-    "04 - Concepts/Transformers Model Class.md",
-    "03 - Daily Reading/Natural Language Processing with Transformers/29-07-2026.md",
-    "04 - Concepts/Transfer Learning.md",
-    "04 - Concepts/SentencePiece.md",
-    "04 - Concepts/Multilingual Transformer.md",
-    "04 - Concepts/Attention Mask.md",
-    "04 - Concepts/Zero-shot Learning.md",
-    "03 - Daily Reading/Natural Language Processing with Transformers/27-07-2026.md",
-    "03 - Daily Reading/Natural Language Processing with Transformers/01-08-2026.md",
-    "02 - Sections/Hands-On Large Language Models/Hands-On LLM - Chapter 03 - Looking Inside Large Language Models.md",
-    "04 - Concepts/Classification Head.md",
-    "04 - Concepts/Encoder-Decoder Architecture.md",
-    "04 - Concepts/Cross-Attention.md",
-    "04 - Concepts/Positional Embeddings.md",
-    "04 - Concepts/Layer Normalization.md",
-    "04 - Concepts/Decoder.md",
-    "04 - Concepts/Bidirectional Attention.md",
-    "03 - Daily Reading/Natural Language Processing with Transformers/26-07-2026.md",
-    "Untitled.md",
-    "README.md",
-    "AGENTS.md",
-    "04 - Concepts/Multi-Head Attention.md",
-    "02 - Sections/Natural Language Processing with Transformers/NLP Transformers - Chapter 03 - Transformer Anatomy.md",
-    "02 - Sections/Natural Language Processing with Transformers/NLP Transformers - Chapter 04 - Multilingual Named Entity Recognition.md",
-    "00 - Sources/PDFs/Books/Natural Language Processing with Transformers.pdf",
-    "00 - Sources/PDFs/Books/Hands-On Large Language Models.pdf",
-    "00 - Sources/PDFs/Papers",
-    "00 - Sources/PDFs/Docs",
-    "00 - Sources/PDFs/Books",
-    "00 - Sources/Web Clips",
-    "00 - Sources/Datasets",
-    "00 - Sources/PDFs",
-    "00 - Sources/Images",
-    "00 - Sources",
+    "08 - Syntheses/CS224N Learning Path.md",
+    "04 - Concepts/AI Hallucination.md",
+    "04 - Concepts/Adapter.md",
+    "04 - Concepts/Instruction Fine-Tuning.md",
+    "04 - Concepts/Speculative Decoding.md",
+    "04 - Concepts/BPE.md",
+    "04 - Concepts/Word2Vec.md",
+    "00 - Sources/CS224n/2011 - Natural Language Processing Almost from Scratch - JMLR.pdf",
+    "00 - Sources/CS224n/1803.03635v5.pdf",
+    "09 - MOCs/CS224N.md",
+    "02 - Sections/CS224N/SLP 2026 - Chapter 10 - Masked Language Models.md",
+    "02 - Sections/CS224N/SLP 2026 - Chapter 09 - Post-training - Instruction Tuning Alignment and Test-Time.md",
+    "02 - Sections/CS224N/SLP 2026 - Chapter 02 - Words and Tokens.md",
+    "02 - Sections/CS224N/CS224N 2026 - Lecture 19 - The Art of Artificial Reasoning for Small Language Models.md",
+    "02 - Sections/CS224N/CS224N 2026 - Lecture 16 - AIs Impact on Humanity.md",
+    "02 - Sections/CS224N/CS224N 2026 - Lecture 14 - Tokenization and Multilinguality.md",
+    "02 - Sections/CS224N/CS224N 2026 - Lecture 13 - Reasoning Part 2.md",
+    "02 - Sections/CS224N/CS224N 2026 - Lecture 12 - Reasoning Part 1.md",
+    "02 - Sections/CS224N/CS224N 2026 - Lecture 11 - Evaluation.md",
+    "02 - Sections/CS224N/CS224N 2026 - Lecture 10 - RAG and Language Agents.md",
+    "02 - Sections/CS224N/CS224N 2026 - Lecture 09 - Efficient Adaptation.md",
+    "02 - Sections/CS224N/CS224N 2026 - Lecture 08 - Post-training.md",
+    "02 - Sections/CS224N/CS224N 2026 - Lecture 07 - Pretraining.md",
+    "02 - Sections/CS224N/CS224N 2026 - Lecture 06 - Final Projects and Practical Tips.md",
+    "02 - Sections/CS224N/CS224N 2026 - Lecture 05 - Attention and Transformers.md",
+    "02 - Sections/CS224N/CS224N 2026 - Lecture 04 - Language Models and Recurrent Neural Networks.md",
+    "02 - Sections/CS224N/CS224N 2026 - Lecture 03 - Neural Network Foundations.md",
+    "02 - Sections/CS224N/CS224N 2026 - Lecture 02 - Word Vectors.md",
+    "02 - Sections/CS224N",
+    "00 - Sources/CS224n/2025 - Reconstruction Alignment Improves Unified Multimodal Models - arXiv 2509.07295v3.pdf",
+    "00 - Sources/CS224n/2025 - OneFlow - Concurrent Mixed-Modal and Interleaved Generation with Edit Flows - arXiv 2510.03506v3.pdf",
+    "00 - Sources/CS224n/2024 - LMFusion - Adapting Pretrained Language Models for Multimodal Generation - arXiv 2412.15188v4.pdf",
+    "00 - Sources/CS224n/2024 - Chameleon - Mixed-Modal Early-Fusion Foundation Models - arXiv 2405.09818v2.pdf",
+    "00 - Sources/CS224n/2023 - Self-Consistency Improves Chain of Thought Reasoning in Language Models - ICLR 2023.pdf",
+    "00 - Sources/CS224n/2025 - Mixture-of-Transformers - A Sparse and Scalable Architecture for Multi-Modal Foundation Models - TMLR 2025.pdf",
+    "00 - Sources/CS224n/2024 - The Llama 3 Herd of Models - arXiv 2407.21783v3.pdf",
     "Untitled.canvas"
   ]
 }

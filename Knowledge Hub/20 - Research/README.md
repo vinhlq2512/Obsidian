@@ -16,6 +16,9 @@ tags:
 - `Literature Notes`: tổng hợp nhiều paper theo một chủ đề.
 - `Research Questions`: câu hỏi nghiên cứu đang mở.
 - `Experiments`: thử nghiệm để kiểm chứng giả thuyết.
+- `08 - Syntheses`: tổng hợp kiến thức nhiều source, dùng được cho cả sách, paper, docs, course và project.
+- `09 - MOCs`: bản đồ nội dung cho từng lĩnh vực lớn.
+- `07 - Questions`: câu hỏi học tập cá nhân; chỉ chuyển sang `Research Questions` khi câu hỏi cần paper/experiment để kiểm chứng.
 - [[Zotero Integration Workflow]]: quy trình nối Zotero, PDF sync và Obsidian research notes.
 
 ## Dashboard
@@ -28,4 +31,7 @@ tags:
 - [[Paper Reading]]
 - [[Literature Note]]
 - [[Research Question]]
+- [[Question Note]]
+- [[Synthesis Note]]
+- [[MOC]]
 - [[Experiment]]
