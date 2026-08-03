@@ -1,7 +1,7 @@
 ---
 type: course-source
 course: "[[CS224N]]"
-status: not-started
+status: completed
 source_type: course-note
 title: "CS224N - Notes - Backpropagation Old"
 year: 
@@ -10,7 +10,8 @@ arxiv: ""
 source_file: "[[CS224N - Notes - Backpropagation Old.pdf]]"
 pages: 4
 created_at: 2026-08-02
-updated_at: 2026-08-02
+updated_at: 2026-08-03
+completed_at: 2026-08-03
 related_concepts:
   - "[[Loss Function]]"
 tags:
@@ -23,47 +24,54 @@ tags:
 ## Nguồn
 
 - PDF gốc: [[CS224N - Notes - Backpropagation Old.pdf]]
-- Loại tài liệu: `course-note`
-- Số trang: 4
+- Vai trò trong CS224N: note phụ trợ về backpropagation bản cũ, hữu ích cho assignment và hiểu chain rule trong neural networks.
 
-## Mục tiêu đọc
+## Câu hỏi trung tâm
 
-- Hiểu câu hỏi chính mà tài liệu này trả lời.
-- Trích ra công thức, kiến trúc, giả định và trade-off quan trọng.
-- Liên kết kiến thức mới vào concept note thay vì để rời rạc trong source note.
+Backprop tính gradient trong mạng nhiều tầng bằng cách nào và vì sao hiệu quả hơn tính đạo hàm từng tham số thủ công?
 
-## Ý chính cần rút ra
+## Kiến thức cốt lõi
 
-- 
-- 
-- 
+- Backprop là chain rule trên computation graph.
+- Forward pass lưu intermediate activations.
+- Backward pass truyền error signal từ loss về từng layer.
+- Gradient của tham số được tính từ local derivative và upstream gradient.
+- Hiểu backprop giúp debug assignment trước khi phó mặc cho autodiff.
 
-## Công thức / cơ chế quan trọng
+## Cơ chế / công thức / kiến trúc
 
-- 
+```text
+x -> layer1 -> layer2 -> loss
+forward: lưu activation
+backward: dL/dlayer2 -> dL/dlayer1 -> dL/dW
+update: W = W - lr * gradient
+```
+
+## Khi áp dụng
+
+- Dùng khi derive gradient cho neural net assignment.
+- Luôn kiểm tra dimensions của gradient.
+- So sánh analytic gradient với numerical gradient để debug.
 
 ## Kết quả / bằng chứng đáng giữ
 
-- 
+- Tên note và cụm CS224N backprop chỉ ra vai trò phụ trợ toán/training.
+- Nó được đọc cùng Lecture 03 Neural Network Foundations.
+- Backprop là nền cho mọi kiến trúc sau này trong khoá.
 
 ## Cách hiểu bằng lời của tôi
 
-- 
+Backprop là kế toán lỗi: mỗi node trong graph nhận phần lỗi downstream, nhân với đạo hàm local, rồi chuyển phần trách nhiệm về input/tham số của mình.
 
-## Điều chưa hiểu
+## Câu hỏi review
 
-- 
+1. Forward pass cần lưu gì cho backward?
+2. Upstream gradient là gì?
+3. Vì sao numerical gradient check hữu ích?
 
 ## Liên kết
 
 - [[Loss Function]]
+- [[Feed-Forward Layer]]
+- [[CS224N 2026 - Lecture 03 - Neural Network Foundations]]
 - [[CS224N]]
-- [[NLP]]
-- [[Transformers]]
-
-## Checklist
-
-- [ ] Đọc xong tài liệu
-- [ ] Viết tóm tắt bằng lời của tôi
-- [ ] Cập nhật concept note liên quan
-- [ ] Ghi câu hỏi cần review

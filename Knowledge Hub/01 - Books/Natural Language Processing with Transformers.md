@@ -139,7 +139,12 @@ GROUP BY book
 - [[Evaluating the Reader]]
 - [[Exact Match]]
 - [[F1 Score]]
+- [[Model Benchmarking]]
+- [[Transformer Inference Optimization]]
 - [[Knowledge Distillation]]
+- [[KL Divergence]]
+- [[Pretraining]]
+- [[Hyperparameter Optimization]]
 - [[Quantization]]
 - [[Few-shot Learning]]
 

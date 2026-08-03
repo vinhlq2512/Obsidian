@@ -1,7 +1,7 @@
 ---
 type: course-source
 course: "[[CS224N]]"
-status: developing
+status: completed
 source_type: paper
 title: "2017 - Attention Is All You Need"
 year: 2017
@@ -10,7 +10,8 @@ arxiv: "1706.03762v7"
 source_file: "[[2017 - Attention Is All You Need - arXiv 1706.03762v7.pdf]]"
 pages: 15
 created_at: 2026-08-02
-updated_at: 2026-08-02
+updated_at: 2026-08-03
+completed_at: 2026-08-03
 related_concepts:
   - "[[Self-Attention]]"
   - "[[Multi-Head Attention]]"
@@ -18,7 +19,6 @@ tags:
   - cs224n
   - paper
 ---
-
 # 2017 - Attention Is All You Need - arXiv 1706.03762v7
 
 ## Nguồn

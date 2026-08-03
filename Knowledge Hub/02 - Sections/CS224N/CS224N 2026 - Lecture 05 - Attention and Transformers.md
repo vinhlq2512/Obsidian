@@ -1,7 +1,7 @@
 ---
 type: course-source
 course: "[[CS224N]]"
-status: developing
+status: completed
 source_type: lecture
 title: "CS224N 2026 - Lecture 05 - Attention and Transformers"
 year: 2026
@@ -10,7 +10,8 @@ arxiv: ""
 source_file: "[[CS224N 2026 - Lecture 05 - Attention and Transformers.pdf]]"
 pages: 70
 created_at: 2026-08-02
-updated_at: 2026-08-02
+updated_at: 2026-08-03
+completed_at: 2026-08-03
 related_concepts:
   - "[[Transformer]]"
   - "[[Self-Attention]]"
@@ -19,7 +20,6 @@ tags:
   - cs224n
   - lecture
 ---
-
 # CS224N 2026 - Lecture 05 - Attention and Transformers
 
 ## Nguồn

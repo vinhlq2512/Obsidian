@@ -1,7 +1,7 @@
 ---
 type: course-source
 course: "[[CS224N]]"
-status: developing
+status: completed
 source_type: paper
 title: "2020 - Language Models are Few-Shot Learners"
 year: 2020
@@ -10,7 +10,8 @@ arxiv: "2005.14165v4"
 source_file: "[[2020 - Language Models are Few-Shot Learners - arXiv 2005.14165v4.pdf]]"
 pages: 75
 created_at: 2026-08-02
-updated_at: 2026-08-02
+updated_at: 2026-08-03
+completed_at: 2026-08-03
 related_concepts:
   - "[[Large Language Model]]"
   - "[[Autoregressive Language Model]]"
@@ -18,7 +19,6 @@ tags:
   - cs224n
   - paper
 ---
-
 # 2020 - Language Models are Few-Shot Learners - arXiv 2005.14165v4
 
 ## Nguồn

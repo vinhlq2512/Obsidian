@@ -1,7 +1,7 @@
 ---
 type: course-source
 course: "[[CS224N]]"
-status: not-started
+status: completed
 source_type: paper
 title: "2018 - On the Dimensionality of Word Embedding"
 year: 2018
@@ -10,7 +10,8 @@ arxiv: ""
 source_file: "[[2018 - On the Dimensionality of Word Embedding - NeurIPS.pdf]]"
 pages: 12
 created_at: 2026-08-02
-updated_at: 2026-08-02
+updated_at: 2026-08-03
+completed_at: 2026-08-03
 related_concepts:
   - "[[Embedding]]"
   - "[[Tokenization]]"
@@ -24,50 +25,56 @@ tags:
 ## Nguồn
 
 - PDF gốc: [[2018 - On the Dimensionality of Word Embedding - NeurIPS.pdf]]
-- Loại tài liệu: `paper`
-- Năm: 2018
-- Venue/nguồn: NeurIPS
-- Số trang: 12
+- Vai trò trong CS224N: paper phân tích số chiều embedding và trade-off giữa capacity, data và noise.
 
-## Mục tiêu đọc
+## Câu hỏi trung tâm
 
-- Hiểu câu hỏi chính mà tài liệu này trả lời.
-- Trích ra công thức, kiến trúc, giả định và trade-off quan trọng.
-- Liên kết kiến thức mới vào concept note thay vì để rời rạc trong source note.
+Word embedding nên có bao nhiêu chiều, và vì sao tăng dimension không luôn tốt?
 
-## Ý chính cần rút ra
+## Kiến thức cốt lõi
 
-- 
-- 
-- 
+- Embedding dimension quyết định capacity của representation.
+- Dimension quá thấp có thể underfit quan hệ nghĩa/cú pháp.
+- Dimension quá cao có thể học noise, tốn compute và cần nhiều dữ liệu hơn.
+- Số chiều tối ưu phụ thuộc corpus, objective và downstream task.
+- Paper giúp tránh chọn 300/768/etc. như mặc định không suy nghĩ.
 
-## Công thức / cơ chế quan trọng
+## Cơ chế / công thức / kiến trúc
 
-- 
+```text
+vocabulary + corpus statistics
+-> chọn embedding dimension d
+-> d thấp: nén mạnh, mất thông tin
+-> d cao: nhiều capacity, nhiều tham số, rủi ro noise
+```
+
+Dimensionality là hyperparameter thống kê, không chỉ chi tiết engineering.
+
+## Khi áp dụng
+
+- Khi train embedding nhỏ, tune dimension cùng corpus size.
+- Khi so sánh embedding, kiểm tra dimension có công bằng không.
+- Liên hệ tới scaling model width trong LLM hiện đại.
 
 ## Kết quả / bằng chứng đáng giữ
 
-- 
+- Tên paper và nguồn NeurIPS tập trung trực tiếp vào dimensionality của word embedding.
+- Trong cụm CS224N, paper này bổ sung cho Word2Vec/GloVe bằng câu hỏi capacity.
+- Nó giúp đặt embedding evaluation trong bối cảnh hyperparameter.
 
 ## Cách hiểu bằng lời của tôi
 
-- 
+Embedding dimension giống kích thước chiếc hộp chứa thông tin. Hộp quá nhỏ làm mất chi tiết; hộp quá lớn có thể chứa cả nhiễu.
 
-## Điều chưa hiểu
+## Câu hỏi review
 
-- 
+1. Dimension thấp và cao tạo trade-off gì?
+2. Vì sao không có một số chiều tối ưu cho mọi task?
+3. Dimension liên quan gì đến corpus size?
 
 ## Liên kết
 
 - [[Embedding]]
-- [[Tokenization]]
+- [[Word2Vec]]
+- [[GloVe]]
 - [[CS224N]]
-- [[NLP]]
-- [[Transformers]]
-
-## Checklist
-
-- [ ] Đọc xong tài liệu
-- [ ] Viết tóm tắt bằng lời của tôi
-- [ ] Cập nhật concept note liên quan
-- [ ] Ghi câu hỏi cần review

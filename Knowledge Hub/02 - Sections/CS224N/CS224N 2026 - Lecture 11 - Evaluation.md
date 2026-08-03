@@ -1,7 +1,7 @@
 ---
 type: course-source
 course: "[[CS224N]]"
-status: developing
+status: completed
 source_type: lecture
 title: "CS224N 2026 - Lecture 11 - Evaluation"
 year: 2026
@@ -10,14 +10,14 @@ arxiv: ""
 source_file: "[[CS224N 2026 - Lecture 11 - Evaluation.pdf]]"
 pages: 77
 created_at: 2026-08-02
-updated_at: 2026-08-02
+updated_at: 2026-08-03
+completed_at: 2026-08-03
 related_concepts:
   - "[[Measuring the Quality of Generated Text]]"
 tags:
   - cs224n
   - lecture
 ---
-
 # CS224N 2026 - Lecture 11 - Evaluation
 
 ## Nguồn

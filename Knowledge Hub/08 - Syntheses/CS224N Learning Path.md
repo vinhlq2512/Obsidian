@@ -1,10 +1,10 @@
 ---
 type: synthesis
-status: developing
+status: completed
 sources:
   - "[[CS224N]]"
 created_at: 2026-08-02
-updated_at: 2026-08-02
+updated_at: 2026-08-03
 tags:
   - synthesis
   - cs224n
@@ -36,6 +36,8 @@ Concept cần nắm:
 
 - [[Embedding]]
 - [[Word2Vec]]
+- [[GloVe]]
+- [[Neural NLP]]
 - [[Loss Function]]
 
 ## Trục 2: Sequence modeling đến Transformer
@@ -56,11 +58,14 @@ Paper nền:
 Concept cần nắm:
 
 - [[Autoregressive Language Model]]
+- [[GRU]]
+- [[LSTM]]
 - [[Self-Attention]]
 - [[Multi-Head Attention]]
 - [[Cross-Attention]]
 - [[Transformer]]
 - [[Layer Normalization]]
+- [[Rotary Positional Embeddings]]
 
 ## Trục 3: Pretraining, tokenization và multilinguality
 
@@ -84,6 +89,7 @@ Concept cần nắm:
 - [[BPE]]
 - [[SentencePiece]]
 - [[Bidirectional Attention]]
+- [[Masked Language Modeling]]
 - [[Transfer Learning]]
 - [[Multilingual Transformer]]
 
@@ -107,8 +113,11 @@ Concept cần nắm:
 - [[Instruction Fine-Tuning]]
 - [[RLHF]]
 - [[DPO]]
+- [[Reward Model]]
 - [[Parameter-Efficient Fine-Tuning]]
 - [[Adapter]]
+- [[LoRA]]
+- [[QLoRA]]
 
 ## Trục 5: RAG, agents, reasoning và inference
 
@@ -133,7 +142,11 @@ Concept cần nắm:
 - [[Retrieval-Augmented Generation]]
 - [[Retriever]]
 - [[LLM Agent]]
+- [[Tool Use]]
 - [[Prompt Engineering]]
+- [[Chain-of-Thought Prompting]]
+- [[Self-Consistency Decoding]]
+- [[Test-Time Compute]]
 - [[Speculative Decoding]]
 - [[Text Generation]]
 

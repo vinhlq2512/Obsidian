@@ -1,7 +1,7 @@
 ---
 type: course-source
 course: "[[CS224N]]"
-status: not-started
+status: completed
 source_type: paper
 title: "2023 - Holistic Evaluation of Language Models"
 year: 2023
@@ -10,7 +10,8 @@ arxiv: ""
 source_file: "[[2023 - Holistic Evaluation of Language Models - TMLR 2023.pdf]]"
 pages: 162
 created_at: 2026-08-02
-updated_at: 2026-08-02
+updated_at: 2026-08-03
+completed_at: 2026-08-03
 related_concepts:
   - "[[Large Language Model]]"
   - "[[Autoregressive Language Model]]"
@@ -25,51 +26,54 @@ tags:
 ## Nguồn
 
 - PDF gốc: [[2023 - Holistic Evaluation of Language Models - TMLR 2023.pdf]]
-- Loại tài liệu: `paper`
-- Năm: 2023
-- Venue/nguồn: TMLR 2023
-- Số trang: 162
+- Vai trò trong CS224N: paper nền cho HELM và đánh giá LLM đa chiều.
 
-## Mục tiêu đọc
+## Câu hỏi trung tâm
 
-- Hiểu câu hỏi chính mà tài liệu này trả lời.
-- Trích ra công thức, kiến trúc, giả định và trade-off quan trọng.
-- Liên kết kiến thức mới vào concept note thay vì để rời rạc trong source note.
+Làm thế nào đánh giá language models một cách holistic thay vì chỉ bằng accuracy trên vài benchmark?
 
-## Ý chính cần rút ra
+## Kiến thức cốt lõi
 
-- 
-- 
-- 
+- HELM nhấn mạnh coverage rộng về scenarios, metrics và models.
+- Evaluation cần đo accuracy, calibration, robustness, fairness, bias, toxicity, efficiency và nhiều khía cạnh khác.
+- Một model có thể tốt ở metric này nhưng kém ở metric khác.
+- Holistic evaluation giúp tránh leaderboard đơn chiều.
+- Paper là nguồn chính cho Lecture 11 về benchmark pitfalls.
 
-## Công thức / cơ chế quan trọng
+## Cơ chế / công thức / kiến trúc
 
-- 
+```text
+scenarios x models x metrics
+-> chạy evaluation chuẩn hoá
+-> phân tích trade-off đa chiều
+-> không gom mọi thứ thành một điểm duy nhất nếu mất thông tin
+```
+
+## Khi áp dụng
+
+- Dùng khi chọn model cho production hoặc research.
+- Đừng chỉ nhìn accuracy; kiểm tra robustness/safety/cost.
+- Cần rõ scenario nào quan trọng với use case.
 
 ## Kết quả / bằng chứng đáng giữ
 
-- 
+- Title nêu holistic evaluation of language models.
+- Lecture 11 đặt câu hỏi what/how to evaluate và pitfalls của benchmark.
+- HELM trở thành ví dụ tiêu biểu cho evaluation đa chiều.
 
 ## Cách hiểu bằng lời của tôi
 
-- 
+Đánh giá LLM giống kiểm tra một hệ thống phức tạp: điểm trung bình đẹp không nói hết model thất bại ở đâu.
 
-## Điều chưa hiểu
+## Câu hỏi review
 
-- 
+1. Holistic evaluation khác leaderboard đơn metric ra sao?
+2. Vì sao cần nhiều scenario?
+3. Một model tốt accuracy nhưng kém calibration gây rủi ro gì?
 
 ## Liên kết
 
-- [[Large Language Model]]
-- [[Autoregressive Language Model]]
 - [[Measuring the Quality of Generated Text]]
+- [[Large Language Model]]
+- [[AI Hallucination]]
 - [[CS224N]]
-- [[NLP]]
-- [[Transformers]]
-
-## Checklist
-
-- [ ] Đọc xong tài liệu
-- [ ] Viết tóm tắt bằng lời của tôi
-- [ ] Cập nhật concept note liên quan
-- [ ] Ghi câu hỏi cần review

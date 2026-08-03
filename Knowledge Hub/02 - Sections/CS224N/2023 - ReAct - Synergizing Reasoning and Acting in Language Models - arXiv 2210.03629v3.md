@@ -1,7 +1,7 @@
 ---
 type: course-source
 course: "[[CS224N]]"
-status: developing
+status: completed
 source_type: paper
 title: "2023 - ReAct - Synergizing Reasoning and Acting in Language Models"
 year: 2023
@@ -10,7 +10,8 @@ arxiv: "2210.03629v3"
 source_file: "[[2023 - ReAct - Synergizing Reasoning and Acting in Language Models - arXiv 2210.03629v3.pdf]]"
 pages: 33
 created_at: 2026-08-02
-updated_at: 2026-08-02
+updated_at: 2026-08-03
+completed_at: 2026-08-03
 related_concepts:
   - "[[Large Language Model]]"
   - "[[Autoregressive Language Model]]"
@@ -20,7 +21,6 @@ tags:
   - cs224n
   - paper
 ---
-
 # 2023 - ReAct - Synergizing Reasoning and Acting in Language Models - arXiv 2210.03629v3
 
 ## Nguồn

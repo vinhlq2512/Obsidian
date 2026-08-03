@@ -1,7 +1,7 @@
 ---
 type: course-source
 course: "[[CS224N]]"
-status: not-started
+status: completed
 source_type: paper
 title: "2025 - Reconstruction Alignment Improves Unified Multimodal Models"
 year: 2025
@@ -10,7 +10,8 @@ arxiv: "2509.07295v3"
 source_file: "[[2025 - Reconstruction Alignment Improves Unified Multimodal Models - arXiv 2509.07295v3.pdf]]"
 pages: 34
 created_at: 2026-08-02
-updated_at: 2026-08-02
+updated_at: 2026-08-03
+completed_at: 2026-08-03
 related_concepts:
   - "[[RLHF]]"
   - "[[DPO]]"
@@ -25,52 +26,55 @@ tags:
 ## Nguồn
 
 - PDF gốc: [[2025 - Reconstruction Alignment Improves Unified Multimodal Models - arXiv 2509.07295v3.pdf]]
-- Loại tài liệu: `paper`
-- Năm: 2025
-- Venue/nguồn: arXiv
-- arXiv: `2509.07295v3`
-- Số trang: 34
+- Vai trò trong CS224N: paper về reconstruction alignment cho unified multimodal models.
 
-## Mục tiêu đọc
+## Câu hỏi trung tâm
 
-- Hiểu câu hỏi chính mà tài liệu này trả lời.
-- Trích ra công thức, kiến trúc, giả định và trade-off quan trọng.
-- Liên kết kiến thức mới vào concept note thay vì để rời rạc trong source note.
+Có thể cải thiện generation/editing fidelity của unified multimodal models bằng self-supervised reconstruction alignment không?
 
-## Ý chính cần rút ra
+## Kiến thức cốt lõi
 
-- 
-- 
-- 
+- Unified multimodal models thường dùng caption/image-text pairs nhưng captions thiếu chi tiết visual.
+- RECA dùng visual understanding embeddings như dense prompts để reconstruct input image.
+- Phương pháp align understanding và generation bằng reconstruction loss.
+- Áp dụng cho autoregressive, masked-autoregressive và diffusion-based UMMs.
+- Mục tiêu là cải thiện image generation và editing fidelity với chi phí thấp.
 
-## Công thức / cơ chế quan trọng
+## Cơ chế / công thức / kiến trúc
 
-- 
+```text
+input image
+-> visual understanding encoder embeddings
+-> condition UMM generation branch
+-> reconstruct image
+-> loss kéo understanding và generation aligned hơn
+```
+
+## Khi áp dụng
+
+- Dùng khi model hiểu ảnh nhưng sinh/chỉnh ảnh không giữ chi tiết.
+- Hữu ích vì không phụ thuộc caption chi tiết thủ công.
+- Cần kiểm tra fidelity, editing benchmark và generalization across architectures.
 
 ## Kết quả / bằng chứng đáng giữ
 
-- 
+- First page nói Reconstruction Alignment cải thiện unified multimodal models.
+- Source nêu captions sparse và miss fine-grained visual details.
+- Abstract báo cáo RECA cải thiện GenEval/DPGBench và editing benchmarks.
 
 ## Cách hiểu bằng lời của tôi
 
-- 
+RECA dùng chính biểu diễn hiểu ảnh của model như lời nhắc dày đặc để bắt nhánh sinh ảnh học giữ chi tiết. Nó align “nhìn” và “vẽ lại”.
 
-## Điều chưa hiểu
+## Câu hỏi review
 
-- 
+1. Vì sao caption không đủ cho alignment visual chi tiết?
+2. RECA dùng embedding nào làm dense prompt?
+3. Reconstruction alignment cải thiện generation và editing như thế nào?
 
 ## Liên kết
 
-- [[RLHF]]
-- [[DPO]]
 - [[Multimodal LLM]]
+- [[Generative Model]]
+- [[Representation Model]]
 - [[CS224N]]
-- [[NLP]]
-- [[Transformers]]
-
-## Checklist
-
-- [ ] Đọc xong tài liệu
-- [ ] Viết tóm tắt bằng lời của tôi
-- [ ] Cập nhật concept note liên quan
-- [ ] Ghi câu hỏi cần review

@@ -1,7 +1,7 @@
 ---
 type: course-source
 course: "[[CS224N]]"
-status: developing
+status: completed
 source_type: paper
 title: "2014 - GloVe - Global Vectors for Word Representation"
 year: 2014
@@ -10,7 +10,8 @@ arxiv: ""
 source_file: "[[2014 - GloVe - Global Vectors for Word Representation.pdf]]"
 pages: 12
 created_at: 2026-08-02
-updated_at: 2026-08-02
+updated_at: 2026-08-03
+completed_at: 2026-08-03
 related_concepts:
   - "[[Embedding]]"
   - "[[Tokenization]]"
@@ -18,7 +19,6 @@ tags:
   - cs224n
   - paper
 ---
-
 # 2014 - GloVe - Global Vectors for Word Representation
 
 ## Nguồn

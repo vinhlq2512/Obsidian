@@ -1,7 +1,7 @@
 ---
 type: course-source
 course: "[[CS224N]]"
-status: developing
+status: completed
 source_type: paper
 title: "2018 - BERT - Pre-training of Deep Bidirectional Transformers for Language Understanding"
 year: 2018
@@ -10,7 +10,8 @@ arxiv: "1810.04805v2"
 source_file: "[[2018 - BERT - Pre-training of Deep Bidirectional Transformers for Language Understanding - arXiv 1810.04805v2.pdf]]"
 pages: 16
 created_at: 2026-08-02
-updated_at: 2026-08-02
+updated_at: 2026-08-03
+completed_at: 2026-08-03
 related_concepts:
   - "[[Transformer]]"
   - "[[Self-Attention]]"
@@ -20,7 +21,6 @@ tags:
   - cs224n
   - paper
 ---
-
 # 2018 - BERT - Pre-training of Deep Bidirectional Transformers for Language Understanding - arXiv 1810.04805v2
 
 ## Nguồn
