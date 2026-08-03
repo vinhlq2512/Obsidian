@@ -1,7 +1,7 @@
 ---
 type: course-source
 course: "[[CS224N]]"
-status: developing
+status: completed
 source_type: lecture
 title: "CS224N 2026 - Lecture 08 - Post-training"
 year: 2026
@@ -10,7 +10,8 @@ arxiv: ""
 source_file: "[[CS224N 2026 - Lecture 08 - Post-training.pdf]]"
 pages: 64
 created_at: 2026-08-02
-updated_at: 2026-08-02
+updated_at: 2026-08-03
+completed_at: 2026-08-03
 related_concepts:
   - "[[RLHF]]"
   - "[[DPO]]"
@@ -19,7 +20,6 @@ tags:
   - cs224n
   - lecture
 ---
-
 # CS224N 2026 - Lecture 08 - Post-training
 
 ## Nguồn

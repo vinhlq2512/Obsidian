@@ -1,7 +1,7 @@
 ---
 type: course-source
 course: "[[CS224N]]"
-status: developing
+status: completed
 source_type: paper
 title: "2022 - Fast Inference from Transformers via Speculative Decoding"
 year: 2022
@@ -10,7 +10,8 @@ arxiv: "2211.17192v2"
 source_file: "[[2022 - Fast Inference from Transformers via Speculative Decoding - arXiv 2211.17192v2.pdf]]"
 pages: 13
 created_at: 2026-08-02
-updated_at: 2026-08-02
+updated_at: 2026-08-03
+completed_at: 2026-08-03
 related_concepts:
   - "[[Transformer]]"
   - "[[Self-Attention]]"
@@ -21,7 +22,6 @@ tags:
   - cs224n
   - paper
 ---
-
 # 2022 - Fast Inference from Transformers via Speculative Decoding - arXiv 2211.17192v2
 
 ## Nguồn

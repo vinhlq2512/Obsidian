@@ -1,9 +1,9 @@
 {
   "collapse-filter": false,
-  "search": "-path:\"03 - Daily Reading\"  ",
+  "search": "peft",
   "showTags": false,
   "showAttachments": false,
-  "hideUnresolved": true,
+  "hideUnresolved": false,
   "showOrphans": false,
   "collapse-color-groups": true,
   "colorGroups": [],
@@ -17,6 +17,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.8797604501723818,
+  "scale": 1.4953763169056746,
   "close": false
 }

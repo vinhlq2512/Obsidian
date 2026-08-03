@@ -1,7 +1,7 @@
 ---
 type: course-source
 course: "[[CS224N]]"
-status: developing
+status: completed
 source_type: paper
 title: "2025 - DeepSeek-R1 - Incentivizing Reasoning Capability in LLMs via Reinforcement Learning"
 year: 2025
@@ -10,7 +10,8 @@ arxiv: "2501.12948v2"
 source_file: "[[2025 - DeepSeek-R1 - Incentivizing Reasoning Capability in LLMs via Reinforcement Learning - arXiv 2501.12948v2.pdf]]"
 pages: 86
 created_at: 2026-08-02
-updated_at: 2026-08-02
+updated_at: 2026-08-03
+completed_at: 2026-08-03
 related_concepts:
   - "[[Prompt Engineering]]"
   - "[[Large Language Model]]"
@@ -19,7 +20,6 @@ tags:
   - cs224n
   - paper
 ---
-
 # 2025 - DeepSeek-R1 - Incentivizing Reasoning Capability in LLMs via Reinforcement Learning - arXiv 2501.12948v2
 
 ## Nguồn

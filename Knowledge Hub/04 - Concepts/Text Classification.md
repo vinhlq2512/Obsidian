@@ -3,6 +3,8 @@ type: concept
 status: seed
 sources:
   - "[[Hands-On LLM - Chapter 04 - Text Classification]]"
+  - "[[NLP Transformers - Chapter 09 - Dealing with Few to No Labels]]"
+last_updated: 2026-08-03
 tags:
   - concept
   - classification
@@ -24,11 +26,14 @@ Text classification là tác vụ gán một hoặc nhiều nhãn cho văn bản
 - Nếu có dữ liệu nhãn tốt, supervised model thường ổn định.
 - Nếu thiếu nhãn, có thể thử zero-shot hoặc few-shot prompting.
 - Cần baseline đơn giản để biết LLM có thật sự cần thiết không.
+- [[Intent Detection]] là một case study của text classification trong đó nhãn là ý định của người dùng.
 
 ## Liên kết
 
+- [[Intent Detection]]
+- [[Few-shot Learning]]
+- [[Zero-shot Classification]]
 - [[Representation Model]]
 - [[Generative Model]]
 - [[Embedding]]
 - [[Fine-tuning]]
-

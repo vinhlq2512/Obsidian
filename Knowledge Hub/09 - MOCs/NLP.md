@@ -35,11 +35,20 @@ tags:
 ## Tasks
 
 - [[Text Classification]]
+- [[Intent Detection]]
 - [[Named Entity Recognition]]
 - [[Summarization]]
 - [[Text Generation]]
 - [[Topic Modeling]]
 - [[Semantic Search]]
+
+## Few/No Label Learning
+
+- [[Few-shot Learning]]
+- [[Zero-shot Classification]]
+- [[Intent Detection]]
+- [[Data Augmentation]]
+- [[Semi-supervised Learning]]
 
 ## Summarization And Evaluation
 
@@ -73,6 +82,7 @@ tags:
 - [[NLP Transformers - Chapter 03 - Transformer Anatomy]]
 - [[NLP Transformers - Chapter 04 - Multilingual Named Entity Recognition]]
 - [[NLP Transformers - Chapter 06 - Summarization]]
+- [[NLP Transformers - Chapter 09 - Dealing with Few to No Labels]]
 
 ## Questions
 

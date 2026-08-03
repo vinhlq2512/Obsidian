@@ -31,6 +31,28 @@ tags:
 - Khi ít nhãn, baseline đơn giản giúp biết Transformer có thật sự cần thiết không.
 - Embeddings có thể dùng như lookup table để tìm ví dụ gần nhau.
 - Unlabeled data vẫn có giá trị thông qua language model fine-tuning hoặc semi-supervised methods.
+- [[Intent Detection]] là case study tự nhiên cho chương này: mỗi intent thường có ít ví dụ, cách diễn đạt của người dùng đa dạng, và cần so sánh baseline trước khi fine-tune.
+
+## Intent Detection as a Case Study
+
+Intent detection biến utterance của người dùng thành nhãn ý định, ví dụ `reset_password`, `track_order`, `cancel_subscription`.
+
+Vì sao phù hợp với bài toán few/no labels:
+
+- Intent taxonomy thường do sản phẩm định nghĩa, nên dữ liệu thật ban đầu ít.
+- Một intent có thể được nói bằng nhiều câu khác nhau.
+- Một số intent chồng lấn về ngôn ngữ, làm zero-shot hoặc embedding lookup dễ nhầm.
+- Cần training slices để biết model yếu ở intent nào, không chỉ nhìn accuracy tổng.
+
+Chiến lược đọc chapter:
+
+```text
+Intent labels
+-> Baseline đơn giản / zero-shot classification
+-> Embedding lookup với vài ví dụ
+-> Data augmentation nếu cần thêm biến thể
+-> Fine-tune khi có đủ nhãn và có benchmark rõ
+```
 
 ## Demo thực hành
 
@@ -58,8 +80,9 @@ for text in texts:
 
 - [[Few-shot Learning]]
 - [[Zero-shot Classification]]
+- [[Intent Detection]]
 - [[Data Augmentation]]
-- [[Embeddings]]
+- [[Embedding]]
 - [[Semi-supervised Learning]]
 
 ## Active Recall
@@ -68,6 +91,7 @@ for text in texts:
 2. Zero-shot classification dựa trên giả định gì?
 3. Data augmentation có thể làm hỏng dữ liệu ra sao?
 4. Unlabeled data giúp được gì cho classifier?
+5. Vì sao intent detection là case study tốt cho few/no-label learning?
 
 ## Checklist
 

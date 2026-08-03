@@ -1,7 +1,7 @@
 ---
 type: course-source
 course: "[[CS224N]]"
-status: developing
+status: completed
 source_type: lecture
 title: "CS224N 2026 - Lecture 03 - Neural Network Foundations"
 year: 2026
@@ -10,7 +10,8 @@ arxiv: ""
 source_file: "[[CS224N 2026 - Lecture 03 - Neural Network Foundations.pdf]]"
 pages: 80
 created_at: 2026-08-02
-updated_at: 2026-08-02
+updated_at: 2026-08-03
+completed_at: 2026-08-03
 related_concepts:
   - "[[Feed-Forward Layer]]"
   - "[[Loss Function]]"
@@ -18,7 +19,6 @@ tags:
   - cs224n
   - lecture
 ---
-
 # CS224N 2026 - Lecture 03 - Neural Network Foundations
 
 ## Nguồn

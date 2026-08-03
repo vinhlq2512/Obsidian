@@ -1,7 +1,7 @@
 ---
 type: course-source
 course: "[[CS224N]]"
-status: not-started
+status: completed
 source_type: paper
 title: "2020 - Contextual Word Representations - A Contextual Introduction"
 year: 2020
@@ -10,7 +10,8 @@ arxiv: "1902.06006v3"
 source_file: "[[2020 - Contextual Word Representations - A Contextual Introduction - arXiv 1902.06006v3.pdf]]"
 pages: 15
 created_at: 2026-08-02
-updated_at: 2026-08-02
+updated_at: 2026-08-03
+completed_at: 2026-08-03
 related_concepts:
   - "[[Embedding]]"
   - "[[Tokenization]]"
@@ -24,51 +25,54 @@ tags:
 ## Nguồn
 
 - PDF gốc: [[2020 - Contextual Word Representations - A Contextual Introduction - arXiv 1902.06006v3.pdf]]
-- Loại tài liệu: `paper`
-- Năm: 2020
-- Venue/nguồn: arXiv
-- arXiv: `1902.06006v3`
-- Số trang: 15
+- Vai trò trong CS224N: bài đọc giải thích chuyển đổi từ static embeddings sang contextual representations.
 
-## Mục tiêu đọc
+## Câu hỏi trung tâm
 
-- Hiểu câu hỏi chính mà tài liệu này trả lời.
-- Trích ra công thức, kiến trúc, giả định và trade-off quan trọng.
-- Liên kết kiến thức mới vào concept note thay vì để rời rạc trong source note.
+Vì sao một từ cần representation thay đổi theo context thay vì một vector cố định?
 
-## Ý chính cần rút ra
+## Kiến thức cốt lõi
 
-- 
-- 
-- 
+- Static embeddings như Word2Vec/GloVe gán mỗi word type một vector.
+- Contextual representations tạo vector cho từng token occurrence trong câu.
+- Một từ đa nghĩa có thể có representation khác nhau tùy context.
+- Transformer/BERT làm contextualization bằng self-attention.
+- Đây là cầu nối khái niệm từ word vectors sang pretrained language models.
 
-## Công thức / cơ chế quan trọng
+## Cơ chế / công thức / kiến trúc
 
-- 
+```text
+word type: bank -> static vector duy nhất
+word occurrence trong câu -> contextual vector phụ thuộc các token xung quanh
+self-attention/RNN -> trộn context -> representation mới
+```
+
+## Khi áp dụng
+
+- Dùng khi giải thích vì sao BERT mạnh hơn static embeddings cho NLU.
+- Hữu ích khi phân biệt embedding layer ban đầu với hidden states contextualized.
+- Cần nhớ contextual representation thường gắn với token, layer và context cụ thể.
 
 ## Kết quả / bằng chứng đáng giữ
 
-- 
+- Title nêu contextual word representations.
+- CS224N dùng nó sau embedding để chuẩn bị cho Transformer/BERT.
+- Concept này giải thích hạn chế polysemy của static embeddings.
 
 ## Cách hiểu bằng lời của tôi
 
-- 
+Static embedding trả lời “từ này thường nghĩa là gì”; contextual representation trả lời “lần xuất hiện này của từ này đang nghĩa là gì trong câu này”.
 
-## Điều chưa hiểu
+## Câu hỏi review
 
-- 
+1. Static và contextual embeddings khác nhau ở đơn vị biểu diễn nào?
+2. Self-attention tạo contextualization bằng cách nào?
+3. Vì sao polysemy làm static embedding yếu?
 
 ## Liên kết
 
 - [[Embedding]]
-- [[Tokenization]]
+- [[Self-Attention]]
+- [[Bidirectional Attention]]
+- [[Transformer]]
 - [[CS224N]]
-- [[NLP]]
-- [[Transformers]]
-
-## Checklist
-
-- [ ] Đọc xong tài liệu
-- [ ] Viết tóm tắt bằng lời của tôi
-- [ ] Cập nhật concept note liên quan
-- [ ] Ghi câu hỏi cần review

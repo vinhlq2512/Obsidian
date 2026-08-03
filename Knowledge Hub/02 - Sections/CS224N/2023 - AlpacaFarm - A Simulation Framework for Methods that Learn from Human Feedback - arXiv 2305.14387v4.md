@@ -1,7 +1,7 @@
 ---
 type: course-source
 course: "[[CS224N]]"
-status: not-started
+status: completed
 source_type: paper
 title: "2023 - AlpacaFarm - A Simulation Framework for Methods that Learn from Human Feedback"
 year: 2023
@@ -10,7 +10,8 @@ arxiv: "2305.14387v4"
 source_file: "[[2023 - AlpacaFarm - A Simulation Framework for Methods that Learn from Human Feedback - arXiv 2305.14387v4.pdf]]"
 pages: 31
 created_at: 2026-08-02
-updated_at: 2026-08-02
+updated_at: 2026-08-03
+completed_at: 2026-08-03
 related_concepts:
   - "[[NLP]]"
 tags:
@@ -23,50 +24,57 @@ tags:
 ## Nguồn
 
 - PDF gốc: [[2023 - AlpacaFarm - A Simulation Framework for Methods that Learn from Human Feedback - arXiv 2305.14387v4.pdf]]
-- Loại tài liệu: `paper`
-- Năm: 2023
-- Venue/nguồn: arXiv
-- arXiv: `2305.14387v4`
-- Số trang: 31
+- Vai trò trong CS224N: paper về framework mô phỏng/đánh giá các phương pháp học từ human feedback.
 
-## Mục tiêu đọc
+## Câu hỏi trung tâm
 
-- Hiểu câu hỏi chính mà tài liệu này trả lời.
-- Trích ra công thức, kiến trúc, giả định và trade-off quan trọng.
-- Liên kết kiến thức mới vào concept note thay vì để rời rạc trong source note.
+Làm thế nào thử nghiệm các phương pháp learn-from-feedback mà giảm chi phí và nhiễu của human evaluation trực tiếp?
 
-## Ý chính cần rút ra
+## Kiến thức cốt lõi
 
-- 
-- 
-- 
+- Human feedback rất đắt, chậm và có variance.
+- Simulation framework giúp so sánh methods trong môi trường kiểm soát hơn.
+- AlpacaFarm liên quan tới SFT, preference learning và evaluation bằng proxy.
+- Cần cảnh giác simulator bias: tối ưu tốt trong simulation chưa chắc tốt với người thật.
+- Paper thuộc trục post-training/evaluation.
 
-## Công thức / cơ chế quan trọng
+## Cơ chế / công thức / kiến trúc
 
-- 
+```text
+models / policies
+-> simulated feedback or evaluator
+-> train alignment method
+-> compare win rate / preference metrics
+```
+
+Framework giúp iterate nhanh nhưng không loại bỏ nhu cầu human validation.
+
+## Khi áp dụng
+
+- Dùng để thử nghiệm RLHF/DPO variants trước khi chạy human study lớn.
+- Luôn ghi rõ feedback là human thật hay simulated/model judge.
+- Kiểm tra simulator có bias theo style/length/model family không.
 
 ## Kết quả / bằng chứng đáng giữ
 
-- 
+- Title nêu simulation framework for methods that learn from human feedback.
+- Lecture post-training nhấn mạnh human preference data và limitations.
+- Framework kiểu này nằm giữa training method và evaluation method.
 
 ## Cách hiểu bằng lời của tôi
 
-- 
+AlpacaFarm nhắc rằng alignment không chỉ là loss function; nó còn là hệ thống tạo feedback và đo preference.
 
-## Điều chưa hiểu
+## Câu hỏi review
 
-- 
+1. Vì sao cần simulation framework cho human feedback?
+2. Simulator bias có thể làm sai kết luận thế nào?
+3. AlpacaFarm liên hệ gì với DPO/RLHF?
 
 ## Liên kết
 
-- [[NLP]]
+- [[RLHF]]
+- [[DPO]]
+- [[Reward Model]]
+- [[Measuring the Quality of Generated Text]]
 - [[CS224N]]
-- [[NLP]]
-- [[Transformers]]
-
-## Checklist
-
-- [ ] Đọc xong tài liệu
-- [ ] Viết tóm tắt bằng lời của tôi
-- [ ] Cập nhật concept note liên quan
-- [ ] Ghi câu hỏi cần review

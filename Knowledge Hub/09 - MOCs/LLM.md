@@ -51,9 +51,19 @@ tags:
 
 - [[Fine-tuning]]
 - [[Parameter-Efficient Fine-Tuning]]
+- [[LoRA]]
+- [[QLoRA]]
 - [[Loss Function]]
 - [[RLHF]]
 - [[DPO]]
+
+## Inference And Deployment
+
+- [[Transformer Inference Optimization]]
+- [[Model Benchmarking]]
+- [[Knowledge Distillation]]
+- [[Quantization]]
+- [[ONNX Runtime]]
 
 ## Sources
 
@@ -68,4 +78,3 @@ tags:
 - [[When to Use Representation Model Instead of Generative Model]]
 - [[When Is RAG Better Than Fine-Tuning]]
 - [[How to Evaluate LLM Systems]]
-

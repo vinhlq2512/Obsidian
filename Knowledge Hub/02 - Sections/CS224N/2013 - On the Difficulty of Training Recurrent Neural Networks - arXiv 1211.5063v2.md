@@ -1,7 +1,7 @@
 ---
 type: course-source
 course: "[[CS224N]]"
-status: developing
+status: completed
 source_type: paper
 title: "2013 - On the Difficulty of Training Recurrent Neural Networks"
 year: 2013
@@ -10,7 +10,8 @@ arxiv: "1211.5063v2"
 source_file: "[[2013 - On the Difficulty of Training Recurrent Neural Networks - arXiv 1211.5063v2.pdf]]"
 pages: 12
 created_at: 2026-08-02
-updated_at: 2026-08-02
+updated_at: 2026-08-03
+completed_at: 2026-08-03
 related_concepts:
   - "[[Feed-Forward Layer]]"
   - "[[Loss Function]]"
@@ -18,7 +19,6 @@ tags:
   - cs224n
   - paper
 ---
-
 # 2013 - On the Difficulty of Training Recurrent Neural Networks - arXiv 1211.5063v2
 
 ## Nguồn

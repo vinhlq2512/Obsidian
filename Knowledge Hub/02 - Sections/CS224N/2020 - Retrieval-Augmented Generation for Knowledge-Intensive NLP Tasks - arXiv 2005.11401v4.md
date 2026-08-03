@@ -1,7 +1,7 @@
 ---
 type: course-source
 course: "[[CS224N]]"
-status: developing
+status: completed
 source_type: paper
 title: "2020 - Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"
 year: 2020
@@ -10,7 +10,8 @@ arxiv: "2005.11401v4"
 source_file: "[[2020 - Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks - arXiv 2005.11401v4.pdf]]"
 pages: 19
 created_at: 2026-08-02
-updated_at: 2026-08-02
+updated_at: 2026-08-03
+completed_at: 2026-08-03
 related_concepts:
   - "[[Retrieval-Augmented Generation]]"
   - "[[Retriever]]"
@@ -18,7 +19,6 @@ tags:
   - cs224n
   - paper
 ---
-
 # 2020 - Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks - arXiv 2005.11401v4
 
 ## Nguồn

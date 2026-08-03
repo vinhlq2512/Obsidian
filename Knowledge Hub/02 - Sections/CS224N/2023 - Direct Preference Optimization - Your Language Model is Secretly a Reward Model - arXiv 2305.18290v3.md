@@ -1,7 +1,7 @@
 ---
 type: course-source
 course: "[[CS224N]]"
-status: developing
+status: completed
 source_type: paper
 title: "2023 - Direct Preference Optimization - Your Language Model is Secretly a Reward Model"
 year: 2023
@@ -10,7 +10,8 @@ arxiv: "2305.18290v3"
 source_file: "[[2023 - Direct Preference Optimization - Your Language Model is Secretly a Reward Model - arXiv 2305.18290v3.pdf]]"
 pages: 27
 created_at: 2026-08-02
-updated_at: 2026-08-02
+updated_at: 2026-08-03
+completed_at: 2026-08-03
 related_concepts:
   - "[[Large Language Model]]"
   - "[[Autoregressive Language Model]]"
@@ -20,7 +21,6 @@ tags:
   - cs224n
   - paper
 ---
-
 # 2023 - Direct Preference Optimization - Your Language Model is Secretly a Reward Model - arXiv 2305.18290v3
 
 ## Nguồn

@@ -4,69 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "81948c3e28d5db1a",
+        "id": "81c3d75b9ef82aae",
         "type": "tabs",
         "children": [
           {
-            "id": "641ef0ec0e750797",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "03 - Daily Reading/Natural Language Processing with Transformers/01-08-2026.md",
-                "mode": "source",
-                "source": false
-              },
-              "pinned": true,
-              "icon": "lucide-file",
-              "title": "01-08-2026"
-            }
-          },
-          {
-            "id": "172825a36ad5ef9f",
+            "id": "60d8bed51b0015a7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "04 - Concepts/Question Answering.md",
+                "file": "03 - Daily Reading/Natural Language Processing with Transformers/03-08-2026.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Question Answering"
-            }
-          },
-          {
-            "id": "6c79cabc2fe3dd7b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "04 - Concepts/Building a Review-Based QA System.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Building a Review-Based QA System"
-            }
-          },
-          {
-            "id": "318bbcfd94755e55",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "02 - Sections/CS224N/2013 - Distributed Representations of Words and Phrases and their Compositionality - NeurIPS.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "2013 - Distributed Representations of Words and Phrases and their Compositionality - NeurIPS"
+              "title": "03-08-2026"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -228,36 +183,36 @@
       "bases:Create new base": false
     }
   },
-  "active": "318bbcfd94755e55",
+  "active": "60d8bed51b0015a7",
   "lastOpenFiles": [
-    "08 - Syntheses/CS224N Learning Path.md",
-    "04 - Concepts/AI Hallucination.md",
-    "04 - Concepts/Adapter.md",
-    "04 - Concepts/Instruction Fine-Tuning.md",
-    "04 - Concepts/Speculative Decoding.md",
-    "04 - Concepts/BPE.md",
-    "04 - Concepts/Word2Vec.md",
+    "03 - Daily Reading/Natural Language Processing with Transformers/04-08-2026.md",
+    "03 - Daily Reading/Natural Language Processing with Transformers/03-08-2026.md",
+    "04 - Concepts/Knowledge Distillation.md",
+    "04 - Concepts/Hyperparameter Optimization.md",
+    "03 - Daily Reading/Natural Language Processing with Transformers/01-08-2026.md",
+    "04 - Concepts/KL Divergence.md",
+    "04 - Concepts/Pretraining.md",
+    "04 - Concepts/Semi-supervised Learning.md",
+    "04 - Concepts/Data Augmentation.md",
+    "04 - Concepts/Zero-shot Classification.md",
+    "04 - Concepts/Few-shot Learning.md",
+    "04 - Concepts/Intent Detection.md",
+    "04 - Concepts/Model Benchmarking.md",
+    "04 - Concepts/Transformer Inference Optimization.md",
+    "04 - Concepts/Graph Optimization.md",
+    "04 - Concepts/ONNX Runtime.md",
+    "04 - Concepts/ONNX.md",
+    "04 - Concepts/Pruning.md",
+    "03 - Daily Reading/Natural Language Processing with Transformers/02-08-2026.md",
+    "02 - Sections/Natural Language Processing with Transformers/NLP Transformers - Chapter 08 - Making Transformers Efficient in Production.md",
+    "02 - Sections/CS224N/SLP 2026 - Chapter 09 - Post-training - Instruction Tuning Alignment and Test-Time.md",
+    "02 - Sections/CS224N/2021 - LoRA - Low-Rank Adaptation of Large Language Models - arXiv 2106.09685v2.md",
+    "02 - Sections/CS224N/2018 - Image Transformer - arXiv 1802.05751v3.md",
+    "02 - Sections/CS224N/2011 - Natural Language Processing Almost from Scratch - JMLR.md",
+    "04 - Concepts/Question Answering.md",
+    "04 - Concepts/Parameter-Efficient Fine-Tuning.md",
     "00 - Sources/CS224n/2011 - Natural Language Processing Almost from Scratch - JMLR.pdf",
     "00 - Sources/CS224n/1803.03635v5.pdf",
-    "09 - MOCs/CS224N.md",
-    "02 - Sections/CS224N/SLP 2026 - Chapter 10 - Masked Language Models.md",
-    "02 - Sections/CS224N/SLP 2026 - Chapter 09 - Post-training - Instruction Tuning Alignment and Test-Time.md",
-    "02 - Sections/CS224N/SLP 2026 - Chapter 02 - Words and Tokens.md",
-    "02 - Sections/CS224N/CS224N 2026 - Lecture 19 - The Art of Artificial Reasoning for Small Language Models.md",
-    "02 - Sections/CS224N/CS224N 2026 - Lecture 16 - AIs Impact on Humanity.md",
-    "02 - Sections/CS224N/CS224N 2026 - Lecture 14 - Tokenization and Multilinguality.md",
-    "02 - Sections/CS224N/CS224N 2026 - Lecture 13 - Reasoning Part 2.md",
-    "02 - Sections/CS224N/CS224N 2026 - Lecture 12 - Reasoning Part 1.md",
-    "02 - Sections/CS224N/CS224N 2026 - Lecture 11 - Evaluation.md",
-    "02 - Sections/CS224N/CS224N 2026 - Lecture 10 - RAG and Language Agents.md",
-    "02 - Sections/CS224N/CS224N 2026 - Lecture 09 - Efficient Adaptation.md",
-    "02 - Sections/CS224N/CS224N 2026 - Lecture 08 - Post-training.md",
-    "02 - Sections/CS224N/CS224N 2026 - Lecture 07 - Pretraining.md",
-    "02 - Sections/CS224N/CS224N 2026 - Lecture 06 - Final Projects and Practical Tips.md",
-    "02 - Sections/CS224N/CS224N 2026 - Lecture 05 - Attention and Transformers.md",
-    "02 - Sections/CS224N/CS224N 2026 - Lecture 04 - Language Models and Recurrent Neural Networks.md",
-    "02 - Sections/CS224N/CS224N 2026 - Lecture 03 - Neural Network Foundations.md",
-    "02 - Sections/CS224N/CS224N 2026 - Lecture 02 - Word Vectors.md",
     "02 - Sections/CS224N",
     "00 - Sources/CS224n/2025 - Reconstruction Alignment Improves Unified Multimodal Models - arXiv 2509.07295v3.pdf",
     "00 - Sources/CS224n/2025 - OneFlow - Concurrent Mixed-Modal and Interleaved Generation with Edit Flows - arXiv 2510.03506v3.pdf",

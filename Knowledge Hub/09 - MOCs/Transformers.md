@@ -54,13 +54,23 @@ tags:
 - [[Encoder-Decoder Architecture]]
 - [[Autoregressive Language Model]]
 
+## Production And Inference
+
+- [[Transformer Inference Optimization]]
+- [[Model Benchmarking]]
+- [[Knowledge Distillation]]
+- [[Quantization]]
+- [[Pruning]]
+- [[ONNX]]
+- [[ONNX Runtime]]
+
 ## Sources
 
 - [[NLP Transformers - Chapter 03 - Transformer Anatomy]]
+- [[NLP Transformers - Chapter 08 - Making Transformers Efficient in Production]]
 - [[Hands-On LLM - Chapter 03 - Looking Inside Large Language Models]]
 
 ## Questions
 
 - [[When to Prefer Pre-LN Over Post-LN]]
 - [[How Do Positional Embeddings Scale Context Length]]
-
