@@ -1,7 +1,7 @@
 ---
 type: book
 author: Lewis Tunstall, Leandro von Werra, Thomas Wolf
-status: reading
+status: completed
 total_pages: 479
 started: 2026-07-23
 target_date: 2026-08-09
@@ -19,7 +19,7 @@ tags:
 ## Thông tin
 
 - Tác giả: Lewis Tunstall, Leandro von Werra, Thomas Wolf
-- Trạng thái: Đang đọc
+- Trạng thái: Hoàn thành
 - Tổng số trang PDF: 479
 - Chủ đề chính: NLP hiện đại, Transformer, Hugging Face, fine-tuning, production, few-shot learning.
 
@@ -65,10 +65,10 @@ GROUP BY book
 - [x] [[NLP Transformers - Chapter 05 - Text Generation]]
 - [x] [[NLP Transformers - Chapter 06 - Summarization]]
 - [x] [[NLP Transformers - Chapter 07 - Question Answering]]
-- [ ] [[NLP Transformers - Chapter 08 - Making Transformers Efficient in Production]]
-- [ ] [[NLP Transformers - Chapter 09 - Dealing with Few to No Labels]]
-- [ ] [[NLP Transformers - Chapter 10 - Training Transformers from Scratch]]
-- [ ] [[NLP Transformers - Chapter 11 - Future Directions]]
+- [x] [[NLP Transformers - Chapter 08 - Making Transformers Efficient in Production]]
+- [x] [[NLP Transformers - Chapter 09 - Dealing with Few to No Labels]]
+- [x] [[NLP Transformers - Chapter 10 - Training Transformers from Scratch]]
+- [x] [[NLP Transformers - Chapter 11 - Future Directions]]
 
 ## Lịch đọc đề xuất
 
@@ -146,7 +146,17 @@ GROUP BY book
 - [[Pretraining]]
 - [[Hyperparameter Optimization]]
 - [[Quantization]]
+- [[ONNX]]
+- [[ONNX Runtime]]
+- [[Graph Optimization]]
+- [[Pruning]]
 - [[Few-shot Learning]]
+- [[Tokenizer Training]]
+- [[Language Modeling]]
+- [[Training Loop]]
+- [[Scaling Laws]]
+- [[Vision Transformer]]
+- [[Multimodal Transformer]]
 
 ## Demo tổng thể
 
@@ -155,4 +165,4 @@ GROUP BY book
 
 ## Ghi chú sau khi hoàn thành
 
-- 
+- Đã hoàn thành toàn bộ lộ trình đọc từ Chapter 01 đến Chapter 11. Phần giá trị nhất của cuốn sách không chỉ là biết các task NLP riêng lẻ, mà là có được một khung quyết định thực tế cho dữ liệu, model, evaluation, fine-tuning, production optimization và hướng phát triển tiếp theo.

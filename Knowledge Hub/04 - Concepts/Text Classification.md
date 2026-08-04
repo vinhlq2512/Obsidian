@@ -27,12 +27,14 @@ Text classification là tác vụ gán một hoặc nhiều nhãn cho văn bản
 - Nếu thiếu nhãn, có thể thử zero-shot hoặc few-shot prompting.
 - Cần baseline đơn giản để biết LLM có thật sự cần thiết không.
 - [[Intent Detection]] là một case study của text classification trong đó nhãn là ý định của người dùng.
+- Khi đã có labeled examples đủ dùng, [[Classifier Fine-Tuning]] giúp model học decision boundary rõ hơn zero-shot hoặc nearest-neighbor.
 
 ## Liên kết
 
 - [[Intent Detection]]
 - [[Few-shot Learning]]
 - [[Zero-shot Classification]]
+- [[Classifier Fine-Tuning]]
 - [[Representation Model]]
 - [[Generative Model]]
 - [[Embedding]]

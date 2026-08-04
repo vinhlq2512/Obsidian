@@ -60,6 +60,21 @@ FP32/FP16 weights
 
 Lợi ích quan trọng không chỉ nằm ở phép nhân số học. Với Transformer lớn, việc đọc weight từ memory cũng rất đắt. Khi mỗi weight dùng ít byte hơn, memory bandwidth giảm, nên inference có thể nhanh hơn ngay cả khi mô hình logic không đổi.
 
+Có thể tách lợi ích thành hai lớp:
+
+```text
+Compression benefit:
+FP32/FP16 -> INT8/low-bit
+-> model size và memory footprint giảm
+
+Compute/runtime benefit:
+low-bit representation + kernel phù hợp
+-> matrix multiplication rẻ hơn
+-> latency có thể giảm
+```
+
+Điểm dễ nhầm: compression benefit gần như trực tiếp, nhưng compute/runtime benefit thì phụ thuộc backend. Một model INT8 có thể nhỏ hơn rõ rệt nhưng không nhanh hơn nhiều nếu runtime vẫn phải dequantize thường xuyên hoặc không có kernel tối ưu.
+
 ## Công thức trực giác
 
 Một cách nhìn đơn giản là ánh xạ giá trị thực sang integer:
@@ -89,6 +104,8 @@ Phù hợp khi:
 - muốn thử tăng tốc inference với ít thay đổi training pipeline;
 - chấp nhận benchmark để xem quality có giảm không.
 
+Trong thực hành, dynamic quantization thường là lựa chọn thử đầu tiên cho inference CPU vì pipeline đơn giản hơn static quantization và QAT.
+
 ## Static quantization
 
 Static quantization quantize weight và activation trước khi inference. Để làm được việc đó, thường cần calibration data: một tập input đại diện được chạy qua model để ước lượng range của activation.
@@ -114,6 +131,8 @@ So với dynamic quantization:
 - thường phức tạp hơn;
 - cần training/fine-tuning;
 - có thể giữ quality tốt hơn khi quantization gây nhiễu mạnh.
+
+QAT hữu ích khi post-training quantization làm metric task giảm quá nhiều. Thay vì quantize sau khi model đã học xong, QAT cho model thấy trước nhiễu quantization trong quá trình train/fine-tune.
 
 ## Ba approach chính
 
@@ -152,6 +171,14 @@ Các câu hỏi cần trả lời:
 - Input benchmark có đại diện cho workload thật không?
 
 Điểm quan trọng: model quantized nhỏ hơn không tự động nhanh hơn. Nếu runtime không hỗ trợ tốt INT8/low-bit computation, hoặc chi phí quantize/dequantize lớn, latency có thể cải thiện ít hoặc không cải thiện.
+
+Khi đọc kết quả benchmark, nên tách ba câu hỏi:
+
+- Model có nhỏ hơn không?
+- Model có dùng ít memory hơn lúc inference không?
+- Model có thật sự nhanh hơn trên hardware mục tiêu không?
+
+Ba câu này liên quan nhưng không giống nhau. Quantization có thể trả lời "có" cho size/memory nhưng "không rõ" hoặc "không" cho latency.
 
 ## Liên hệ với QLoRA
 

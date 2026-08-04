@@ -133,7 +133,7 @@ tweet thô
 - Classification head mới được thêm vào nên ban đầu có weight random; cảnh báo lúc load model là bình thường.
 - Fine-tuning cập nhật cả encoder và classification head, vì vậy hidden states có thể thích nghi với task.
 - `Trainer` giúp gom training loop, evaluation, checkpointing, logging, tokenizer, dataset và metrics vào một API.
-- `TrainingArguments` kiểm soát output directory, epochs, learning rate, batch size, weight decay, evaluation strategy, logging, push to hub.
+- `TrainingArguments` kiểm soát output directory, epochs, learning rate, batch size, weight decay, evaluation strategy, logging, push to hub. Các tham số như `learning_rate` và `weight_decay` thường đi cùng optimizer kiểu [[AdamW]] trong pipeline fine-tuning hiện đại.
 - Chapter dùng accuracy và weighted F1. Với dataset imbalance, weighted F1 hợp lý hơn accuracy đơn thuần, nhưng vẫn cần xem per-class behavior qua confusion matrix.
 - Fine-tuning đạt khoảng 92% F1 trên validation trong ví dụ, tốt hơn rõ rệt so với feature extraction.
 

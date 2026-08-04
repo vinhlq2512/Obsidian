@@ -1,11 +1,11 @@
 ---
 type: reading-section
 book: "[[Natural Language Processing with Transformers]]"
-status: planned
+status: completed
 chapter: 8
 start_page: 234
 end_page: 285
-reading_date: 2026-08-03
+reading_date: 2026-08-04
 planned_sessions:
   - "2026-08-03 | 234-259 | Benchmark latency, memory, accuracy và trade-off production | 60 phút"
   - "2026-08-04 | 260-285 | Distillation, quantization, ONNX, pruning và ghi lại quyết định | 60 phút"
@@ -305,6 +305,20 @@ Vì Transformer inference thường bị ảnh hưởng bởi chi phí đọc we
 - giảm memory bandwidth;
 - tăng tốc inference trên backend hỗ trợ INT8 hoặc low-precision kernels.
 
+Có hai nguồn lợi chính:
+
+```text
+Ít bit hơn mỗi weight
+-> Ít byte hơn phải đọc từ memory
+-> Cache/memory bandwidth hiệu quả hơn
+
+Kiểu số thấp hơn như INT8
+-> Có thể dùng kernel nhân ma trận tối ưu
+-> Nhiều phép tính hơn trên cùng phần cứng
+```
+
+Với Transformer, lợi ích memory bandwidth rất quan trọng vì nhiều lớp chủ yếu là phép nhân ma trận lớn. Nếu weight nhỏ hơn, runtime có thể đọc dữ liệu nhanh hơn và giữ được nhiều tham số hơn trong cache.
+
 Nhưng quantization không miễn phí. Nó đưa lỗi xấp xỉ vào weight/activation, nên luôn cần benchmark lại quality. Nếu model nhỏ hơn nhưng accuracy/F1 giảm quá nhiều, hoặc runtime không thật sự nhanh hơn trên hardware mục tiêu, quantization chưa chắc đáng dùng.
 
 Điểm cần nhớ:
@@ -313,6 +327,8 @@ Nhưng quantization không miễn phí. Nó đưa lỗi xấp xỉ vào weight/a
 - Lợi ích tốc độ phụ thuộc runtime/hardware, không chỉ phụ thuộc số bit.
 - Cần đo lại [[Model Benchmarking|quality, latency và memory]] sau khi quantize.
 - Có thể kết hợp quantization với [[Knowledge Distillation]], [[Pruning]] hoặc [[ONNX Runtime]].
+- Overhead quantize/dequantize có thể ăn mất lợi ích tốc độ nếu backend không tối ưu tốt.
+- CPU thường là nơi dynamic quantization dễ thấy lợi ích ban đầu; GPU cần đúng kernel/backend hỗ trợ low precision.
 
 ### Ba approach chính của quantization
 
@@ -333,6 +349,12 @@ QAT: cho model học với nhiễu quantization trong training
 ```
 
 Nếu muốn thử nhanh, dynamic quantization là lựa chọn dễ bắt đầu. Nếu có calibration data tốt và backend hỗ trợ, static quantization có thể phù hợp hơn cho inference production. Nếu post-training quantization làm quality giảm quá nhiều, quantization-aware training là hướng mạnh hơn nhưng đắt hơn.
+
+Quy tắc chọn nhanh:
+
+- dùng dynamic quantization khi muốn thử inference nhanh/gọn với ít thay đổi;
+- dùng static quantization khi có calibration data đại diện và muốn quantize activation ổn định hơn;
+- dùng QAT khi post-training quantization làm quality giảm quá nhiều nhưng vẫn cần lợi ích low precision.
 
 ## Benchmarking Our Quantized Model
 
@@ -589,8 +611,9 @@ Ghi chú: demo này đo latency mức tối thiểu. Khi làm benchmark nghiêm 
 
 ## Checklist
 
-- [ ] Đọc xong chapter
+- [x] Đọc xong chapter
 - [ ] Chạy demo benchmark
 - [ ] Ghi lại latency trung bình
 - [x] Tách concept cần dùng lại
 - [x] Cập nhật tiến độ sách cho ngày 03-08
+- [x] Cập nhật tiến độ sách cho ngày 04-08

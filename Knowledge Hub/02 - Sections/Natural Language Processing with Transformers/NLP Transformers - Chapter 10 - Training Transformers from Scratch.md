@@ -1,7 +1,7 @@
 ---
 type: reading-section
 book: "[[Natural Language Processing with Transformers]]"
-status: planned
+status: completed
 chapter: 10
 start_page: 326
 end_page: 392
@@ -31,6 +31,46 @@ tags:
 - Train từ đầu cần dữ liệu lớn, compute lớn và mục tiêu rõ ràng.
 - Tokenizer ảnh hưởng trực tiếp đến khả năng biểu diễn domain-specific text.
 - Pretraining objectives quyết định model học loại thông tin nào từ corpus.
+
+## Khi nào nên train từ đầu?
+
+Train from scratch chỉ hợp lý khi:
+
+- pretrained models sẵn có không khớp domain hoặc ngôn ngữ;
+- tokenizer hiện có phân mảnh domain text quá tệ;
+- mục tiêu là xây foundation model riêng chứ không chỉ giải một downstream task.
+
+Nếu chỉ cần hiệu quả tốt trên một task cụ thể, fine-tuning thường rẻ và thực tế hơn nhiều.
+
+## Corpus và tokenizer
+
+Chapter này nhấn mạnh rằng corpus không chỉ cần lớn mà còn phải:
+
+- đủ sạch;
+- đủ đại diện cho domain;
+- tránh quá nhiều duplicate hoặc text rác;
+- phù hợp với tokenizer mà mình sẽ train.
+
+[[Tokenizer Training]] là phần quan trọng vì tokenizer quyết định model “nhìn” text theo những mảnh nào.
+
+## Pretraining objectives và training loop
+
+- [[Language Modeling]] là lõi của pretraining.
+- Encoder-style models thường gắn với [[Masked Language Modeling]].
+- Decoder-style models thường gắn với [[Causal Language Model|causal language modeling]].
+- [[Training Loop]] ở quy mô này không chỉ là code loop đơn giản mà còn là bài toán throughput, checkpointing, batching, streaming và compute budget.
+
+## Checklist quyết định
+
+```text
+Có model pretrained phù hợp chưa?
+-> Có: ưu tiên fine-tuning
+-> Chưa: kiểm tra domain gap lớn đến mức nào
+
+Có đủ corpus sạch và compute không?
+-> Không: chưa nên train từ đầu
+-> Có: cân nhắc tokenizer + objective + training loop
+```
 
 ## Demo thực hành
 
@@ -69,6 +109,7 @@ print(encoded.tokens)
 - [[BPE]]
 - [[Language Modeling]]
 - [[Training Loop]]
+- [[Working with Large Datasets]]
 
 ## Active Recall
 
@@ -79,8 +120,8 @@ print(encoded.tokens)
 
 ## Checklist
 
-- [ ] Đọc xong chapter
+- [x] Đọc xong chapter
 - [ ] Chạy demo tokenizer
-- [ ] Viết lại pipeline train từ đầu bằng 5 bước
-- [ ] Tách concept cần dùng lại
-- [ ] Cập nhật tiến độ sách
+- [x] Viết lại pipeline train từ đầu bằng 5 bước
+- [x] Tách concept cần dùng lại
+- [x] Cập nhật tiến độ sách
