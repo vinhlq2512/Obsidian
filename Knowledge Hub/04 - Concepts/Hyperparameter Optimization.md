@@ -20,7 +20,7 @@ tags:
 
 Hyperparameter optimization là quá trình tìm bộ hyperparameters tốt cho training hoặc inference bằng cách chạy nhiều thử nghiệm có kiểm soát và chọn cấu hình đạt metric tốt nhất.
 
-Hyperparameters là các giá trị không được học trực tiếp bằng gradient, ví dụ `learning_rate`, `weight_decay`, `num_train_epochs`, batch size, hoặc trong [[Knowledge Distillation]] là `alpha` và `temperature`.
+Hyperparameters là các giá trị không được học trực tiếp bằng gradient, ví dụ `learning_rate`, `weight_decay`, `num_train_epochs`, batch size, hoặc trong [[Knowledge Distillation]] là `alpha` và `temperature`. Với các setup fine-tuning phổ biến dùng [[AdamW]], `learning_rate` và `weight_decay` thường là cặp phải chỉnh cùng nhau.
 
 ## Vấn đề giải quyết
 

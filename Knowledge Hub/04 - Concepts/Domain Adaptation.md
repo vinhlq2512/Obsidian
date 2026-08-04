@@ -32,6 +32,21 @@ Model pretrained có hiểu ngôn ngữ chung, nhưng domain thật có thuật 
 - Có thể cần fine-tune reader, cải thiện retriever, hoặc chuẩn hóa dữ liệu review.
 - Reader fine-tuned trên [[SQuAD]] có thể đạt metric tốt trên Wikipedia-style QA nhưng giảm mạnh trên [[SubjQA]] vì khác domain và mức độ chủ quan.
 - Với retriever, dense model cũng có thể cần fine-tune/domain adaptation nếu embedding similarity học từ domain khác không phản ánh đúng relevance trong review.
+- Trong few/no-label classification, [[Language Model Fine-Tuning]] trên unlabeled domain text là một cách domain adaptation trước khi học classifier bằng ít nhãn.
+
+## Language model fine-tuning cho domain adaptation
+
+```text
+General pretrained LM
+-> Unlabeled domain corpus
+-> Fine-tune bằng objective language modeling
+-> Domain-adapted LM
+-> Downstream classifier / QA / retriever
+```
+
+Điểm hay là unlabeled domain corpus thường rẻ hơn labeled data. Model có thể học thuật ngữ, style và phân phối câu của domain trước khi cần nhãn task cụ thể.
+
+Điểm cần kiểm tra: adaptation chỉ đáng giữ nếu downstream metric tốt hơn trên validation set có nhãn thật.
 
 ## Khi áp dụng
 
@@ -42,6 +57,8 @@ Model pretrained có hiểu ngôn ngữ chung, nhưng domain thật có thuật 
 ## Liên kết
 
 - [[Transfer Learning]]
+- [[Fine-tuning]]
+- [[Language Model Fine-Tuning]]
 - [[Question Answering]]
 - [[Building a Review-Based QA System]]
 - [[SubjQA]]

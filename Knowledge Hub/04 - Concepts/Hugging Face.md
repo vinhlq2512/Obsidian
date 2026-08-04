@@ -26,6 +26,7 @@ Hugging Face làm giảm ma sát khi thử nghiệm NLP: có thể tìm pretrain
 - Transformers cung cấp API cho tokenizer, model, pipeline, inference và training.
 - [[Transformers Model Class]] giúp chuẩn hóa cách load checkpoint, cấu hình architecture, gắn task head và trả output có cấu trúc.
 - Datasets hỗ trợ tải, biến đổi và chia sẻ dataset.
+- Với corpus lớn, Datasets hữu ích nhờ batch transform, cache và memory-efficient processing; xem thêm [[Working with Large Datasets]].
 - Tokenizers cung cấp tokenizer nhanh cho các mô hình NLP.
 - Accelerate hỗ trợ training/inference trên CPU, GPU, multi-GPU hoặc distributed setup.
 
