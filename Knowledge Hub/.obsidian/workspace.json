@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03 - Daily Reading/Natural Language Processing with Transformers/06-08-2026.md",
-                "mode": "source",
+                "file": "04 - Concepts/Confusion Matrix.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "06-08-2026"
+              "title": "Confusion Matrix"
             }
           }
         ]
@@ -41,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": true
+                "autoReveal": true,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -78,7 +80,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 449.5
+    "width": 306.5
   },
   "right": {
     "id": "3f770d9999f1d4fe",
@@ -185,42 +187,42 @@
   },
   "active": "60d8bed51b0015a7",
   "lastOpenFiles": [
-    "04 - Concepts/Multimodal Transformer.md",
-    "04 - Concepts/Vision Transformer.md",
-    "04 - Concepts/Scaling Laws.md",
-    "04 - Concepts/Training Loop.md",
-    "04 - Concepts/Language Modeling.md",
-    "04 - Concepts/Tokenizer Training.md",
-    "04 - Concepts/Linearized Attention.md",
-    "04 - Concepts/Sparse Attention.md",
-    "04 - Concepts/AdamW.md",
-    "04 - Concepts/Working with Large Datasets.md",
-    "04 - Concepts/Classifier Fine-Tuning.md",
-    "03 - Daily Reading/Natural Language Processing with Transformers/06-08-2026.md",
-    "03 - Daily Reading/Natural Language Processing with Transformers/05-08-2026.md",
-    "04 - Concepts/Language Model Fine-Tuning.md",
-    "03 - Daily Reading/Natural Language Processing with Transformers/04-08-2026.md",
-    "03 - Daily Reading/Natural Language Processing with Transformers/03-08-2026.md",
-    "04 - Concepts/Knowledge Distillation.md",
-    "04 - Concepts/Hyperparameter Optimization.md",
-    "03 - Daily Reading/Natural Language Processing with Transformers/01-08-2026.md",
-    "04 - Concepts/KL Divergence.md",
-    "04 - Concepts/Pretraining.md",
-    "04 - Concepts/Semi-supervised Learning.md",
-    "04 - Concepts/Data Augmentation.md",
-    "04 - Concepts/Zero-shot Classification.md",
-    "04 - Concepts/Few-shot Learning.md",
-    "04 - Concepts/Intent Detection.md",
+    "04 - Concepts/Logistic Regression.md",
+    "00 - Sources/PDFs/Books/Practical Natural Language Processing .pdf",
+    "04 - Concepts/Confusion Matrix.md",
+    "04 - Concepts/Naive Bayes Classifier.md",
+    "04 - Concepts/Bag of Words.md",
+    "04 - Concepts/Class Imbalance.md",
+    "00 - Sources/PDFs/Books/Natural Language Processing with Transformers.pdf",
+    "00 - Sources/PDFs/Books/Hands-On Large Language Models.pdf",
+    "02 - Sections/Practical Natural Language Processing/Practical NLP - Chapter 03 - Text Representation.md",
+    "02 - Sections/Practical Natural Language Processing/Practical NLP - Chapter 02 - NLP Pipeline.md",
+    "02 - Sections/Practical Natural Language Processing/Practical NLP - Chapter 04 - Text Classification.md",
+    "02 - Sections/Practical Natural Language Processing/Practical NLP - Chapter 01 - NLP A Primer.md",
+    "03 - Daily Reading/Practical Natural Language Processing/04-08-2026.md",
+    "04 - Concepts/Text Representation.md",
+    "04 - Concepts/NLP Pipeline.md",
+    "AGENTS.md",
+    "04 - Concepts/Limitations of Deep Learning in NLP.md",
+    "04 - Concepts/Building blocks of language.md",
+    "03 - Daily Reading/Practical Natural Language Processing/27-08-2026.md",
+    "03 - Daily Reading/Practical Natural Language Processing/26-08-2026.md",
+    "03 - Daily Reading/Practical Natural Language Processing/25-08-2026.md",
+    "03 - Daily Reading/Practical Natural Language Processing/24-08-2026.md",
+    "03 - Daily Reading/Practical Natural Language Processing/23-08-2026.md",
+    "03 - Daily Reading/Practical Natural Language Processing/22-08-2026.md",
+    "03 - Daily Reading/Practical Natural Language Processing/21-08-2026.md",
+    "03 - Daily Reading/Practical Natural Language Processing/20-08-2026.md",
+    "03 - Daily Reading/Practical Natural Language Processing/19-08-2026.md",
+    "03 - Daily Reading/Practical Natural Language Processing/18-08-2026.md",
+    "03 - Daily Reading/Practical Natural Language Processing/17-08-2026.md",
+    "03 - Daily Reading/Practical Natural Language Processing",
+    "02 - Sections/Practical Natural Language Processing",
     "00 - Sources/CS224n/2011 - Natural Language Processing Almost from Scratch - JMLR.pdf",
     "00 - Sources/CS224n/1803.03635v5.pdf",
     "02 - Sections/CS224N",
     "00 - Sources/CS224n/2025 - Reconstruction Alignment Improves Unified Multimodal Models - arXiv 2509.07295v3.pdf",
     "00 - Sources/CS224n/2025 - OneFlow - Concurrent Mixed-Modal and Interleaved Generation with Edit Flows - arXiv 2510.03506v3.pdf",
-    "00 - Sources/CS224n/2024 - LMFusion - Adapting Pretrained Language Models for Multimodal Generation - arXiv 2412.15188v4.pdf",
-    "00 - Sources/CS224n/2024 - Chameleon - Mixed-Modal Early-Fusion Foundation Models - arXiv 2405.09818v2.pdf",
-    "00 - Sources/CS224n/2023 - Self-Consistency Improves Chain of Thought Reasoning in Language Models - ICLR 2023.pdf",
-    "00 - Sources/CS224n/2025 - Mixture-of-Transformers - A Sparse and Scalable Architecture for Multi-Modal Foundation Models - TMLR 2025.pdf",
-    "00 - Sources/CS224n/2024 - The Llama 3 Herd of Models - arXiv 2407.21783v3.pdf",
     "Untitled.canvas"
   ]
 }
