@@ -4,6 +4,8 @@ status: evolving
 area: nlp
 concepts:
   - "[[Language AI]]"
+  - "[[NLP Pipeline]]"
+  - "[[Text Representation]]"
   - "[[Text Classification]]"
   - "[[Named Entity Recognition]]"
   - "[[Tokenization]]"
@@ -17,7 +19,7 @@ syntheses:
 questions:
   - "[[How Do Positional Embeddings Scale Context Length]]"
 created_at: 2026-08-02
-updated_at: 2026-08-02
+updated_at: 2026-08-04
 tags:
   - moc
   - nlp
@@ -28,6 +30,8 @@ tags:
 ## Fundamentals
 
 - [[Language AI]]
+- [[NLP Pipeline]]
+- [[Text Representation]]
 - [[Tokenization]]
 - [[Embedding]]
 - [[Transformer]]
@@ -79,10 +83,14 @@ tags:
 ## Sources
 
 - [[Natural Language Processing with Transformers]]
+- [[Practical Natural Language Processing]]
 - [[NLP Transformers - Chapter 03 - Transformer Anatomy]]
 - [[NLP Transformers - Chapter 04 - Multilingual Named Entity Recognition]]
 - [[NLP Transformers - Chapter 06 - Summarization]]
 - [[NLP Transformers - Chapter 09 - Dealing with Few to No Labels]]
+- [[Practical NLP - Chapter 02 - NLP Pipeline]]
+- [[Practical NLP - Chapter 03 - Text Representation]]
+- [[Practical NLP - Chapter 11 - The End-to-End NLP Process]]
 
 ## Questions
 
