@@ -39,7 +39,7 @@ Feature vector
 ## Khi dùng trong text classification
 
 - Dùng làm baseline mạnh trong nghiên cứu và MVP thực tế.
-- Dễ so sánh với Naive Bayes, SVM và các model phức tạp hơn.
+- Dễ so sánh với Naive Bayes, [[Support Vector Machine|SVM]] và các model phức tạp hơn.
 - Có thể dùng `class_weight="balanced"` khi dữ liệu bị [[Class Imbalance]].
 
 ## Bài học từ Practical NLP
@@ -56,3 +56,4 @@ Feature vector
 - [[Class Imbalance]]
 - [[Confusion Matrix]]
 - [[Bag of Words]]
+- [[Support Vector Machine]]

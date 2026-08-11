@@ -7,7 +7,7 @@ sources:
   - "[[Practical Natural Language Processing]]"
 source_sections:
   - "[[Practical NLP - Chapter 04 - Text Classification]]"
-last_updated: 2026-08-10
+last_updated: 2026-08-11
 tags:
   - concept
   - classification
@@ -40,6 +40,14 @@ Trong sản phẩm thật, text classification không phải chỉ là chọn mo
 - Khi classifier kém, đừng chỉ đổi model. Cần kiểm tra feature quá sparse, [[Class Imbalance]], preprocessing/feature extraction, algorithm choice và hyperparameter.
 - [[Naive Bayes Classifier]] là baseline cổ điển tốt cho text classification vì chạy nhanh trên sparse features như [[Bag of Words]] và giúp mình có mốc so sánh trước khi dùng model phức tạp hơn.
 - [[Logistic Regression]] là baseline tuyến tính phổ biến: nó học weight cho từng feature và có thể dùng class weighting khi dữ liệu bị lệch class.
+- [[Support Vector Machine]] là classifier cổ điển đáng thử khi muốn tìm ranh giới tách lớp có margin lớn, nhưng cần chú ý thời gian train khi feature space lớn.
+- Với deep learning, pipeline không biến mất: raw text vẫn cần tokenize thành word index, pad sequence, map sang [[Embedding|embedding vectors]], rồi mới đưa vào CNN, [[LSTM]] hoặc pretrained language model như BERT.
+- Deep classifier thường có embedding/input layer, hidden layers và classification output như softmax. Nó có thể học representation tốt hơn, nhưng cần nhiều dữ liệu task-specific hơn và tốn compute/deployment hơn baseline cổ điển.
+- Khi chưa có training data, bước đầu tiên là tạo annotated dataset ban đầu: gán nhãn thủ công một phần dữ liệu, dùng [[Weak Supervision|weak supervision]] bằng rule/pattern, hoặc crowdsourcing nếu cần quy mô lớn.
+- Nhãn tạo bằng rule hoặc crowd có thể nhiễu, nên cần evaluation set đáng tin trước khi dùng để quyết định classifier có tốt thật không.
+- Case study [[Ticket Routing]] trong Practical NLP cho thấy một classifier production thường bắt đầu bằng baseline rẻ như API/library, public dataset hoặc weak supervision, rồi học tiếp từ feedback thật sau deploy.
+- Practical NLP khuyên bắt đầu bằng strong baseline/MVP trước khi dùng state-of-the-art model, vì baseline giúp hiểu problem, lấy feedback sớm và tránh technical debt không đáng.
+- Trong production, classifier có thể kết hợp model outputs, domain rules, human fallback và [[Ensemble Learning|ensembling]] thay vì đặt toàn bộ quyết định vào một model.
 
 ## Liên kết
 
@@ -57,3 +65,12 @@ Trong sản phẩm thật, text classification không phải chỉ là chọn mo
 - [[Naive Bayes Classifier]]
 - [[Confusion Matrix]]
 - [[Logistic Regression]]
+- [[Support Vector Machine]]
+- [[Neural NLP]]
+- [[LSTM]]
+- [[Weak Supervision]]
+- [[Semi-supervised Learning]]
+- [[Active Learning]]
+- [[Domain Adaptation]]
+- [[Ticket Routing]]
+- [[Ensemble Learning]]

@@ -3,10 +3,12 @@ type: concept
 status: seed
 sources:
   - "[[NLP Transformers - Chapter 09 - Dealing with Few to No Labels]]"
+  - "[[Practical Natural Language Processing]]"
 source_sections:
   - "[[NLP Transformers - Chapter 09 - Dealing with Few to No Labels]]"
+  - "[[Practical NLP - Chapter 04 - Text Classification]]"
 first_seen: 2026-08-03
-last_updated: 2026-08-03
+last_updated: 2026-08-11
 tags:
   - concept
   - few-shot
@@ -38,6 +40,8 @@ Khi ít nhãn, không nên fine-tune model lớn ngay. Cần baseline để bi�
 - Dùng embedding lookup hoặc nearest neighbor khi có vài ví dụ đại diện.
 - Dùng [[Data Augmentation]] cẩn thận để mở rộng dữ liệu.
 - Tận dụng unlabeled data qua [[Semi-supervised Learning]] nếu phù hợp.
+- Dùng [[Active Learning]] để ưu tiên gán nhãn những mẫu model đang không chắc chắn.
+- Dùng [[Domain Adaptation]] khi có nhiều dữ liệu/unlabeled text ở target domain nhưng ít nhãn.
 
 ## Khi áp dụng
 
@@ -84,3 +88,5 @@ Few-shot tốt nhất khi mình xem vài ví dụ như "neo nghĩa" cho label, k
 - [[Zero-shot Learning]]
 - [[Zero-shot Classification]]
 - [[Data Augmentation]]
+- [[Active Learning]]
+- [[Domain Adaptation]]
