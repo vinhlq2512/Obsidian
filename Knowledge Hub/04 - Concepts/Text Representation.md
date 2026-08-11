@@ -35,7 +35,9 @@ Model không xử lý chữ trực tiếp. Representation là lăng kính biến
 
 - Sparse vector dễ debug và làm baseline tốt, nhưng thường mất thứ tự/ngữ cảnh.
 - Với text classification, sparse representation như [[Bag of Words]] có thể tạo document-term matrix cho classifier cổ điển. Điểm cần kiểm soát là vocabulary quá lớn làm vector rất sparse và nhiều feature hiếm thành noise.
-- [[Embedding]] nén thông tin vào vector dense, hữu ích cho similarity, retrieval, clustering và classification.
+- [[Embedding]] nén thông tin vào vector dense, hữu ích cho similarity, retrieval, clustering và classification. Trong Practical NLP, word embeddings được average để tạo sentence-level features cho classifier.
+- [[Document Embedding]] học trực tiếp vector cho sentence/paragraph/document, nên khác với cách lấy trung bình word embeddings rồi xem đó là vector của text.
+- Khi dùng pretrained word embeddings, cần kiểm tra OOV/domain vocabulary overlap và chi phí lưu/load embedding model.
 - Representation phải khớp task: document classification, NER, search và QA có nhu cầu khác nhau.
 - Visualization chỉ là công cụ trực giác; không nên xem plot 2D như bằng chứng đầy đủ về embedding space.
 
@@ -45,6 +47,8 @@ Model không xử lý chữ trực tiếp. Representation là lăng kính biến
 - [[Tokenization]]
 - [[Bag of Words]]
 - [[Embedding]]
+- [[Word2Vec]]
+- [[Document Embedding]]
 - [[Semantic Search]]
 - [[Text Classification]]
 - [[Topic Modeling]]

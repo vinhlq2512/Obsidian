@@ -1,14 +1,14 @@
 ---
 type: book
 author: Sowmya Vajjala, Bodhisattwa Majumder, Anuj Gupta, Harshit Surana
-status: planned
+status: in_progress
 total_pages: 798
 started: 2026-08-04
 target_date: 2026-08-27
 priority: high
 source_file: "[[Practical Natural Language Processing .pdf]]"
 created_at: 2026-08-04
-updated_at: 2026-08-04
+updated_at: 2026-08-11
 tags:
   - book
   - nlp
@@ -20,7 +20,7 @@ tags:
 ## Thông tin
 
 - Tác giả: Sowmya Vajjala, Bodhisattwa Majumder, Anuj Gupta, Harshit Surana.
-- Trạng thái: Lên kế hoạch.
+- Trạng thái: Đang đọc.
 - Tổng số trang PDF: 798.
 - Nội dung chính: xây dựng hệ thống NLP thực tế từ nền tảng, pipeline, representation, task cốt lõi, domain ứng dụng, đến quy trình end-to-end.
 
@@ -68,7 +68,7 @@ GROUP BY book
 - [x] [[Practical NLP - Chapter 01 - NLP A Primer]] - tự note nền trước daily
 - [x] [[Practical NLP - Chapter 02 - NLP Pipeline]] - tự note nền trước daily
 - [x] [[Practical NLP - Chapter 03 - Text Representation]] - tự note nền trước daily
-- [ ] [[Practical NLP - Chapter 04 - Text Classification]]
+- [x] [[Practical NLP - Chapter 04 - Text Classification]]
 - [ ] [[Practical NLP - Chapter 05 - Information Extraction]]
 - [ ] [[Practical NLP - Chapter 06 - Chatbots]]
 - [ ] [[Practical NLP - Chapter 07 - Topics in Brief]]

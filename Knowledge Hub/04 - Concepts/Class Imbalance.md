@@ -6,7 +6,7 @@ sources:
 source_sections:
   - "[[Practical NLP - Chapter 04 - Text Classification]]"
 first_seen: 2026-08-10
-last_updated: 2026-08-10
+last_updated: 2026-08-11
 tags:
   - concept
   - machine-learning
@@ -36,6 +36,8 @@ Khi class bị lệch, model rất dễ học cách “chọn class đông” đ
 - Dùng class weight, ví dụ `class_weight="balanced"` trong một số classifier như [[Logistic Regression]].
 - Thu thập thêm dữ liệu cho class ít mẫu nếu có thể.
 - Chọn metric phản ánh đúng chi phí sai của use case.
+- Practical NLP nhấn mạnh balanced training data là lời khuyên production quan trọng: khi category không được đại diện tương đối đều, classifier dễ trở thành biased classifier.
+- Các hướng xử lý trong sách gồm collecting more data, resampling và weight balancing.
 
 ## Liên kết
 
@@ -43,3 +45,4 @@ Khi class bị lệch, model rất dễ học cách “chọn class đông” đ
 - [[NLP Pipeline]]
 - [[Confusion Matrix]]
 - [[Logistic Regression]]
+- [[Active Learning]]

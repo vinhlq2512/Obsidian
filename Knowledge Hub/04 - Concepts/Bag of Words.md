@@ -41,7 +41,7 @@ Raw text
 
 ## Khi dùng cho text classification
 
-- BoW là baseline tốt vì đơn giản, dễ debug và chạy được với classifier cổ điển như [[Naive Bayes Classifier]], Logistic Regression hoặc SVM.
+- BoW là baseline tốt vì đơn giản, dễ debug và chạy được với classifier cổ điển như [[Naive Bayes Classifier]], [[Logistic Regression]] hoặc [[Support Vector Machine|SVM]].
 - Nếu vocabulary quá lớn, vector rất sparse: phần lớn vị trí bằng 0.
 - Feature hiếm có thể trở thành noise và làm classifier khó học.
 - Có thể giới hạn số feature, ví dụ `max_features`, để giảm sparsity và noise.
@@ -58,3 +58,5 @@ Raw text
 - [[Text Classification]]
 - [[Class Imbalance]]
 - [[Naive Bayes Classifier]]
+- [[Logistic Regression]]
+- [[Support Vector Machine]]
