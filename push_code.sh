@@ -2,9 +2,9 @@
 
 echo "🚀 Bắt đầu quá trình tạo nhánh và push code..."
 
-# Tạo tên nhánh theo pattern update-dd/mm/yyyy
+# Tạo tên nhánh theo pattern note-dd/mm/yyyy
 CURRENT_DATE=$(date +'%d/%m/%Y')
-BRANCH_NAME="update-$CURRENT_DATE"
+BRANCH_NAME="notes-$CURRENT_DATE"
 
 # 1. Khởi tạo một git repository mới
 git init
@@ -25,7 +25,7 @@ git checkout -b "$BRANCH_NAME"
 git add .
 
 # 7. Commit các thay đổi
-git commit -m "Update code $CURRENT_DATE"
+git commit -m "Update notes $CURRENT_DATE"
 
 # 8. Push nhánh mới lên GitHub
 git push -f origin "$BRANCH_NAME"

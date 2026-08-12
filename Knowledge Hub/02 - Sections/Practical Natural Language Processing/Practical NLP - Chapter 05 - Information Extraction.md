@@ -1,7 +1,7 @@
 ---
 type: reading-section
 book: "[[Practical Natural Language Processing]]"
-status: in_progress
+status: completed
 chapter: 5
 start_page: 293
 end_page: 351
@@ -322,6 +322,207 @@ Load dataset
 - Sách nhấn mạnh các bước train NER ở mức cao vẫn giống pipeline text classifiers ở Chapter 04.
 - Điểm khác biệt cốt lõi nằm ở loại dữ liệu, feature ngữ cảnh, và việc dùng sequence classifier thay vì classifier độc lập từng sample.
 
+## Named Entity Disambiguation and Linking
+
+![[practical-nlp-entity-linking-ibm-figure-5-8.png]]
+
+**Ý chính:** Figure 5-8 minh họa entity linking như một bước nối entity mention trong bài báo với entity thật trong thế giới/knowledge base. Output này giàu hơn NER vì nó không chỉ nói type, mà còn nói identity.
+
+Nguồn: [[Practical Natural Language Processing]] - Figure 5-8.
+
+### Bài toán là gì
+
+```text
+entity mention trong text
+-> dùng context để phân biệt nghĩa
+-> gán unique identity trong knowledge base
+```
+
+- Named entity disambiguation (NED) là task gán một identity duy nhất cho entity được nhắc trong text.
+- [[Named Entity Recognition]] + NED thường được gọi là named entity linking (NEL).
+- Ví dụ `Lincoln drives a Lincoln Aviator and lives on Lincoln Way`: ba mention `Lincoln` không cùng một thực thể; chúng có thể là person, vehicle và location.
+- NEL là bước chuyển từ “có entity trong text” sang “entity này là thực thể cụ thể nào”, nên hữu ích cho [[Question Answering]], xây knowledge base/knowledge graph và các task IE sâu hơn.
+
+### Khác NER ở đâu
+
+- NER trả lời: span nào là entity và entity type là gì?
+- NED/NEL trả lời: entity mention đó trỏ tới thực thể cụ thể nào trong world/knowledge base?
+- Vì vậy output của NEL có thể là link tới Wikipedia/DBpedia hoặc ID nội bộ trong knowledge base.
+- Khi NEL thành công, thông tin sau đó dùng được cho [[Relation Extraction]] vì hệ thống biết đang nối đúng các entity cụ thể, không chỉ nối các chuỗi chữ.
+
+### Yêu cầu pipeline
+
+```text
+NER output
+-> parsing / linguistic context
+-> coreference resolution nếu cần
+-> candidate entities trong KB
+-> disambiguation
+-> linked entity
+```
+
+- NEL vẫn dựa vào context như NER, nhưng thường cần preprocessing sâu hơn POS tagging.
+- Tối thiểu, hệ thống có thể cần parsing để nhận diện các item ngôn ngữ như subject, verb và object.
+- Coreference resolution giúp gom nhiều cách nhắc cùng một entity, ví dụ `Albert Einstein`, `Einstein`, `the scientist`.
+- NEL thường được model như supervised ML problem và đánh giá bằng precision, recall, F1 trên test set chuẩn.
+- Để train NEL cần annotated dataset lớn và một encyclopedic resource/knowledge base để link vào.
+
+### Cách triển khai thực tế
+
+- Sách nêu Azure Text Analytics API và DBpedia Spotlight như ví dụ công cụ dùng cho entity linking.
+- API có thể trả entity type kèm link Wikipedia nếu tìm được, ví dụ `San Francisco` trỏ tới location cụ thể hoặc `Alex Jones` trỏ tới một person cụ thể.
+- Với industry, sách ghi nhận việc dùng off-the-shelf, pay-as-you-use NEL services thường phổ biến hơn tự xây system in-house vì NEL chuyên biệt và cần tài nguyên lớn.
+
+### Giới hạn và trade-off
+
+- NEL system không hoàn hảo, nhất là với tên mới hoặc domain-specific terms.
+- Vì NEL phụ thuộc parsing, coreference và text cleanup, lỗi ở các bước trước sẽ lan sang output entity linking.
+- Khi dùng third-party services, mình ít kiểm soát cách hệ thống thích nghi với domain hoặc cách sửa internal behavior.
+- Bài học triển khai: dùng NEL khi downstream workflow thật sự cần identity cụ thể; nếu chỉ cần tag type/entity span, NER có thể đủ nhẹ hơn.
+
+## Relationship Extraction
+
+![[practical-nlp-relation-extraction-demo-figure-5-10.png]]
+
+**Ý chính:** Figure 5-10 minh họa RE như graph: entities là nodes, relation labels là cạnh nối giữa nodes. Đây là bước biến entity rời rạc thành knowledge base có cấu trúc.
+
+Nguồn: [[Practical Natural Language Processing]] - Figure 5-10.
+
+### RE là gì
+
+```text
+entity 1 + entity 2 + context
+-> hai entity có liên quan không?
+-> nếu có, relation label là gì?
+```
+
+- [[Relation Extraction|Relationship extraction]] là IE task trích entities và quan hệ giữa chúng từ text documents.
+- RE là bước quan trọng để xây knowledge base, cải thiện search và phát triển [[Question Answering]] systems.
+- Ví dụ từ bài Apple: `(Luca Maestri, finance chief, Apple)` nối person với organization bằng quan hệ `finance chief`.
+- Ví dụ Figure 5-10: `Narayana Nadella` có relation với `Microsoft` như employee/member, và relation citizenship với `Indian`, `American`.
+
+### Vì sao khó hơn NER/NEL
+
+- KPE, NER và NEL giúp tìm keyphrases/entities/identity, nhưng RE phải đi thêm bước “connect” các entity bằng relation.
+- RE cần xét words nằm giữa entities, sense của cách dùng trong câu, và đôi khi cả syntactic structure.
+- Câu hỏi “relation là gì?” phụ thuộc domain. Medical domain có thể cần injury/treatment/location/cause; financial domain có schema relation khác.
+- Vì relation schema phụ thuộc domain, một model hoặc pattern chung có thể không đủ cho production.
+
+### Approaches to RE
+
+```text
+Handwritten patterns
+-> supervised classification
+-> bootstrapping / distant supervision
+-> open IE
+```
+
+- Hand-built patterns dùng regular expressions hoặc pattern ngôn ngữ để bắt relation cụ thể.
+- Ví dụ pattern `PER, [something] of ORG` có thể gợi ý relation kiểu “is-a-part-of” giữa person và organization.
+- Pattern-based RE thường có precision cao khi pattern đúng, nhưng coverage thấp và khó tạo đủ pattern cho mọi relation trong domain.
+- Supervised RE thường dùng dataset có pre-defined relations, tương tự [[Text Classification]] nhưng ở mức entity pair.
+- Sách mô tả supervised RE như bài toán 2 bước:
+  1. Hai entities trong text có liên quan không? Đây là binary classification.
+  2. Nếu có liên quan, relation giữa chúng là gì? Đây là multiclass classification.
+- Feature có thể gồm handcrafted features, context quanh entity như trong NER, syntactic structure như `NP VP NP`, hoặc embedding representations + neural network architecture.
+- Bootstrapping bắt đầu từ seed patterns nhỏ, rồi học thêm pattern mới từ các sentence được trích.
+- [[Distant Supervision]] dùng database lớn như Wikipedia hoặc Freebase để tạo nhiều examples relation, sau đó train supervised model.
+- [[Weak Supervision]] hữu ích khi không có training data rõ ràng, ví dụ dùng Snorkel để học relation cụ thể từ labeling functions/rules.
+
+### Open IE
+
+```text
+sentence
+-> extract relation tuples
+-> <verb, argument1, argument2, ...>
+```
+
+- Unsupervised RE, còn gọi là open IE, cố gắng trích relation mà không cần training data hoặc danh sách relation có sẵn.
+- Output thường là tuple theo động từ và arguments, ví dụ `<published, Albert Einstein, the theory of relativity, in 1915>`.
+- Điểm mạnh: có thể bắt nhiều relation mở mà không cần schema định trước.
+- Điểm khó: muốn đưa vào database chuẩn thì phải map output mở về relation set chuẩn như `fatherOf`, `motherOf`, `inventorOf`.
+- Nếu cần relation cụ thể từ open IE output, thường phải kết hợp NER/NEL, coreference resolution và procedure riêng để chuẩn hóa.
+
+### Dịch vụ có sẵn và trade-off
+
+- Sách nêu IBM Watson Natural Language Understanding như ví dụ service trích relation giữa entities.
+- Watson dùng supervised model với preset list of relations, nên relation ngoài danh sách đó sẽ không được extract.
+- RE chưa phải solved problem; performance phụ thuộc domain và text type.
+- Output tốt trên Wikipedia article không đảm bảo tốt trên general news hoặc social media text.
+- Practical advice của sách: bắt đầu bằng pattern-based approaches và dùng một dạng weak supervision khi pretrained supervised models không hợp domain.
+
+## Other Advanced IE Tasks
+
+- Sách chuyển sang ba task chuyên biệt hơn: temporal IE, event extraction và template filling.
+- Các task này ít gặp hơn trong industry so với KPE, NER, NEL hay RE, nhưng rất hữu ích khi domain có pattern nghiệp vụ rõ.
+
+### Temporal Information Extraction
+
+![[practical-nlp-temporal-ie-duckling-figure-5-14.png]]
+
+**Ý chính:** Temporal IE không chỉ trích `3 p.m.`, `today`, `Friday`, mà còn chuẩn hóa chúng sang thời điểm có thể dùng trong calendar hoặc assistant.
+
+Nguồn: [[Practical Natural Language Processing]] - Figure 5-14.
+
+- Temporal IE gồm hai phần: extract temporal expression và normalize nó về standard date-time form.
+- Extraction có thể làm bằng regex hoặc supervised sequence labeling như NER.
+- Normalization khó hơn vì phải map biểu thức tương đối theo ngữ cảnh.
+- Sách nhắc Duckling như một off-the-shelf package hữu ích để bắt đầu, cùng với SUTime, Natty, Parsedatetime và Chronic.
+
+### Event Extraction
+
+![[practical-nlp-event-extraction-twitter-figure-5-15.png]]
+
+**Ý chính:** Event extraction cố gắng hiểu “chuyện gì đang xảy ra” và có thể nối nhiều bài viết/tweet về cùng event.
+
+Nguồn: [[Practical Natural Language Processing]] - Figure 5-15.
+
+- Event extraction nhận diện event và các thông tin liên quan đến event đó.
+- Mục tiêu cuối là tạo temporally ordered event graph.
+- Sách mô tả task này như supervised learning problem, với sequence tagging và multilevel classifiers.
+- Đây vẫn là active research area và sách không biết có off-the-shelf service hoặc package generic cho task này.
+- Practical advice của sách: bắt đầu bằng rule-based approach dựa trên domain knowledge, rồi follow up bằng [[Weak Supervision]]; khi có thêm data thì chuyển dần sang ML.
+
+### Template Filling
+
+![[practical-nlp-template-filling-figure-5-17.png]]
+
+**Ý chính:** Template filling coi text generation như slot filling: schema đã biết trước, model chỉ cần điền đúng các ô.
+
+Nguồn: [[Practical Natural Language Processing]] - Figure 5-17.
+
+- Template filling phù hợp với weather reports, financial reports hoặc các format tương đối cố định.
+- Sách mô tả đây là bài toán supervised ML hai giai đoạn:
+  1. Xác định sentence có template hay không.
+  2. Xác định slot fillers cho template, với classifier riêng cho từng slot.
+- Đây là task specialized, domain-dependent.
+- Sách không biết có off-the-shelf service provider phổ biến nào cho task này.
+- BBC coverage of 2019 UK elections là ví dụ real-world cho template-based text generation.
+
+## Case Study
+
+![[practical-nlp-meeting-information-extraction-figure-5-18.png]]
+
+**Ý chính:** Case study mở đầu bằng luồng email -> meeting invite, cho thấy bài toán không chỉ trích entity mà còn phải tạo một workflow nghiệp vụ hoàn chỉnh: nhận ra meeting, date, time, room, invitees và sinh hành động tiếp theo.
+
+Nguồn: [[Practical Natural Language Processing]] - Figure 5-18.
+
+![[practical-nlp-meeting-extraction-pipeline-figure-5-19.png]]
+
+**Ý chính:** Figure 5-19 cho thấy cách xây hệ thống IE theo pha: bắt đầu bằng rule/cloud service + manual validation, rồi CRF + rule-based classifier, rồi nâng cấp lên LSTM/BERT khi có đủ labeled data.
+
+Nguồn: [[Practical Natural Language Processing]] - Figure 5-19.
+
+- Sách kết thúc phần này bằng một meeting extraction system cho enterprise email.
+- Giả định ban đầu là one meeting per email để biến bài toán thành MVP rõ ràng hơn.
+- Có thể dùng labeled data từ lịch/bookings + email, hoặc dùng weak supervision / bootstrapping từ pre-built services như Google Cloud NLP hay AWS Comprehend.
+- Dữ liệu tạo tự động từ service nên được manual validation trước khi train model.
+- Với data đủ lớn, có thể dùng CRF cho entity fields và rule-based classifier cho meeting type.
+- Khi hệ thống đi vào production, có thể dùng user feedback như accept/reject rates và conflict rates để thu thêm dữ liệu.
+- Sau khi đủ khoảng 5–10K labeled sentences, sách gợi ý thử BERT fine-tuning cho phần language understanding.
+- Nếu email có multiple meetings hoặc ambiguous mentions, bài toán trở thành multiclass/multilabel khó hơn và có thể cần LSTM/GRU để model context sâu hơn.
+- Bài học chung của case study là: bắt đầu nhỏ, bootstrap dữ liệu, kiểm tra thủ công, rồi tăng dần độ phức tạp của model khi dữ liệu và nhu cầu đủ lớn.
+
 ## Câu hỏi review
 
 1. IE khác [[Text Classification]] ở câu hỏi đầu ra như thế nào?
@@ -349,10 +550,30 @@ Load dataset
 23. Rule-based NER đi xa hơn lookup table ở điểm nào?
 24. Vì sao NER được xem là sequence labeling chứ không phải classification độc lập từng từ?
 25. BIO notation mã hóa multi-word entity như thế nào?
+26. Named entity disambiguation khác NER ở câu hỏi đầu ra như thế nào?
+27. Vì sao NEL thường cần parsing hoặc coreference resolution, không chỉ POS tagging?
+28. Khi nào nên dùng dịch vụ NEL có sẵn thay vì tự train model in-house?
+29. RE khác NER/NEL ở output cuối cùng như thế nào?
+30. Vì sao “relation schema” thường phụ thuộc domain?
+31. Pattern-based RE có trade-off precision/coverage ra sao?
+32. Supervised RE có thể được tách thành hai bài toán classification nào?
+33. Distant supervision khác bootstrapping seed pattern ở điểm nào?
+34. Open IE mạnh và yếu ở đâu khi muốn đưa output vào database chuẩn?
+35. Vì sao RE service có preset relation list có thể bỏ sót quan hệ mình cần?
 
 ## Gợi ý trả lời câu hỏi review
 
-- Dùng ví dụ một hóa đơn, một tin tức hoặc một hồ sơ y tế để chỉ ra entity, relation và event.
+- IE vs Text Classification: classification trả một label cho whole document; IE trả ra spans, entities, relations, events hoặc slots có cấu trúc.
+- KPE vs NER: KPE tìm cụm từ đại diện cho gist; NER tìm mention có type rõ ràng như person, organization, location.
+- NER vs Entity Linking: NER dừng ở span/type; entity linking gán identity cụ thể trong KB như Wikipedia/DBpedia.
+- NEL cần parsing và coreference resolution vì nhiều mention khác nhau có thể trỏ cùng một thực thể; context quanh mention là tín hiệu quyết định.
+- RE cần entity pair + context + relation schema theo domain; pattern-based thì precision cao nhưng coverage thấp, supervised thì thường là bài toán related/not related rồi relation label.
+- Distant supervision sinh noisy labels từ KB lớn; open IE không cần schema cố định nhưng khó map về relation chuẩn.
+- Temporal IE gồm extraction + normalization; extraction có thể bằng regex hoặc sequence labeling, normalization phải map biểu thức tương đối như `today` hay `Friday` sang thời điểm chuẩn.
+- Event extraction cố hiểu “chuyện gì đã xảy ra” và nối event theo thời gian; sách xem nó là supervised learning problem, thường dùng sequence tagging và multilevel classifiers.
+- Template filling hợp với schema cố định: xác định template có xuất hiện không, rồi điền từng slot filler.
+- IE production thường là hybrid: bắt đầu bằng rule/bootstrapping/weak supervision, validate tay, sau đó mới nâng cấp model khi có đủ data và feedback.
+- Case study meeting extraction cho thấy nên bắt đầu bằng giả định hẹp, bootstrap nhãn từ lịch/email/service, dùng CRF cho entity fields, rồi nâng cấp dần lên BERT/LSTM/GRU.
 
 ## Liên kết
 

@@ -37,8 +37,22 @@ Extracted data
 - Template filling hợp khi domain có schema tương đối ổn định và các trường cần điền được biết trước.
 - Task này nối [[Information Extraction]] với workflow sinh báo cáo, thông báo hoặc record có cấu trúc.
 
+## Cách làm
+
+- Sách mô tả template filling như một bài toán supervised ML hai giai đoạn.
+- Bước 1: xác định trong sentence có template đó hay không.
+- Bước 2: xác định slot fillers cho template, với classifier riêng cho từng slot.
+- Work đang tiếp tục về việc tự động induce template.
+
+## Giới hạn
+
+- Đây là bài toán specialized, domain-dependent.
+- Sách nói không biết có off-the-shelf service provider phổ biến nào cho task này.
+- Kết quả tốt nhất thường xuất hiện khi schema đã ổn định và dữ liệu đầu vào tương đối chuẩn.
+
 ## Liên kết
 
 - [[Information Extraction]]
 - [[Event Extraction]]
+- [[Temporal Information Extraction]]
 - [[Relation Extraction]]
