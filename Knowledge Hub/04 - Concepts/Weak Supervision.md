@@ -34,6 +34,7 @@ Unlabeled texts
 ```
 
 - Practical NLP gọi hướng này là bootstrapping hoặc weak supervision trong tình huống chưa có training data.
+- Trong relation extraction, [[Distant Supervision]] là một biến thể phổ biến: thay vì viết rule cho text, mình khai thác knowledge base lớn để sinh noisy labels cho cặp entity.
 - Ví dụ complaint routing: billing request có thể chứa từ liên quan tới `bill` hoặc số tiền; delivery request có thể chứa từ liên quan tới shipping hoặc delay.
 - Các pattern này tạo annotated dataset nhỏ và có thể nhiễu, rồi dùng để train classifier hoặc annotate dữ liệu lớn hơn.
 - Snorkel là ví dụ công cụ được sách nhắc tới để triển khai weak supervision cho classification.
@@ -47,6 +48,7 @@ Unlabeled texts
 ## Liên kết
 
 - [[Text Classification]]
+- [[Distant Supervision]]
 - [[Semi-supervised Learning]]
 - [[Few-shot Learning]]
 - [[NLP Pipeline]]

@@ -69,7 +69,7 @@ GROUP BY book
 - [x] [[Practical NLP - Chapter 02 - NLP Pipeline]] - tự note nền trước daily
 - [x] [[Practical NLP - Chapter 03 - Text Representation]] - tự note nền trước daily
 - [x] [[Practical NLP - Chapter 04 - Text Classification]]
-- [ ] [[Practical NLP - Chapter 05 - Information Extraction]]
+- [x] [[Practical NLP - Chapter 05 - Information Extraction]]
 - [ ] [[Practical NLP - Chapter 06 - Chatbots]]
 - [ ] [[Practical NLP - Chapter 07 - Topics in Brief]]
 - [ ] [[Practical NLP - Chapter 08 - Social Media]]

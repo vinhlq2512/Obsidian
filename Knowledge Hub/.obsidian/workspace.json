@@ -36,8 +36,21 @@
               "icon": "lucide-file",
               "title": "Practical NLP - Chapter 05 - Information Extraction"
             }
+          },
+          {
+            "id": "8ecbca5fcc67a0cd",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "06 - Attachments/practical-nlp-ner-displacy-figure-5-6.png"
+              },
+              "icon": "lucide-image",
+              "title": "practical-nlp-ner-displacy-figure-5-6"
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -201,22 +214,35 @@
       "bases:Create new base": false
     }
   },
-  "active": "60d8bed51b0015a7",
+  "active": "8ecbca5fcc67a0cd",
   "lastOpenFiles": [
+    "04 - Concepts/Dialog Act Classification.md",
+    "04 - Concepts/Dialog System.md",
+    "06 - Attachments/practical-nlp-meeting-extraction-pipeline-figure-5-19.png",
+    "06 - Attachments/practical-nlp-meeting-information-extraction-figure-5-18.png",
+    "tmp_case/p350-350.png",
+    "tmp_case/p-351.png",
+    "tmp_case/p-350.png",
+    "tmp_case/p-349.png",
+    "tmp_case/p-348.png",
+    "tmp_case",
+    "06 - Attachments/practical-nlp-template-filling-figure-5-17.png",
+    "06 - Attachments/practical-nlp-event-extraction-twitter-figure-5-15.png",
+    "06 - Attachments/practical-nlp-temporal-ie-duckling-figure-5-14.png",
+    "tmp/pdfs",
+    "tmp",
+    "04 - Concepts/Temporal Information Extraction.md",
+    "04 - Concepts/Distant Supervision.md",
+    "03 - Daily Reading/Practical Natural Language Processing/07-08-2026.md",
     "04 - Concepts/Sequence Labeling.md",
     "04 - Concepts/Gazetteer.md",
-    "06 - Attachments/practical-nlp-ner-bio-training-data-figure-5-7.png",
-    "06 - Attachments/practical-nlp-ner-displacy-figure-5-6.png",
-    "06 - Attachments/practical-nlp-kpe-amazon-read-reviews-figure-5-4.png",
     "04 - Concepts/Information Extraction Pipeline.md",
-    "06 - Attachments/practical-nlp-ie-pipeline-figure-5-3.png",
     "04 - Concepts/Template Filling.md",
     "04 - Concepts/Event Extraction.md",
     "04 - Concepts/Relation Extraction.md",
     "04 - Concepts/Entity Linking.md",
     "04 - Concepts/Keyphrase Extraction.md",
     "02 - Sections/Practical Natural Language Processing/Practical NLP - Chapter 05 - Information Extraction.md",
-    "03 - Daily Reading/Practical Natural Language Processing/07-08-2026.md",
     "03 - Daily Reading/Practical Natural Language Processing/06-08-2026.md",
     "04 - Concepts/Ensemble Learning.md",
     "04 - Concepts/Information Extraction.md",
@@ -232,17 +258,10 @@
     "00 - Sources/PDFs/Books/Natural Language Processing with Transformers.pdf",
     "00 - Sources/PDFs/Books/Hands-On Large Language Models.pdf",
     "02 - Sections/Practical Natural Language Processing/Practical NLP - Chapter 03 - Text Representation.md",
-    "02 - Sections/Practical Natural Language Processing/Practical NLP - Chapter 02 - NLP Pipeline.md",
-    "02 - Sections/Practical Natural Language Processing/Practical NLP - Chapter 04 - Text Classification.md",
-    "02 - Sections/Practical Natural Language Processing/Practical NLP - Chapter 01 - NLP A Primer.md",
-    "03 - Daily Reading/Practical Natural Language Processing/04-08-2026.md",
     "03 - Daily Reading/Practical Natural Language Processing",
     "02 - Sections/Practical Natural Language Processing",
     "00 - Sources/CS224n/2011 - Natural Language Processing Almost from Scratch - JMLR.pdf",
     "00 - Sources/CS224n/1803.03635v5.pdf",
-    "02 - Sections/CS224N",
-    "00 - Sources/CS224n/2025 - Reconstruction Alignment Improves Unified Multimodal Models - arXiv 2509.07295v3.pdf",
-    "00 - Sources/CS224n/2025 - OneFlow - Concurrent Mixed-Modal and Interleaved Generation with Edit Flows - arXiv 2510.03506v3.pdf",
     "Untitled.canvas"
   ]
 }
