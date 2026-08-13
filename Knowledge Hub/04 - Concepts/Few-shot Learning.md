@@ -1,14 +1,19 @@
 ---
 type: concept
-status: seed
+status: developing
 sources:
   - "[[NLP Transformers - Chapter 09 - Dealing with Few to No Labels]]"
   - "[[Practical Natural Language Processing]]"
+  - "[[20 - Research/Papers/Consistent Prototype Learning for Few-Shot Continual Relation Extraction]]"
+  - "[[20 - Research/Papers/Making Pre-trained Language Models Better Continual Few-Shot Relation Extractors]]"
 source_sections:
   - "[[NLP Transformers - Chapter 09 - Dealing with Few to No Labels]]"
   - "[[Practical NLP - Chapter 04 - Text Classification]]"
+  - "[[20 - Research/Papers/Consistent Prototype Learning for Few-Shot Continual Relation Extraction#Bài toán NK-CRE]]"
+  - "[[20 - Research/Papers/Making Pre-trained Language Models Better Continual Few-Shot Relation Extractors#Continual Few-Shot Relation Extraction là gì?]]"
 first_seen: 2026-08-03
-last_updated: 2026-08-11
+last_updated: 2026-08-13
+updated_at: 2026-08-13
 tags:
   - concept
   - few-shot
@@ -21,7 +26,7 @@ tags:
 
 Few-shot learning là thiết lập học khi mỗi class/task chỉ có rất ít ví dụ gán nhãn.
 
-Trong ngữ cảnh Chapter 09 của [[Natural Language Processing with Transformers]], few-shot nằm giữa hai cực:
+Trong ngữ cảnh Chapter 09 của [[01 - Books/Natural Language Processing with Transformers|Natural Language Processing with Transformers]], few-shot nằm giữa hai cực:
 
 ```text
 zero-shot: chưa có ví dụ gán nhãn trực tiếp
@@ -74,12 +79,36 @@ Few-shot không phải chỉ là "ít data", mà là tình huống mọi quyết
 
 Few-shot tốt nhất khi mình xem vài ví dụ như "neo nghĩa" cho label, không phải như một dataset đầy đủ. Với intent detection, vài câu mẫu giúp model hiểu `billing_issue` khác `refund_request` thế nào trong sản phẩm cụ thể.
 
+## Few-shot trong continual learning
+
+[[Continual Few-Shot Relation Extraction]] cho thấy “ít data” và “học liên tục” khuếch đại lẫn nhau:
+
+- prototype của class mới được ước lượng từ rất ít points nên có variance cao;
+- update nhiễu từ class mới làm class cũ dễ quên hơn;
+- replay buffer mỗi class nhỏ nên model có thể overfit memory;
+- relation gần nghĩa cần hard-negative/contrastive objective;
+- task đầu có nhiều data có thể làm benchmark trông dễ hơn thực tế.
+
+ConPL vì vậy đề xuất NK-CRE: mọi task, kể cả task đầu, đều N-way K-shot. Khi đọc một benchmark few-shot continual, cần kiểm tra riêng số examples của base task thay vì chỉ nhìn tên setting.
+
+## Ba cách bù tín hiệu khi K nhỏ
+
+```text
+[[Prototype Learning]] -> nén class thành điểm neo
+[[Prompt Tuning]] -> khai thác prior của pretrained model
+[[Data Augmentation]] -> mở rộng support quan sát được
+```
+
+Mỗi cách đều có bias: prototype che multimodality, prompt phụ thuộc template/init, augmentation có thể đổi nhãn. Kết hợp không tự đảm bảo tốt; cần ablation theo dataset và shot count.
+
 ## Câu hỏi review
 
 1. Few-shot khác zero-shot ở đâu?
 2. Vì sao không nên fine-tune ngay khi chỉ có vài ví dụ?
 3. Embedding lookup dùng few-shot examples như thế nào?
 4. Vì sao few-shot evaluation dễ bị nhiễu?
+5. Vì sao task đầu nhiều data làm continual few-shot benchmark lạc quan?
+6. Prototype, prompt và augmentation bù thiếu data theo ba cách khác nhau ra sao?
 
 ## Liên kết
 
@@ -90,3 +119,8 @@ Few-shot tốt nhất khi mình xem vài ví dụ như "neo nghĩa" cho label, k
 - [[Data Augmentation]]
 - [[Active Learning]]
 - [[Domain Adaptation]]
+- [[Continual Few-Shot Relation Extraction]]
+- [[Continual Learning]]
+- [[Prototype Learning]]
+- [[Prompt Tuning]]
+- [[Catastrophic Forgetting]]
