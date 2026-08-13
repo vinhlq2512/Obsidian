@@ -1,12 +1,21 @@
 ---
 type: concept
-status: seed
+status: developing
 sources:
   - "[[Practical Natural Language Processing]]"
+  - "[[Adaptive Prompting for Continual Relation Extraction]]"
+  - "[[WAVE++ - Capturing Within-Task Variance for Continual Relation Extraction]]"
+  - "[[20 - Research/Papers/Consistent Prototype Learning for Few-Shot Continual Relation Extraction]]"
+  - "[[20 - Research/Papers/Making Pre-trained Language Models Better Continual Few-Shot Relation Extractors]]"
 source_sections:
   - "[[Practical NLP - Chapter 05 - Information Extraction]]"
+  - "[[Adaptive Prompting for Continual Relation Extraction#Bài toán và formulation]]"
+  - "[[WAVE++ - Capturing Within-Task Variance for Continual Relation Extraction#Vấn đề paper giải quyết]]"
+  - "[[20 - Research/Papers/Consistent Prototype Learning for Few-Shot Continual Relation Extraction#Bài toán NK-CRE]]"
+  - "[[20 - Research/Papers/Making Pre-trained Language Models Better Continual Few-Shot Relation Extractors#Continual Few-Shot Relation Extraction là gì?]]"
 first_seen: 2026-08-11
-last_updated: 2026-08-11
+last_updated: 2026-08-13
+updated_at: 2026-08-13
 tags:
   - concept
   - nlp
@@ -92,6 +101,43 @@ entity pair
 - Model hoặc API chạy tốt trên Wikipedia chưa chắc chạy tốt trên general news hoặc social media.
 - Practical NLP khuyên bắt đầu bằng pattern-based approach và thêm weak supervision khi supervised pretrained model không hợp domain.
 
+## Relation Extraction trong setting liên tục
+
+[[Continual Relation Extraction]] mở rộng RE từ label space cố định sang chuỗi relation sets xuất hiện theo task. Sau mỗi task, model phải dự đoán trên union relation đã thấy nhưng dữ liệu cũ có thể không còn truy cập được.
+
+```text
+RE thường:
+train trên relation taxonomy cố định -> test cùng taxonomy
+
+CRE:
+task 1 relations -> task 2 relations -> ...
+-> test trên toàn bộ relations đã thấy
+```
+
+Các khó khăn mới không nằm ở RE encoder alone:
+
+- [[Catastrophic Forgetting]] trên representation và classifier;
+- chọn đúng task/prompt khi inference qua [[Task Identity Inference]];
+- few-shot và class imbalance trong [[Continual Few-Shot Relation Extraction]];
+- memory/privacy trade-off của [[Replay in Continual Learning]];
+- relations gần nghĩa cần [[Prototype Learning]] hoặc [[Contrastive Learning]] để tách.
+
+Bốn paper mới tạo một progression hữu ích:
+
+| Công trình | Trọng tâm |
+|---|---|
+| ConPL | Prototype consistency + episodic memory trong NK-CRE |
+| CPL | Hybrid prompt + margin-based contrastive learning + LLM augmentation |
+| WAVE-CRE | Task prompt pools + latent replay, không lưu raw examples |
+| WAVE++ | Label descriptions + cascade task voting + ablation sâu hơn |
+
+## Câu hỏi review bổ sung
+
+1. RE class-incremental thêm bài toán nào ngoài phân loại relation?
+2. Tại sao hai câu có cùng entity types vẫn cần representation đủ phân biệt?
+3. Khi nào prototype classifier phù hợp hơn fixed softmax head?
+4. “Không lưu raw examples” có loại bỏ toàn bộ memory trong CRE không?
+
 ## Liên kết
 
 - [[Information Extraction]]
@@ -101,3 +147,9 @@ entity pair
 - [[Weak Supervision]]
 - [[Distant Supervision]]
 - [[Question Answering]]
+- [[Continual Relation Extraction]]
+- [[Continual Few-Shot Relation Extraction]]
+- [[Catastrophic Forgetting]]
+- [[Prototype Learning]]
+- [[Replay in Continual Learning]]
+- [[Task Identity Inference]]

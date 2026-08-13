@@ -4,6 +4,7 @@ status: seed
 sources:
   - "[[NLP Transformers - Chapter 03 - Transformer Anatomy]]"
   - "[[Self-Attention]]"
+  - "[[Attention Is All You Need]]"
 tags:
   - concept
   - transformer
@@ -27,6 +28,8 @@ Một self-attention head giống như một "góc nhìn" về câu. Nếu chỉ
 - Một head chú ý từ khóa quan trọng cho classification.
 
 Vì vậy multi-head attention không chỉ hỏi "token nào quan trọng?", mà hỏi câu đó theo nhiều cách khác nhau cùng lúc.
+
+Trong [[Attention Is All You Need]], authors mô tả lợi ích chính là cho model cùng lúc attend tới thông tin từ các representation subspaces khác nhau và các vị trí khác nhau; single head dễ bị averaging làm mất độ phân giải. [[Attention Is All You Need.pdf#page=5|PDF tr. 5]]
 
 ## Công thức trực giác
 
@@ -103,6 +106,7 @@ So sánh:
 - Các heads chạy song song, không chạy tuần tự.
 - Attention weights của mỗi head có thể khác nhau.
 - Output của các heads được concat rồi project bằng $W^O$.
+- Transformer base trong paper gốc dùng $h=8$ heads và $d_k=d_v=d_{\text{model}}/h=64$, để tổng compute gần với single-head full-dimensional attention. [[Attention Is All You Need.pdf#page=5|PDF tr. 5]]
 - Số heads là hyperparameter quan trọng; quá ít heads có thể thiếu góc nhìn, quá nhiều heads có thể làm mỗi head quá nhỏ hoặc gây dư thừa.
 - Multi-head attention vẫn có chi phí attention theo độ dài sequence, thường là $O(n^2)$ theo số token.
 
@@ -112,4 +116,5 @@ So sánh:
 - [[Cross-Attention]]
 - [[Bidirectional Attention]]
 - [[Transformer]]
+- [[Attention Is All You Need]]
 - [[NLP Transformers - Chapter 03 - Transformer Anatomy]]

@@ -4,6 +4,7 @@ status: seed
 sources:
   - "[[NLP Transformers - Chapter 01 - Hello Transformers]]"
   - "[[NLP Transformers - Chapter 03 - Transformer Anatomy]]"
+  - "[[Attention Is All You Need]]"
 tags:
   - concept
   - transformer
@@ -45,6 +46,8 @@ English sentence
 
 Encoder nhận toàn bộ input ngay từ đầu. Vì vậy encoder thường dùng bidirectional self-attention: mỗi token có thể nhìn cả token bên trái và bên phải trong input.
 
+Trong Transformer gốc, encoder là stack $N=6$ layers; mỗi layer có multi-head self-attention và position-wise feed-forward network, bọc bằng residual connection và layer normalization. [[Attention Is All You Need.pdf#page=3|PDF tr. 3]]
+
 Vai trò chính:
 
 - Tạo representation giàu ngữ cảnh cho input.
@@ -54,6 +57,8 @@ Vai trò chính:
 ## Decoder làm gì?
 
 Decoder sinh output từ trái sang phải. Khi đang sinh token tiếp theo, decoder chỉ được nhìn các token output đã sinh trước đó, nên nó dùng causal self-attention.
+
+Trong Transformer gốc, decoder cũng có $N=6$ layers nhưng thêm encoder-decoder attention giữa masked self-attention và feed-forward network. Mask trong decoder ngăn vị trí hiện tại attend tới token tương lai. [[Attention Is All You Need.pdf#page=3|PDF tr. 3]]
 
 Vai trò chính:
 
@@ -144,5 +149,6 @@ Nghĩa là token output hiện tại được dự đoán từ hai nguồn:
 - [[Self-Attention]]
 - [[Multi-Head Attention]]
 - [[Bidirectional Attention]]
+- [[Attention Is All You Need]]
 - [[NLP Transformers - Chapter 01 - Hello Transformers]]
 - [[NLP Transformers - Chapter 03 - Transformer Anatomy]]

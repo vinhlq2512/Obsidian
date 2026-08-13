@@ -4,6 +4,7 @@ status: seed
 sources:
   - "[[NLP Transformers - Chapter 01 - Hello Transformers]]"
   - "[[Transformer]]"
+  - "[[Attention Is All You Need]]"
 tags:
   - concept
   - transformer
@@ -50,6 +51,8 @@ Self-attention thường dùng scaled dot-product attention:
 $$
 \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
 $$
+
+Trong [[Attention Is All You Need]], scaling bằng $\sqrt{d_k}$ được dùng vì dot product có thể tăng magnitude khi $d_k$ lớn, làm softmax rơi vào vùng gradient rất nhỏ. [[Attention Is All You Need.pdf#page=4|PDF tr. 4]]
 
 Các bước chính:
 
@@ -110,6 +113,7 @@ Các con số chỉ để minh họa. Ý nghĩa là embedding mới của `flies
 - Scaling bằng $\sqrt{d_k}$ giúp attention scores không quá lớn trước softmax.
 - [[Multi-Head Attention]] chạy nhiều attention head song song để học nhiều kiểu quan hệ khác nhau.
 - Self-attention giúp Transformer học quan hệ dài tốt hơn RNN, nhưng chi phí tính toán tăng mạnh theo độ dài sequence.
+- Paper gốc nhấn mạnh trade-off: self-attention có path length $O(1)$ và sequential operations $O(1)$, nhưng complexity theo sequence length là $O(n^2d)$. [[Attention Is All You Need.pdf#page=6|PDF tr. 6]]
 - Trong encoder-only models, self-attention thường là [[Bidirectional Attention]], nghĩa là token được nhìn cả context trái và phải.
 
 ## Liên kết
@@ -119,5 +123,6 @@ Các con số chỉ để minh họa. Ý nghĩa là embedding mới của `flies
 - [[Cross-Attention]]
 - [[Attention Mask]]
 - [[Bidirectional Attention]]
+- [[Attention Is All You Need]]
 - [[NLP Transformers - Chapter 01 - Hello Transformers]]
 - [[NLP Transformers - Chapter 03 - Transformer Anatomy]]

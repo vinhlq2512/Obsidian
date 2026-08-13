@@ -3,6 +3,7 @@ type: concept
 status: seed
 sources:
   - "[[NLP Transformers - Chapter 03 - Transformer Anatomy]]"
+  - "[[Attention Is All You Need]]"
 tags:
   - concept
   - transformer
@@ -72,6 +73,8 @@ Trong đó:
 
 Positional embeddings không bắt buộc phải learnable. Transformer gốc dùng sinusoidal positional encodings cố định. Nhưng nhiều model, đặc biệt là BERT-style models, dùng **learnable positional embeddings**: mỗi vị trí trong context window có một vector riêng và vector đó được cập nhật bằng backpropagation trong quá trình training.
 
+Paper gốc thử cả learned positional embeddings và sinusoidal positional encodings; Table 3 row E cho thấy kết quả gần như giống nhau trong setup EN-DE dev, còn sinusoidal được chọn vì authors hypothesize rằng nó có thể extrapolate tốt hơn sang sequence dài hơn training. [[Attention Is All You Need.pdf#page=6|PDF tr. 6]] [[Attention Is All You Need.pdf#page=9|PDF tr. 9]]
+
 Cách hiểu:
 
 ```text
@@ -136,4 +139,5 @@ Trade-off:
 - [[Embedding]]
 - [[Self-Attention]]
 - [[Multi-Head Attention]]
+- [[Attention Is All You Need]]
 - [[NLP Transformers - Chapter 03 - Transformer Anatomy]]

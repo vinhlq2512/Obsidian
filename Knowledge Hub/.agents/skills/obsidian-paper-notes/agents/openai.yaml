@@ -1,0 +1,4 @@
+interface:
+  display_name: "Obsidian Paper Notes"
+  short_description: "Create grounded paper notes in Obsidian"
+  default_prompt: "Use $obsidian-paper-notes to turn new research PDFs into paper notes, concepts, and literature notes in Knowledge Hub."
