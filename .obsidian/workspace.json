@@ -11,14 +11,12 @@
             "id": "ae3f007fb3ea330d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "Knowledge Hub/20 - Research/Papers/Attention Is All You Need.md",
-                "mode": "preview",
-                "source": false
+                "file": "Knowledge Hub/00 - Sources/Adaptive Prompting for Continual Relation Extraction- A Within-Task Variance Perspective.pdf"
               },
-              "icon": "lucide-file",
-              "title": "Attention Is All You Need"
+              "icon": "lucide-file-text",
+              "title": "Adaptive Prompting for Continual Relation Extraction- A Within-Task Variance Perspective"
             }
           }
         ]
@@ -191,9 +189,9 @@
   },
   "active": "ae3f007fb3ea330d",
   "lastOpenFiles": [
-    "Knowledge Hub/20 - Research/Papers/Adaptive Prompting for Continual Relation Extraction.md",
-    "Knowledge Hub/20 - Research/Papers/Attention Is All You Need.md",
     "Knowledge Hub/00 - Sources/PDFs/Papers/Attention Is All You Need.pdf",
+    "Knowledge Hub/20 - Research/Papers/Attention Is All You Need.md",
+    "Knowledge Hub/20 - Research/Papers/Adaptive Prompting for Continual Relation Extraction.md",
     "Knowledge Hub/00 - Sources/PDFs/Papers",
     "Knowledge Hub/00 - Sources/Attention Is All You Need.pdf",
     "Knowledge Hub/00 - Sources/1706.03762v7.pdf",
@@ -225,7 +223,6 @@
     "Knowledge Hub/04 - Concepts/Dialog System.md",
     "Knowledge Hub/03 - Daily Reading/Practical Natural Language Processing/07-08-2026.md",
     "Knowledge Hub/03 - Daily Reading/Practical Natural Language Processing/08-08-2026.md",
-    "Knowledge Hub/02 - Sections/Practical Natural Language Processing/Practical NLP - Chapter 05 - Information Extraction.md",
     "Knowledge Hub/06 - Attachments/practical-nlp-meeting-extraction-pipeline-figure-5-19.png",
     "Knowledge Hub/06 - Attachments/practical-nlp-meeting-information-extraction-figure-5-18.png",
     "Knowledge Hub/tmp_case/p350-350.png",
