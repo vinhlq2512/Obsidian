@@ -4,6 +4,8 @@ status: seed
 sources:
   - "[[Hands-On LLM - Chapter 11 - Fine-Tuning Representation Models for Classification]]"
   - "[[Hands-On LLM - Chapter 12 - Fine-Tuning Generation Models]]"
+  - "[[2025-09-24_how-fine-tuning-transforms-generic-ai-models-into-specialist]]"
+last_updated: 2026-08-16
 tags:
   - concept
   - fine-tuning
@@ -43,6 +45,16 @@ Pretrained model
 - [[Fine-Tuning XLM-RoBERTa]] là ví dụ fine-tuning encoder multilingual cho token classification/NER.
 - Nếu chỉ thiếu kiến thức ngoài, RAG có thể tốt hơn fine-tuning.
 - Với language model fine-tuning, validation có nhãn vẫn cần thiết để biết adaptation có giúp downstream task không.
+- Learning rate quá lớn có thể làm model quên năng lực nền; fine-tuning tốt thường điều chỉnh nhỏ, có validation set riêng.
+- Dataset ít nhưng sạch có thể giá trị hơn dataset lớn nhưng nhiễu.
+- Deployment phải tính xem cần full model riêng hay adapter có thể hot-swap trên cùng base model.
+
+## Các mục tiêu fine-tuning
+
+- Instruction fine-tuning: dạy base model làm theo instruction thay vì chỉ tiếp tục text.
+- Domain adaptation: làm model nhạy hơn với nghĩa chuyên ngành, ví dụ y tế, pháp lý, coding.
+- [[Preference Learning]]: dạy model chọn response phù hợp với judgment của người dùng hoặc verifier.
+- [[Parameter-Efficient Fine-Tuning]]: giảm chi phí customize bằng adapter, [[LoRA]] hoặc [[QLoRA]].
 
 ## Liên kết
 
@@ -53,4 +65,6 @@ Pretrained model
 - [[Domain Adaptation]]
 - [[Representation Model]]
 - [[Generative Model]]
+- [[Preference Learning]]
+- [[RLHF]]
 - [[DPO]]

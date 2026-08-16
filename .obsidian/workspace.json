@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Knowledge Hub/20 - Research/Papers/Attention Is All You Need.md",
-                "mode": "preview",
+                "file": "Knowledge Hub/20 - Research/Papers/Adaptive Prompting for Continual Relation Extraction.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Attention Is All You Need"
+              "title": "Adaptive Prompting for Continual Relation Extraction"
             }
           }
         ]
@@ -189,18 +189,30 @@
       "bases:Create new base": false
     }
   },
-  "active": "ae3f007fb3ea330d",
+  "active": "7d58f568e1e8dfa9",
   "lastOpenFiles": [
-    "Knowledge Hub/20 - Research/Papers/Adaptive Prompting for Continual Relation Extraction.md",
-    "Knowledge Hub/20 - Research/Papers/Attention Is All You Need.md",
+    "Knowledge Hub/06 - Attachments/2023-08-17_how-to-choose-a-message-queue_img_04.webp",
+    "Knowledge Hub/06 - Attachments/2026-07-30_a-detailed-guide-to-idempotency-delivery-semantics-and-dedup_img_04.png",
+    "Knowledge Hub/06 - Attachments/2025-09-18_understanding-load-balancers-traffic-management-at-scale_img_12.png",
+    "Knowledge Hub/06 - Attachments/2023-04-12_password-session-cookie-token-jwt-sso-oauth-authentication-e_img_01.webp",
+    "Knowledge Hub/06 - Attachments/2025-11-04_how-datadog-built-a-custom-database-to-ingest-billions-of-me_img_01.png",
+    "Knowledge Hub/06 - Attachments/2026-07-23_a-beginners-guide-to-clocks-causality-and-ordering-in-distri_img_02.png",
+    "Knowledge Hub/06 - Attachments/2025-11-03_how-perplexity-built-an-ai-google_img_03.png",
+    "Knowledge Hub/06 - Attachments/2025-11-06_top-strategies-to-share-data-between-services_img_06.png",
+    "Knowledge Hub/06 - Attachments/2026-06-11_must-know-deployment-strategies-from-big-bang-to-progressive_img_03.png",
+    "Knowledge Hub/06 - Attachments/2026-07-30_a-detailed-guide-to-idempotency-delivery-semantics-and-dedup_img_10.png",
+    "Knowledge Hub/06 - Attachments/2026-02-09_how-yelp-built-yelp-assistant_img_16.png",
+    "Knowledge Hub/00 - Sources/Unconfirmed 288303.crdownload",
+    "Knowledge Hub/00 - Sources/Adaptive Prompting for Continual Relation Extraction- A Within-Task Variance Perspective.pdf",
     "Knowledge Hub/00 - Sources/PDFs/Papers/Attention Is All You Need.pdf",
+    "Knowledge Hub/20 - Research/Papers/Attention Is All You Need.md",
+    "Knowledge Hub/20 - Research/Papers/Adaptive Prompting for Continual Relation Extraction.md",
     "Knowledge Hub/00 - Sources/PDFs/Papers",
     "Knowledge Hub/00 - Sources/Attention Is All You Need.pdf",
     "Knowledge Hub/00 - Sources/1706.03762v7.pdf",
     "Knowledge Hub/20 - Research/README.md",
     "Knowledge Hub/20 - Research/Zotero Integration Workflow.md",
     "Knowledge Hub/20 - Research/Research Dashboard.md",
-    "Knowledge Hub/00 - Sources/Adaptive Prompting for Continual Relation Extraction- A Within-Task Variance Perspective.pdf",
     "Knowledge Hub/03 - Daily Reading/Practical Natural Language Processing/06-08-2026.md",
     "Knowledge Hub/20 - Research/Literature Notes/Continual Relation Extraction - Prototype, Prompt và Replay.md",
     "Knowledge Hub/20 - Research/Papers/Making Pre-trained Language Models Better Continual Few-Shot Relation Extractors.md",
@@ -225,18 +237,6 @@
     "Knowledge Hub/04 - Concepts/Dialog System.md",
     "Knowledge Hub/03 - Daily Reading/Practical Natural Language Processing/07-08-2026.md",
     "Knowledge Hub/03 - Daily Reading/Practical Natural Language Processing/08-08-2026.md",
-    "Knowledge Hub/02 - Sections/Practical Natural Language Processing/Practical NLP - Chapter 05 - Information Extraction.md",
-    "Knowledge Hub/06 - Attachments/practical-nlp-meeting-extraction-pipeline-figure-5-19.png",
-    "Knowledge Hub/06 - Attachments/practical-nlp-meeting-information-extraction-figure-5-18.png",
-    "Knowledge Hub/tmp_case/p350-350.png",
-    "Knowledge Hub/tmp_case/p-351.png",
-    "Knowledge Hub/tmp_case/p-350.png",
-    "Knowledge Hub/tmp_case/p-349.png",
-    "Knowledge Hub/tmp_case/p-348.png",
-    "Knowledge Hub/tmp_case",
-    "Knowledge Hub/06 - Attachments/practical-nlp-template-filling-figure-5-17.png",
-    "Knowledge Hub/06 - Attachments/practical-nlp-event-extraction-twitter-figure-5-15.png",
-    "Knowledge Hub/06 - Attachments/practical-nlp-temporal-ie-duckling-figure-5-14.png",
     "Knowledge Hub/Untitled.canvas"
   ]
 }
