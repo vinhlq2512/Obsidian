@@ -63,12 +63,12 @@ Tuy nhiên, ConPL và CPL tập trung [[Continual Few-Shot Relation Extraction]]
 
 ## Các hướng tiếp cận
 
-| Hướng | Paper liên quan | Ý chính | Hạn chế |
-|---|---|---|---|
-| Prototype + episodic memory | [[20 - Research/Papers/Consistent Prototype Learning for Few-Shot Continual Relation Extraction|ConPL]] | Một exemplar + một prototype/relation; giữ classification và distribution consistency | Vẫn lưu raw sample; một prototype che multimodality; setting riêng NK-CRE |
-| Prompt + contrastive + augmented replay | [[20 - Research/Papers/Making Pre-trained Language Models Better Continual Few-Shot Relation Extractors|CPL]] | Hybrid prompt tại `[MASK]`, MCL, GPT-3.5 sinh replay samples | Task đầu data-rich; GPT noise/cost; replay tăng theo relation |
-| Task-specific prompt pools + latent replay | [[Adaptive Prompting for Continual Relation Extraction|WAVE-CRE]] | Freeze BERT/pools cũ, learned relation-level task predictor, Gaussian replay cho predictor/classifier | Task predictor vẫn quên; Gaussian đơn giản; không đo privacy |
-| Prompt pools + descriptions + cascade voting | [[WAVE++ - Capturing Within-Task Variance for Continual Relation Extraction|WAVE++]] | Semantic label anchors, voting không train predictor, Gaussian replay classifier | Inference chậm hơn; lưu nhiều distributions; phụ thuộc task boundaries/descriptions |
+| Hướng                                        | Paper liên quan                                                                                           | Ý chính      | Hạn chế                                                                                               |                                                                                     |
+| -------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ------------ | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| Prototype + episodic memory                  | [[20 - Research/Papers/Consistent Prototype Learning for Few-Shot Continual Relation Extraction]]         | [[ConPL]]    | Một exemplar + một prototype/relation; giữ classification và distribution consistency                 | Vẫn lưu raw sample; một prototype che multimodality; setting riêng NK-CRE           |
+| Prompt + contrastive + augmented replay      | [[20 - Research/Papers/Making Pre-trained Language Models Better Continual Few-Shot Relation Extractors]] | [[CPL]]      | Hybrid prompt tại `[MASK]`, MCL, GPT-3.5 sinh replay samples                                          | Task đầu data-rich; GPT noise/cost; replay tăng theo relation                       |
+| Task-specific prompt pools + latent replay   | [[Adaptive Prompting for Continual Relation Extraction]]                                                  | [[WAVE-CRE]] | Freeze BERT/pools cũ, learned relation-level task predictor, Gaussian replay cho predictor/classifier | Task predictor vẫn quên; Gaussian đơn giản; không đo privacy                        |
+| Prompt pools + descriptions + cascade voting | [[WAVE++ - Capturing Within-Task Variance for Continual Relation Extraction]]                             | [[WAVE++]]   | Semantic label anchors, voting không train predictor, Gaussian replay classifier                      | Inference chậm hơn; lưu nhiều distributions; phụ thuộc task boundaries/descriptions |
 
 ## Bảng so sánh kiến trúc
 

@@ -3,6 +3,7 @@ type: concept
 status: understood
 sources:
   - "[[NLP Transformers - Chapter 08 - Making Transformers Efficient in Production]]"
+  - "[[2026-01-20_this-isnt-an-ai-summarizer-and-that-matters-byte-sized-design]]"
 source_sections:
   - "[[NLP Transformers - Chapter 08 - Making Transformers Efficient in Production]]"
 first_seen: 2026-08-03
@@ -124,6 +125,8 @@ Benchmark là bảng điều khiển của production. Nếu không đo latency,
 
 Điểm quan trọng nhất: benchmark phải đủ ổn định để so sánh. Nếu đổi input, đổi batch size hoặc quên warmup, kết quả latency rất dễ nhiễu và có thể dẫn tới quyết định sai.
 
+Với AI ops/agent, benchmark còn cần case thật đã label. Bits AI SRE được đánh giá trên incident production đã có root cause từ human responders, vì mục tiêu không phải summarize telemetry mà là đi đúng causal chain.
+
 ## Câu hỏi review
 
 1. Vì sao benchmark production không thể chỉ dùng accuracy?
@@ -135,6 +138,8 @@ Benchmark là bảng điều khiển của production. Nếu không đo latency,
 ## Liên kết
 
 - [[Transformer Inference Optimization]]
+- [[LLM Evaluation]]
+- [[Agent Evaluation]]
 - [[Knowledge Distillation]]
 - [[Quantization]]
 - [[Pruning]]

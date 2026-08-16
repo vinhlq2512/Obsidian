@@ -1,0 +1,1003 @@
+---
+type: moc
+status: developing
+area: system-design
+concepts:
+  - "[[API Gateway]]"
+  - "[[Rate Limiting]]"
+  - "[[Throttling]]"
+  - "[[DNS]]"
+  - "[[Reverse Proxy]]"
+  - "[[Web Request Path]]"
+  - "[[TLS Termination]]"
+  - "[[Health Check]]"
+  - "[[Cache Stampede]]"
+  - "[[Edge Function]]"
+  - "[[Load Balancer]]"
+  - "[[High Availability]]"
+  - "[[Observability]]"
+  - "[[Structured Logging]]"
+  - "[[Metrics]]"
+  - "[[Distributed Tracing]]"
+  - "[[Service Level Objective]]"
+  - "[[Error Budget]]"
+  - "[[Capacity Planning]]"
+  - "[[Peak QPS]]"
+  - "[[Load Testing]]"
+  - "[[Control Plane]]"
+  - "[[Data Plane]]"
+  - "[[Hidden Dependency]]"
+  - "[[Herd Effect]]"
+  - "[[Kill Switch]]"
+  - "[[Fail Closed]]"
+  - "[[Cold Read Path]]"
+  - "[[Replication Is Not Backup]]"
+  - "[[Status Page Dependency]]"
+  - "[[Global Metadata Replication]]"
+  - "[[Continuous Integration]]"
+  - "[[Continuous Delivery]]"
+  - "[[Continuous Deployment]]"
+  - "[[Deployment Pipeline]]"
+  - "[[Big-Bang Deployment]]"
+  - "[[Rolling Deployment]]"
+  - "[[Blue-Green Deployment]]"
+  - "[[Canary Deployment]]"
+  - "[[Feature Flag]]"
+  - "[[Dark Launch]]"
+  - "[[Shadow Traffic]]"
+  - "[[Expand-Contract Migration]]"
+  - "[[Rollback Alarm]]"
+  - "[[Bake Period]]"
+  - "[[Phased Rollout]]"
+  - "[[Incident Response]]"
+  - "[[Postmortem]]"
+  - "[[Premortem]]"
+  - "[[Root Cause Analysis]]"
+  - "[[Risk Matrix]]"
+  - "[[Rollback Strategy]]"
+  - "[[Disaster Recovery]]"
+  - "[[Backup and Restore]]"
+  - "[[Database Sharding]]"
+  - "[[Data Replication]]"
+  - "[[Cassandra]]"
+  - "[[Message Broker]]"
+  - "[[Message Queue]]"
+  - "[[Publish-Subscribe]]"
+  - "[[Event Stream]]"
+  - "[[Apache Kafka]]"
+  - "[[Kafka Partition]]"
+  - "[[Consumer Group]]"
+  - "[[Delivery Semantics]]"
+  - "[[Dead Letter Queue]]"
+  - "[[RabbitMQ]]"
+  - "[[Apache Pulsar]]"
+  - "[[Microservices Design Patterns]]"
+  - "[[Docker]]"
+  - "[[Containerization]]"
+  - "[[Virtualization]]"
+  - "[[Container Image]]"
+  - "[[Container Runtime]]"
+  - "[[Linux Namespace]]"
+  - "[[Control Groups]]"
+  - "[[Serverless Architecture]]"
+  - "[[Function as a Service]]"
+  - "[[Backend as a Service]]"
+  - "[[Serverless Cold Start]]"
+  - "[[Lambda Execution Environment]]"
+  - "[[Firecracker MicroVM]]"
+  - "[[Lambda SnapStart]]"
+  - "[[Provisioned Concurrency]]"
+  - "[[Serverless Cost Model]]"
+  - "[[Lambda Layer]]"
+  - "[[Serverless Worker Sharding]]"
+  - "[[Monolithic Architecture]]"
+  - "[[Modular Monolith]]"
+  - "[[Microservices Architecture]]"
+  - "[[Sidecar Pattern]]"
+  - "[[Ambassador Pattern]]"
+  - "[[Container Adapter Pattern]]"
+  - "[[Work Queue Pattern]]"
+  - "[[Scatter-Gather Pattern]]"
+  - "[[Eventual Consistency]]"
+  - "[[Caching Strategy]]"
+  - "[[Redis]]"
+  - "[[Distributed Cache]]"
+  - "[[Redis Data Structures]]"
+  - "[[Redis Event Loop]]"
+  - "[[Redis Persistence]]"
+  - "[[Cache-Aside]]"
+  - "[[Read-Through Cache]]"
+  - "[[Write-Through Cache]]"
+  - "[[Write-Behind Cache]]"
+  - "[[Cache Invalidation]]"
+  - "[[Cache Eviction Policy]]"
+  - "[[Redis Streams]]"
+  - "[[Redis Sorted Set]]"
+  - "[[HyperLogLog]]"
+  - "[[Distributed Lock]]"
+  - "[[Cache Warmup]]"
+  - "[[Feature Store Cache]]"
+  - "[[ML Platform]]"
+  - "[[Internal Platform as Product]]"
+  - "[[Feature Store]]"
+  - "[[Offline Feature Store]]"
+  - "[[Online Feature Store]]"
+  - "[[Training-Serving Skew]]"
+  - "[[Feature Discovery]]"
+  - "[[Data Catalog]]"
+  - "[[Model Self-Test]]"
+  - "[[Regression Testing]]"
+  - "[[Model Shadowing]]"
+  - "[[Prediction Logging]]"
+  - "[[Model Feedback Loop]]"
+  - "[[Incremental Model Training]]"
+  - "[[Feature Drift]]"
+  - "[[Feature Collocation]]"
+  - "[[Prediction Serving Fanout]]"
+  - "[[Inference Compute Graph Split]]"
+  - "[[Raw Feature Transport]]"
+  - "[[Model Deployment Reconciliation]]"
+  - "[[Model Onboarding]]"
+  - "[[Managed Model Serving Integration]]"
+  - "[[Vendor Lock-In]]"
+  - "[[Annotation Platform]]"
+  - "[[Human-in-the-Loop Labeling]]"
+  - "[[Annotation Quality Metrics]]"
+  - "[[Annotation Debt]]"
+  - "[[Content Delivery Network]]"
+  - "[[Video Streaming Architecture]]"
+  - "[[Adaptive Bitrate Streaming]]"
+  - "[[Video Transcoding Pipeline]]"
+  - "[[Proactive Caching]]"
+  - "[[Live Streaming Origin]]"
+  - "[[REST API]]"
+  - "[[API Contract]]"
+  - "[[API Lifecycle Management]]"
+  - "[[API Documentation]]"
+  - "[[API Composition]]"
+  - "[[API Protocol]]"
+  - "[[Async API Pattern]]"
+  - "[[Backend for Frontend]]"
+  - "[[Client State Synchronization]]"
+  - "[[Streaming Compression]]"
+  - "[[Delta Update]]"
+  - "[[Passive Session]]"
+  - "[[Mobile Bandwidth Optimization]]"
+  - "[[API Versioning]]"
+  - "[[API Pagination]]"
+  - "[[API Security]]"
+  - "[[Stateless Architecture]]"
+  - "[[Payment Intent]]"
+  - "[[Payment Method]]"
+  - "[[Payment State Machine]]"
+  - "[[Local Payment Method]]"
+  - "[[Payment Orchestration]]"
+  - "[[Payment Service Provider]]"
+  - "[[Fraud Detection System]]"
+  - "[[Precision-Recall Tradeoff]]"
+  - "[[Fine-Grained Authorization]]"
+  - "[[Attribute-Based Access Control]]"
+  - "[[Relationship-Based Access Control]]"
+  - "[[Google Zanzibar]]"
+  - "[[Permission Tuple]]"
+  - "[[Authorization Consistency Token]]"
+  - "[[Policy Information Point]]"
+  - "[[Token Exchange]]"
+  - "[[Federated Identity Provider]]"
+  - "[[Least Privilege]]"
+  - "[[JSON Web Token]]"
+  - "[[OAuth 2.0]]"
+  - "[[GraphQL]]"
+  - "[[GraphQL Federation]]"
+  - "[[Database Indexing]]"
+  - "[[Search Engine Architecture]]"
+  - "[[Inverted Index]]"
+  - "[[Index Segment]]"
+  - "[[Search Indexer]]"
+  - "[[Search Broker]]"
+  - "[[Search Tenant Isolation]]"
+  - "[[Cell-Based Architecture]]"
+  - "[[Destination-Aware Batching]]"
+  - "[[Search Query AST]]"
+  - "[[Search Ranking]]"
+  - "[[Zero-Downtime Reindexing]]"
+  - "[[Database Transaction]]"
+  - "[[Query Execution Plan]]"
+  - "[[Query Planner]]"
+  - "[[Full Table Scan]]"
+  - "[[Database Partitioning]]"
+  - "[[SQL Database]]"
+  - "[[NoSQL Database]]"
+  - "[[NewSQL]]"
+  - "[[Document Store]]"
+  - "[[Join Operation]]"
+  - "[[Relational Database Design]]"
+  - "[[MVCC]]"
+  - "[[Snapshot Isolation]]"
+  - "[[Deadlock]]"
+  - "[[Database Workload Isolation]]"
+  - "[[Read Path]]"
+  - "[[Write Path]]"
+  - "[[Staleness]]"
+  - "[[Read-Your-Writes Consistency]]"
+  - "[[Read Replica]]"
+  - "[[Materialized View]]"
+  - "[[Specialized Read Store]]"
+  - "[[Change Data Capture]]"
+  - "[[Transactional Outbox]]"
+  - "[[CQRS]]"
+  - "[[In-Memory Read Model]]"
+  - "[[Distributed Counter]]"
+  - "[[Rollup Pipeline]]"
+  - "[[Event Log]]"
+  - "[[Time-Series Data Storage]]"
+  - "[[Data Lifecycle Management]]"
+  - "[[Financial Source of Truth]]"
+  - "[[Data Contract]]"
+  - "[[Shadow Testing]]"
+  - "[[Data Freshness]]"
+  - "[[Batch Processing]]"
+  - "[[Micro-Batch Processing]]"
+  - "[[Stream Processing]]"
+  - "[[Event Time and Processing Time]]"
+  - "[[Data Processing Window]]"
+  - "[[Watermark]]"
+  - "[[Late Data]]"
+  - "[[Lambda Architecture]]"
+  - "[[Kappa Architecture]]"
+  - "[[Snapshot Bootstrap]]"
+  - "[[Data Pipeline Validation]]"
+  - "[[Spark on Kubernetes Platform]]"
+  - "[[Remote Shuffle Service]]"
+  - "[[Data Platform as Code]]"
+  - "[[Data Warehouse]]"
+  - "[[Data Lake]]"
+  - "[[Data Mesh]]"
+  - "[[Object Storage]]"
+  - "[[Amazon S3]]"
+  - "[[Object Metadata Index]]"
+  - "[[Storage Class Tiering]]"
+  - "[[Multipart Upload]]"
+  - "[[Distributed Key-Value Store]]"
+  - "[[Derived Data Store]]"
+  - "[[Cost Optimization]]"
+  - "[[Unified Domain Model]]"
+  - "[[Real-Time Graph Architecture]]"
+  - "[[Property Graph]]"
+  - "[[Key-Value Graph Storage]]"
+  - "[[Fan-Out on Write]]"
+  - "[[Fan-Out on Read]]"
+  - "[[Strong Consistency]]"
+  - "[[Linearizability]]"
+  - "[[Serializability]]"
+  - "[[Strict Serializability]]"
+  - "[[Consensus]]"
+  - "[[Quorum]]"
+  - "[[Leader Election]]"
+  - "[[Raft]]"
+  - "[[Paxos]]"
+  - "[[Saga Pattern]]"
+  - "[[Transaction Isolation]]"
+  - "[[Storage Engine]]"
+  - "[[Database Schema Design]]"
+  - "[[Retry Pattern]]"
+  - "[[Retry Storm]]"
+  - "[[Timeout]]"
+  - "[[Latency]]"
+  - "[[Failover]]"
+  - "[[Partial Failure]]"
+  - "[[Gray Failure]]"
+  - "[[Cascading Failure]]"
+  - "[[Load Shedding]]"
+  - "[[Bulkhead Pattern]]"
+  - "[[Metastable Failure]]"
+  - "[[Correlated Failure]]"
+  - "[[Graceful Degradation]]"
+  - "[[Blast Radius]]"
+  - "[[Chaos Engineering]]"
+  - "[[Debugging as Code]]"
+  - "[[Runbook Automation]]"
+  - "[[Automated Root Cause Analysis]]"
+  - "[[Analyzer Chaining]]"
+  - "[[Dependency Graph]]"
+  - "[[Context Gathering]]"
+  - "[[Diagnostic Agent]]"
+  - "[[Production State Replay]]"
+  - "[[Service Mesh]]"
+  - "[[Workflow Orchestration]]"
+  - "[[Kubernetes]]"
+  - "[[Declarative Reconciliation]]"
+  - "[[Kubernetes Pod]]"
+  - "[[Kubernetes Controller]]"
+  - "[[Kubernetes Service]]"
+  - "[[Kubernetes Operator Pattern]]"
+  - "[[Kubernetes Autoscaling]]"
+  - "[[Stateful Workloads on Kubernetes]]"
+  - "[[Kubernetes Load Balancing]]"
+  - "[[Zero-Downtime Infrastructure Migration]]"
+  - "[[Infrastructure as Code]]"
+  - "[[Java Virtual Threads]]"
+  - "[[Generational Garbage Collection]]"
+  - "[[Runtime Platform Migration]]"
+  - "[[Technical Debt]]"
+  - "[[Legacy System Modernization]]"
+  - "[[Traffic Replay]]"
+  - "[[State Reconciliation Pipeline]]"
+  - "[[Behavioral Compatibility]]"
+  - "[[Codemod Migration]]"
+  - "[[Dependency-Driven Migration]]"
+  - "[[Leaf-to-Root Migration]]"
+  - "[[Service Layer Refactoring]]"
+  - "[[Intent-Based Test Migration]]"
+  - "[[Idiomatic Rewrite]]"
+  - "[[Dual-System Operation]]"
+  - "[[Critical Path Build Graph]]"
+  - "[[Mobile App Modularization]]"
+  - "[[Compiler-Driven Modularization]]"
+  - "[[Developer Velocity]]"
+  - "[[Hostile Multi-Tenancy]]"
+  - "[[Multi-Tenancy]]"
+  - "[[Tenancy Isolation Spectrum]]"
+  - "[[Tenant Storage Model]]"
+  - "[[Tenant Context]]"
+  - "[[Noisy Neighbor Problem]]"
+  - "[[Cross-Tenant Data Leak]]"
+  - "[[Resource Quota]]"
+  - "[[Sandboxed Build Execution]]"
+  - "[[Build Provisioning Warm Pool]]"
+  - "[[CAP and PACELC]]"
+syntheses:
+  - "[[Scalable Distributed Systems Patterns]]"
+  - "[[API Design Patterns]]"
+  - "[[Modern Web Request Architecture]]"
+  - "[[Observability for Distributed Systems]]"
+  - "[[Database Internals Tradeoffs]]"
+  - "[[Database Performance Tradeoffs]]"
+  - "[[Distributed Data Consistency Patterns]]"
+  - "[[Resilience Failure Control Patterns]]"
+  - "[[Netflix Streaming and Workflow Architecture]]"
+  - "[[Netflix Data Platform Patterns]]"
+  - "[[Netflix Java Runtime Architecture]]"
+  - "[[Kubernetes Platform Patterns]]"
+  - "[[Messaging and Event Streaming Patterns]]"
+  - "[[Object and Key-Value Storage Patterns]]"
+  - "[[Reliability Operations Loop]]"
+  - "[[Authorization and Identity Infrastructure]]"
+  - "[[Payment and Financial Data Systems]]"
+  - "[[Redis and Distributed Caching Patterns]]"
+  - "[[Deployment and CI-CD Release Strategies]]"
+  - "[[Container and Service Architecture Tradeoffs]]"
+  - "[[Search Infrastructure Patterns]]"
+  - "[[Cloud Outage Anatomy Patterns]]"
+  - "[[Production Agent Platform Patterns]]"
+  - "[[Data Platform Processing Patterns]]"
+  - "[[Serverless and Edge Runtime Patterns]]"
+  - "[[Debugging and Incident Intelligence Patterns]]"
+  - "[[LLM Threat Model and Agent Security]]"
+  - "[[Legacy Modernization and Code Migration Patterns]]"
+  - "[[Client Experience and Frontend Platform Patterns]]"
+  - "[[Multi-Tenant Architecture Patterns]]"
+  - "[[ML Platform and Prediction Serving Patterns]]"
+  - "[[Event Sourcing]]"
+  - "[[JVM Architecture]]"
+  - "[[Logical Clocks]]"
+  - "[[Lamport Timestamps]]"
+  - "[[Vector Clocks]]"
+  - "[[TrueTime]]"
+  - "[[External Consistency]]"
+  - "[[Proof of Personhood]]"
+  - "[[Sybil Resistance]]"
+  - "[[Clickbait Filtering]]"
+  - "[[Bot Management]]"
+  - "[[AI-Native Developer Platform]]"
+  - "[[Service Architecture Anti-Patterns]]"
+  - "[[High-Throughput Prediction Serving]]"
+  - "[[Near-Real-Time Data Pipeline]]"
+  - "[[Apache Iceberg]]"
+questions: []
+created_at: 2026-08-16
+updated_at: 2026-08-16
+tags:
+  - moc
+  - system-design
+---
+
+# System Design
+
+## Cách dùng map này
+
+Đây là bản đồ điều hướng cho các concept system design được rút ra từ bộ source ByteByteGo. Các source gốc vẫn nằm ở `00 - Sources/ByteByteGo/Articles`; lớp này dùng để học và liên kết kiến thức lâu dài.
+
+## Nền tảng scale và reliability
+
+- [[Scalable Distributed Systems Patterns]]
+- [[Load Balancer]]
+- [[High Availability]]
+- [[Observability]]
+- [[Structured Logging]]
+- [[Metrics]]
+- [[Metric Cardinality]]
+- [[Distributed Tracing]]
+- [[Service Level Indicator]]
+- [[Service Level Objective]]
+- [[Error Budget]]
+- [[Alerting]]
+- [[Synthetic Monitoring]]
+- [[Reliability Operations Loop]]
+- [[Capacity Planning]]
+- [[Peak QPS]]
+- [[Load Testing]]
+- [[Cloud Outage Anatomy Patterns]]
+- [[Control Plane]]
+- [[Data Plane]]
+- [[Hidden Dependency]]
+- [[Herd Effect]]
+- [[Kill Switch]]
+- [[Fail Closed]]
+- [[Cold Read Path]]
+- [[Replication Is Not Backup]]
+- [[Status Page Dependency]]
+- [[Global Metadata Replication]]
+- [[Deployment and CI-CD Release Strategies]]
+- [[Continuous Integration]]
+- [[Continuous Delivery]]
+- [[Continuous Deployment]]
+- [[Deployment Pipeline]]
+- [[Big-Bang Deployment]]
+- [[Rolling Deployment]]
+- [[Blue-Green Deployment]]
+- [[Canary Deployment]]
+- [[Feature Flag]]
+- [[Dark Launch]]
+- [[Shadow Traffic]]
+- [[Expand-Contract Migration]]
+- [[Rollback Alarm]]
+- [[Bake Period]]
+- [[Phased Rollout]]
+- [[Incident Response]]
+- [[Postmortem]]
+- [[Premortem]]
+- [[Root Cause Analysis]]
+- [[Risk Matrix]]
+- [[Rollback Strategy]]
+- [[Disaster Recovery]]
+- [[Backup and Restore]]
+- [[Latency]]
+- [[Timeout]]
+- [[Failover]]
+- [[Partial Failure]]
+- [[Gray Failure]]
+- [[Cascading Failure]]
+- [[Load Shedding]]
+- [[Bulkhead Pattern]]
+- [[Metastable Failure]]
+- [[Correlated Failure]]
+- [[Graceful Degradation]]
+- [[Blast Radius]]
+- [[Retry Pattern]]
+- [[Retry Storm]]
+- [[Backpressure]]
+- [[Circuit Breaker]]
+- [[Chaos Engineering]]
+- [[Debugging and Incident Intelligence Patterns]]
+- [[Debugging as Code]]
+- [[Runbook Automation]]
+- [[Automated Root Cause Analysis]]
+- [[Analyzer Chaining]]
+- [[Dependency Graph]]
+- [[Context Gathering]]
+- [[Diagnostic Agent]]
+- [[Production State Replay]]
+
+## API và edge
+
+- [[Modern Web Request Architecture]]
+- [[Web Request Path]]
+- [[DNS]]
+- [[Content Delivery Network]]
+- [[Edge Function]]
+- [[Load Balancer]]
+- [[Reverse Proxy]]
+- [[API Gateway]]
+- [[TLS Termination]]
+- [[Health Check]]
+- [[Rate Limiting]]
+- [[Throttling]]
+- [[Idempotency Key]]
+- [[REST API]]
+- [[API Contract]]
+- [[API Lifecycle Management]]
+- [[API Documentation]]
+- [[API Composition]]
+- [[API Aggregation]]
+- [[API Orchestration]]
+- [[Backend for Frontend]]
+- [[API Protocol]]
+- [[gRPC]]
+- [[SOAP]]
+- [[Async API Pattern]]
+- [[Short Polling]]
+- [[Long Polling]]
+- [[Server-Sent Events]]
+- [[WebSocket]]
+- [[Webhook]]
+- [[GraphQL Subscription]]
+- [[Client State Synchronization]]
+- [[Streaming Compression]]
+- [[Delta Update]]
+- [[Passive Session]]
+- [[Mobile Bandwidth Optimization]]
+- [[API Versioning]]
+- [[API Pagination]]
+- [[API Security]]
+- [[Bot Management]]
+- [[Proof of Personhood]]
+- [[Sybil Resistance]]
+- [[Stateless Architecture]]
+- [[Authorization and Identity Infrastructure]]
+- [[Authentication]]
+- [[Authorization]]
+- [[Fine-Grained Authorization]]
+- [[Attribute-Based Access Control]]
+- [[Relationship-Based Access Control]]
+- [[Google Zanzibar]]
+- [[Permission Tuple]]
+- [[Authorization Consistency Token]]
+- [[Policy Information Point]]
+- [[Token Exchange]]
+- [[Federated Identity Provider]]
+- [[Least Privilege]]
+- [[JSON Web Token]]
+- [[Session-Based Authentication]]
+- [[PASETO]]
+- [[OAuth 2.0]]
+- [[OpenID Connect]]
+- [[Single Sign-On]]
+- [[Multi-Factor Authentication]]
+- [[Input Validation]]
+- [[SQL Injection]]
+- [[Cross-Site Scripting]]
+- [[Cross-Site Request Forgery]]
+- [[Payment and Financial Data Systems]]
+- [[Payment Intent]]
+- [[Payment Method]]
+- [[Payment State Machine]]
+- [[Local Payment Method]]
+- [[Payment Orchestration]]
+- [[Payment Service Provider]]
+- [[Fraud Detection System]]
+- [[Precision-Recall Tradeoff]]
+- [[GraphQL]]
+- [[GraphQL Federation]]
+- [[Service Mesh]]
+- [[Caching Strategy]]
+- [[Redis and Distributed Caching Patterns]]
+- [[Redis]]
+- [[Distributed Cache]]
+- [[Redis Data Structures]]
+- [[Redis Event Loop]]
+- [[Redis Persistence]]
+- [[Cache-Aside]]
+- [[Read-Through Cache]]
+- [[Write-Through Cache]]
+- [[Write-Behind Cache]]
+- [[Cache Invalidation]]
+- [[Cache Eviction Policy]]
+- [[Redis Streams]]
+- [[Redis Sorted Set]]
+- [[HyperLogLog]]
+- [[Distributed Lock]]
+- [[Cache Warmup]]
+- [[Feature Store Cache]]
+- [[Cache Stampede]]
+- [[Video Streaming Architecture]]
+- [[Adaptive Bitrate Streaming]]
+- [[Video Transcoding Pipeline]]
+- [[Proactive Caching]]
+- [[Live Streaming Origin]]
+
+## Dữ liệu phân tán
+
+- [[Database Sharding]]
+- [[Data Replication]]
+- [[Cassandra]]
+- [[Eventual Consistency]]
+- [[Database Indexing]]
+- [[Search Infrastructure Patterns]]
+- [[Search Engine Architecture]]
+- [[Inverted Index]]
+- [[Index Segment]]
+- [[Search Indexer]]
+- [[Search Broker]]
+- [[Search Tenant Isolation]]
+- [[Cell-Based Architecture]]
+- [[Destination-Aware Batching]]
+- [[Search Query AST]]
+- [[Search Ranking]]
+- [[Zero-Downtime Reindexing]]
+- [[Database Performance Tradeoffs]]
+- [[Query Execution Plan]]
+- [[Query Planner]]
+- [[Full Table Scan]]
+- [[Database Partitioning]]
+- [[SQL Database]]
+- [[NoSQL Database]]
+- [[NewSQL]]
+- [[Document Store]]
+- [[Join Operation]]
+- [[Relational Database Design]]
+- [[Database Transaction]]
+- [[ACID]]
+- [[Transaction Isolation]]
+- [[MVCC]]
+- [[Snapshot Isolation]]
+- [[Deadlock]]
+- [[Database Workload Isolation]]
+- [[Serializability]]
+- [[Strict Serializability]]
+- [[Read Path]]
+- [[Write Path]]
+- [[Staleness]]
+- [[Read-Your-Writes Consistency]]
+- [[Read Replica]]
+- [[Materialized View]]
+- [[Specialized Read Store]]
+- [[Change Data Capture]]
+- [[Transactional Outbox]]
+- [[CQRS]]
+- [[In-Memory Read Model]]
+- [[Distributed Counter]]
+- [[Rollup Pipeline]]
+- [[Event Log]]
+- [[Time-Series Data Storage]]
+- [[Data Lifecycle Management]]
+- [[Financial Source of Truth]]
+- [[Data Contract]]
+- [[Shadow Testing]]
+- [[Data Freshness]]
+- [[Data Platform Processing Patterns]]
+- [[Batch Processing]]
+- [[Micro-Batch Processing]]
+- [[Stream Processing]]
+- [[Event Time and Processing Time]]
+- [[Data Processing Window]]
+- [[Watermark]]
+- [[Late Data]]
+- [[Lambda Architecture]]
+- [[Kappa Architecture]]
+- [[Snapshot Bootstrap]]
+- [[Data Pipeline Validation]]
+- [[Spark on Kubernetes Platform]]
+- [[Remote Shuffle Service]]
+- [[Data Platform as Code]]
+- [[Data Warehouse]]
+- [[Data Lake]]
+- [[Data Mesh]]
+- [[Object and Key-Value Storage Patterns]]
+- [[Object Storage]]
+- [[Amazon S3]]
+- [[Object Metadata Index]]
+- [[Storage Class Tiering]]
+- [[Multipart Upload]]
+- [[Distributed Key-Value Store]]
+- [[Derived Data Store]]
+- [[Cost Optimization]]
+- [[Unified Domain Model]]
+- [[Real-Time Graph Architecture]]
+- [[Property Graph]]
+- [[Key-Value Graph Storage]]
+- [[Fan-Out on Write]]
+- [[Fan-Out on Read]]
+- [[Strong Consistency]]
+- [[Linearizability]]
+- [[External Consistency]]
+- [[Logical Clocks]]
+- [[Lamport Timestamps]]
+- [[Vector Clocks]]
+- [[TrueTime]]
+- [[Consensus]]
+- [[Quorum]]
+- [[Leader Election]]
+- [[Raft]]
+- [[Paxos]]
+- [[Event Sourcing]]
+- [[Near-Real-Time Data Pipeline]]
+- [[Apache Iceberg]]
+- [[Saga Pattern]]
+- [[Concurrency Control]]
+- [[Pessimistic Locking]]
+- [[Optimistic Locking]]
+- [[Write-Ahead Log]]
+- [[Storage Engine]]
+- [[B-Tree]]
+- [[LSM Tree]]
+- [[Database Schema Design]]
+- [[CAP and PACELC]]
+- [[Consistent Hashing]]
+
+## Kiến trúc service
+
+- [[Microservices Design Patterns]]
+- [[Container and Service Architecture Tradeoffs]]
+- [[Service Architecture Anti-Patterns]]
+- [[JVM Architecture]]
+- [[AI-Native Developer Platform]]
+- [[Docker]]
+- [[Containerization]]
+- [[Virtualization]]
+- [[Container Image]]
+- [[Container Runtime]]
+- [[Linux Namespace]]
+- [[Control Groups]]
+- [[Serverless Architecture]]
+- [[Serverless and Edge Runtime Patterns]]
+- [[Function as a Service]]
+- [[Backend as a Service]]
+- [[Serverless Cold Start]]
+- [[Lambda Execution Environment]]
+- [[Firecracker MicroVM]]
+- [[Lambda SnapStart]]
+- [[Provisioned Concurrency]]
+- [[Serverless Cost Model]]
+- [[Lambda Layer]]
+- [[Serverless Worker Sharding]]
+- [[Monolithic Architecture]]
+- [[Modular Monolith]]
+- [[Microservices Architecture]]
+- [[Sidecar Pattern]]
+- [[Ambassador Pattern]]
+- [[Container Adapter Pattern]]
+- [[Work Queue Pattern]]
+- [[Scatter-Gather Pattern]]
+- [[Message Broker]]
+- [[Messaging and Event Streaming Patterns]]
+- [[Message Queue]]
+- [[Publish-Subscribe]]
+- [[Event Stream]]
+- [[Apache Kafka]]
+- [[Kafka Partition]]
+- [[Consumer Group]]
+- [[Delivery Semantics]]
+- [[Dead Letter Queue]]
+- [[RabbitMQ]]
+- [[Apache Pulsar]]
+- [[Service Discovery]]
+- [[Horizontal Scaling]]
+- [[Distributed Systems]]
+- [[Workflow Orchestration]]
+- [[Kubernetes]]
+- [[Declarative Reconciliation]]
+- [[Kubernetes Pod]]
+- [[Kubernetes Controller]]
+- [[Kubernetes Service]]
+- [[Kubernetes Operator Pattern]]
+- [[Kubernetes Autoscaling]]
+- [[Stateful Workloads on Kubernetes]]
+- [[Kubernetes Load Balancing]]
+- [[Zero-Downtime Infrastructure Migration]]
+- [[Infrastructure as Code]]
+- [[Java Virtual Threads]]
+- [[Generational Garbage Collection]]
+- [[Runtime Platform Migration]]
+- [[Technical Debt]]
+- [[Legacy Modernization and Code Migration Patterns]]
+- [[Client Experience and Frontend Platform Patterns]]
+- [[Legacy System Modernization]]
+- [[Traffic Replay]]
+- [[State Reconciliation Pipeline]]
+- [[Behavioral Compatibility]]
+- [[Codemod Migration]]
+- [[Dependency-Driven Migration]]
+- [[Leaf-to-Root Migration]]
+- [[Service Layer Refactoring]]
+- [[Intent-Based Test Migration]]
+- [[Idiomatic Rewrite]]
+- [[Dual-System Operation]]
+- [[Critical Path Build Graph]]
+- [[Mobile App Modularization]]
+- [[Compiler-Driven Modularization]]
+- [[Developer Velocity]]
+- [[Hostile Multi-Tenancy]]
+- [[Multi-Tenancy]]
+- [[Multi-Tenant Architecture Patterns]]
+- [[Tenancy Isolation Spectrum]]
+- [[Tenant Storage Model]]
+- [[Tenant Context]]
+- [[Noisy Neighbor Problem]]
+- [[Cross-Tenant Data Leak]]
+- [[Resource Quota]]
+- [[Sandboxed Build Execution]]
+- [[Build Provisioning Warm Pool]]
+
+## Product recommendation và client engagement
+
+- [[Notification Recommender Pipeline]]
+- [[Notification Budgeting]]
+- [[Reranking]]
+- [[Causal Inference]]
+- [[A-B Testing]]
+- [[Recommendation Funnel]]
+- [[Two-Tower Retrieval]]
+
+## ML platform và prediction serving
+
+- [[ML Platform and Prediction Serving Patterns]]
+- [[ML Platform]]
+- [[Internal Platform as Product]]
+- [[AI Model Serving]]
+- [[Feature Store]]
+- [[Offline Feature Store]]
+- [[Online Feature Store]]
+- [[Training-Serving Skew]]
+- [[Feature Discovery]]
+- [[Data Catalog]]
+- [[Model Self-Test]]
+- [[Regression Testing]]
+- [[Model Shadowing]]
+- [[Prediction Logging]]
+- [[Model Feedback Loop]]
+- [[Incremental Model Training]]
+- [[Feature Drift]]
+- [[Feature Collocation]]
+- [[Prediction Serving Fanout]]
+- [[High-Throughput Prediction Serving]]
+- [[Clickbait Filtering]]
+- [[Inference Compute Graph Split]]
+- [[Raw Feature Transport]]
+- [[Model Deployment Reconciliation]]
+- [[Model Onboarding]]
+- [[Managed Model Serving Integration]]
+- [[Vendor Lock-In]]
+- [[Annotation Platform]]
+- [[Human-in-the-Loop Labeling]]
+- [[Annotation Quality Metrics]]
+- [[Annotation Debt]]
+
+## Frontend AI và design system
+
+- [[Design-to-Code Context]]
+- [[Code Connect]]
+- [[Component Mapping]]
+- [[Design System Drift]]
+- [[Model Context Protocol]]
+
+## Media và workflow case study
+
+- [[Netflix Streaming and Workflow Architecture]]
+- [[Netflix Data Platform Patterns]]
+- [[Netflix Java Runtime Architecture]]
+- [[Kubernetes Platform Patterns]]
+- [[Video Streaming Architecture]]
+- [[Live Streaming Origin]]
+- [[Workflow Orchestration]]
+
+## AI agent platform
+
+- [[Production Agent Platform Patterns]]
+- [[Agent Orchestrator-Worker Pattern]]
+- [[Citation Agent]]
+- [[Agent Effort Scaling]]
+- [[Agent State Checkpointing]]
+- [[Diff Problem]]
+- [[Sandboxed Agent Execution]]
+- [[Zero-Secret Agent Architecture]]
+- [[Safe Outputs Pipeline]]
+- [[Agent Trust Boundary Logging]]
+- [[Agent Protocol Interoperability]]
+- [[Agent Evaluation Stack]]
+- [[Coding Agent]]
+- [[Multi-Agent System]]
+- [[Model Context Protocol]]
+- [[Agent Evaluation]]
+
+## Nguồn ByteByteGo tiêu biểu
+
+- [[2024-08-29_a-crash-course-on-load-balancers-for-scaling]]
+- [[2024-10-03_api-gateway-newsletter]]
+- [[2025-09-04_a-guide-to-rate-limiting-strategies-bytebytego-newsletter]]
+- [[2026-07-30_a-detailed-guide-to-idempotency-delivery-semantics-and-dedup]]
+- [[2025-07-17_a-guide-to-database-sharding-key-strategies-newsletter]]
+- [[2023-09-07_how-to-choose-a-replication-strategy]]
+- [[2024-12-12_database-performance-demystified-essential-tips-and-strategi]]
+- [[2026-04-02_database-performance-strategies-and-their-hidden-costs]]
+- [[2025-06-19_a-guide-to-database-transactions-from-acid-to-concurrency-co]]
+- [[2025-06-05_sql-vs-nosql-choosing-the-right-database-for-an-application]]
+- [[2025-09-17_the-pain-of-joins-in-mongodb-byte-sized-design]]
+- [[2026-04-16_a-guide-to-relational-database-design]]
+- [[2026-06-18_observability-for-beginners-logs-metrics-traces-and-everythi]]
+- [[2025-01-20_the-engineers-guide-to-observability-making-metrics-logs-and]]
+- [[2023-06-29_capacity-planning]]
+- [[2025-02-06_the-tech-lead-s-guide-to-load-testing-like-a-pro-byte-sized-design]]
+- [[2025-06-17_how-the-google-cloud-outage-crashed-the-internet]]
+- [[2024-12-23_the-chatgpt-outage-what-openais-post-mortem-revealed]]
+- [[2025-07-18_cloudflares-july-2025-outage-the-global-outage-triggered-by]]
+- [[2025-06-29_when-kv-falls-cloudflares-two-hour-outage]]
+- [[2025-02-09_how-a-43-second-network-issue-led-to-a-24-hour-github-degrad]]
+- [[2024-04-04_a-crash-course-in-cicd]]
+- [[2026-06-11_must-know-deployment-strategies-from-big-bang-to-progressive]]
+- [[2024-12-04_writing-post-mortems-a-tech-lead-s-guide-to-learning-from-fa]]
+- [[2023-11-07_shipping-to-production]]
+- [[2024-12-23_the-chatgpt-outage-what-openais-post-mortem-revealed]]
+- [[2025-02-09_how-a-43-second-network-issue-led-to-a-24-hour-github-degrad]]
+- [[2025-08-14_a-guide-to-top-caching-strategies]]
+- [[2024-06-06_a-crash-course-on-content-delivery-networks-cdn-newsletter]]
+- [[2023-09-21_a-crash-course-in-redis]]
+- [[2023-10-12_the-6-most-impactful-ways-redis-is-used-in-production-system]]
+- [[2024-11-21_distributed-caching-the-secret-to-high-performance-applicati]]
+- [[2024-03-25_doordash-s-game-changing-strategy-70-hit-ratio-in-cache-opti]]
+- [[2024-05-30_a-crash-course-on-rest-apis-newsletter]]
+- [[2024-04-18_a-crash-course-in-api-versioning-strategies]]
+- [[2025-04-03_the-art-of-rest-api-design-idempotency-pagination-and-securi]]
+- [[2026-03-26_how-to-implement-api-security]]
+- [[2026-08-13_a-detailed-guide-to-api-composition-techniques]]
+- [[2026-05-21_a-guide-to-async-patterns-in-api-design]]
+- [[2025-03-13_api-protocols-101-a-guide-to-choose-the-right-one]]
+- [[2026-04-09_must-know-cross-cutting-concerns-in-api-development]]
+- [[2025-10-23_api-gateways-101-the-core-of-modern-api-management-security]]
+- [[2026-01-29_how-to-scale-an-api]]
+- [[2026-06-04_the-path-of-a-request-a-tour-of-modern-web-architecture]]
+- [[2026-02-18_the-first-10-year-evolution-of-stripes-payments-api]]
+- [[2023-05-24_api-redesign-shopping-cart-and-stripe-payment]]
+- [[2026-03-10_how-airbnb-rolled-out-20-local-payment-methods-in-360-days]]
+- [[2026-04-28_how-stripe-detects-fraudulent-transactions-within-100-ms]]
+- [[2026-03-03_how-agoda-built-a-single-source-of-truth-for-financial-data]]
+- [[2026-01-27_how-google-manages-trillions-of-authorizations-with-zanzibar]]
+- [[2026-02-24_how-uber-reinvented-access-control-for-microservices]]
+- [[2025-09-08_how-grab-built-an-authentication-system-for-180-million-user]]
+- [[2023-08-10_why-do-we-need-a-message-queue]]
+- [[2023-08-17_how-to-choose-a-message-queue]]
+- [[2025-01-09_understanding-message-queues]]
+- [[2025-05-08_messaging-patterns-explained-pub-sub-queues-and-event-stream]]
+- [[2023-09-14_why-is-kafka-so-fast-how-does-it-work]]
+- [[2026-02-21_ep203-rabbitmq-vs-kafka-vs-pulsar]]
+- [[2025-02-25_how-amazon-s3-stores-350-trillion-objects-with-11-nines-of-d]]
+- [[2025-02-19_how-canva-optimized-230-petabytes-of-data-and-saved-3-6-mill-byte-sized-design]]
+- [[2025-01-07_how-airbnb-built-a-key-value-store-for-petabytes-of-data]]
+- [[2025-06-29_when-kv-falls-cloudflares-two-hour-outage-byte-sized-design]]
+- [[2024-12-05_mastering-modern-authentication-cookies-sessions-jwt-and-pas]]
+- [[2023-04-12_authentication-methods-passwordless-mfa-sso-oauth-part-2]]
+- [[2025-12-18_a-guide-to-retry-pattern-in-distributed-systems]]
+- [[2024-11-27_understanding-retry-storms-what-they-are-and-how-to-deal-wit]]
+- [[2024-04-11_embracing-chaos-to-improve-system-resilience-chaos-engineeri]]
+- [[2025-08-07_top-strategies-to-improve-reliability-in-distributed-systems-part-1]]
+- [[2026-05-28_must-know-failure-modes-in-distributed-systems]]
+- [[2025-01-23_top-strategies-to-reduce-latency]]
+- [[2025-06-19_a-guide-to-database-transactions-from-acid-to-concurrency-co]]
+- [[2026-04-23_b-trees-vs-lsm-trees-comparison-and-trade-offs]]
+- [[2024-11-30_when-elasticsearch-reached-its-limits-doordash-built-their-o]]
+- [[2025-05-30_from-flat-to-flexible-rewriting-github-issue-search-with-nes]]
+- [[2025-12-04_how-discord-indexes-trillions-of-messages-without-falling-ap]]
+- [[2023-04-03_twitter-made-searching-scalable-before-elon-musk]]
+- [[2025-06-18_how-dropbox-optimizes-search]]
+- [[2026-08-06_the-read-path-versus-the-write-path-strategies-and-technique]]
+- [[2026-02-26_strong-consistency-in-databases-promises-and-costs]]
+- [[2025-02-27_mastering-data-consistency-across-microservices]]
+- [[2025-07-31_top-leader-election-algorithms-in-distributed-databases]]
+- [[2024-01-04_netflix-what-happens-when-you-press-play]]
+- [[2024-01-11_netflix-what-happens-when-you-press-play-part-2]]
+- [[2026-03-24_how-netflix-live-streams-to-100-million-devices-in-60-second]]
+- [[2025-09-09_how-netflix-tudum-supports-20-million-users-with-cqrs]]
+- [[2025-04-15_how-netflix-orchestrates-millions-of-workflow-jobs-with-maes]]
+- [[2025-02-11_how-netflix-built-a-distributed-counter-for-billions-of-user]]
+- [[2025-03-18_how-netflix-stores-140-million-hours-of-viewing-data-per-day]]
+- [[2025-07-02_netflix-ended-data-chaos-with-unified-domain-models]]
+- [[2026-01-21_how-netflix-built-a-real-time-distributed-graph-for-internet]]
+- [[2025-06-03_how-netflix-runs-on-java]]
+- [[2023-03-15_netflix-is-chill-with-breaking-their-services]]
+- [[2023-10-26_a-crash-course-in-kubernetes]]
+- [[2023-11-02_kubernetes-when-and-how-to-apply-it]]
+- [[2025-01-02_kubernetes-made-easy-a-beginners-roadmap-to-container-orches]]
+- [[2026-04-30_a-beginners-guide-to-kubernetes]]
+- [[2025-10-01_how-airbnb-runs-distributed-databases-on-kubernetes-at-scale]]
+- [[2025-11-05_how-databricks-implemented-intelligent-kubernetes-load-balan]]
+- [[2026-03-17_how-reddit-migrated-petabyte-scale-kafka-from-ec2-to-kuberne]]
+- [[2025-10-06_how-openai-uses-kubernetes-and-apache-kafka-for-genai]]
+- [[2025-09-16_how-anthropic-built-a-multi-agent-research-system]]
+- [[2026-01-26_how-cursor-shipped-its-coding-agent-to-production]]
+- [[2026-04-20_the-security-architecture-of-github-agentic-workflow]]
+- [[2026-07-18_mcp-vs-a2a-vs-acp-how-ai-agents-actually-talk-to-each-other]]
+- [[2023-11-09_a-crash-course-in-docker]]
+- [[2024-02-15_virtualization-and-containerization-which-one-to-pick]]
+- [[2026-04-11_ep210-monolithic-vs-microservices-vs-serverless]]
+- [[2025-03-20_monolith-vs-microservices-vs-modular-monoliths-what-s-the-ri]]
+- [[2026-05-07_container-design-patterns-for-distributed-systems]]
