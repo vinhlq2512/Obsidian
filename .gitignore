@@ -1,3 +1,15 @@
 /source/
 *.pdf
 00 - Sources/
+
+# Quartz & Node dependencies
+node_modules/
+**/node_modules/
+public/
+
+# Google Drive temporary sync files & logs
+.tmp.drivedownload/
+.tmp.driveupload/
+.DS_Store
+*.log
+rclone-logs/

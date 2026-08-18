@@ -21,20 +21,21 @@ topic:
   - prototype learning
   - catastrophic forgetting
 priority: medium
-reading_status: not-started
+reading_status: in-progress
 rating:
 related_concepts:
-  - "[[Continual Learning]]"
+  - "[[04 - Concepts/Continual Learning|Continual Learning]]"
   - "[[Catastrophic Forgetting]]"
   - "[[Continual Relation Extraction]]"
   - "[[Continual Few-Shot Relation Extraction]]"
   - "[[Prototype Learning]]"
+  - "[[Embedding Space Regularization]]"
   - "[[Replay in Continual Learning]]"
   - "[[Few-shot Learning]]"
   - "[[Contrastive Learning]]"
   - "[[Relation Extraction]]"
 created_at: 2026-08-13
-updated_at: 2026-08-13
+updated_at: 2026-08-18
 tags:
   - paper
   - continual-learning
@@ -358,6 +359,16 @@ $$
 
 trong đó $s$ là cosine similarity. Scatter trên 50 task sequences cho thấy distortion cao thường đi cùng forgetting cao. Tuy nhiên, paper không báo Pearson/Spearman coefficient và chưa giải thích outlier, nên đây là bằng chứng tương quan chứ chưa phải quan hệ nhân quả. [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf#page=11|Bằng chứng: PDF trang 11]]
 
+## Diễn giải học tập — embedding space regularization
+
+Trong ConPL, “embedding space regularization” xuất hiện trực tiếp khi paper mô tả ERDA như một baseline dùng embedding-space regularization và data augmentation. Với chính ConPL, paper không gọi method bằng tên này, nhưng một cách diễn giải có thể là $L_{cc}$ và $L_{dc}$ regularize hình học của embedding space thông qua prototype memory. [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf#page=6|Bằng chứng: PDF trang 6]]
+
+- $L_{cc}$ giữ **điểm với tâm**: embedding của memory sample cần gần prototype đúng.
+- $L_{dc}$ giữ **quan hệ tương đối**: vector similarity từ sample tới toàn bộ prototype memory cần giống vector similarity từ prototype đúng tới toàn bộ prototype memory.
+- Prototype memory đóng vai trò như các neo hình học cho relation cũ; sample memory cung cấp dữ liệu thật để replay.
+
+Điểm cần nhớ khi đọc: regularization ở đây không chỉ là “phạt model đổi quá nhiều”, mà là “phạt representation làm hỏng cấu trúc class space cũ”. Nếu các relation gần nghĩa như `father` và `mother` bị kéo lại quá gần nhau hoặc đổi vị trí tương đối, model có thể quên theo nghĩa hình học dù vẫn còn một số tín hiệu của relation cũ trong memory. Xem thêm [[Embedding Space Regularization]].
+
 ## Hạn chế và assumptions
 
 ### Tác giả thừa nhận
@@ -440,11 +451,12 @@ Các baseline có dấu † và PT variants được tái chạy trên strict NK
 
 ## Liên kết concept
 
-- [[Continual Learning]]
+- [[04 - Concepts/Continual Learning|Continual Learning]]
 - [[Catastrophic Forgetting]]
 - [[Continual Relation Extraction]]
 - [[Continual Few-Shot Relation Extraction]]
 - [[Prototype Learning]]
+- [[Embedding Space Regularization]]
 - [[Replay in Continual Learning]]
 - [[Few-shot Learning]]
 - [[Contrastive Learning]]
@@ -476,4 +488,3 @@ Các baseline có dấu † và PT variants được tái chạy trên strict NK
 - [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf#page=12|PDF trang 12]] — dataset details và Appendix Table 4.
 - [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf#page=13|PDF trang 13]] — Responsible NLP Checklist phần đầu.
 - [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf#page=14|PDF trang 14]] — Responsible NLP Checklist phần cuối.
-
