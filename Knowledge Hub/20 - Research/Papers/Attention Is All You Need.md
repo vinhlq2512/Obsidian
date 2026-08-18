@@ -28,7 +28,7 @@ topic:
   - sequence transduction
   - machine translation
 priority: high
-reading_status: not-started
+reading_status: in-progress
 rating:
 related_concepts:
   - "[[Transformer]]"
@@ -39,7 +39,7 @@ related_concepts:
   - "[[Attention Mask]]"
   - "[[Feed-Forward Layer]]"
 created_at: 2026-08-13
-updated_at: 2026-08-13
+updated_at: 2026-08-16
 tags:
   - paper
   - transformer
@@ -50,7 +50,7 @@ tags:
 # Attention Is All You Need
 
 > [!info] Ranh giới trạng thái
-> Note này là bản phân tích học tập được tạo từ PDF 15 trang. `reading_status` vẫn là `not-started` vì chưa có bằng chứng bạn đã tự đọc paper.
+> Note này là bản phân tích học tập được tạo từ PDF 15 trang. Trạng thái đọc cá nhân: `in-progress` (bắt đầu đọc ngày 2026-08-16).
 
 ## Tóm tắt một câu
 

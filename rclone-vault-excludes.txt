@@ -1,0 +1,10 @@
+# Exclude patterns for rclone sync to Google Drive
+node_modules/**
+**/node_modules/**
+.tmp.drivedownload/**
+.tmp.driveupload/**
+.git/**
+.obsidian/workspace*
+public/**
+rclone-logs/**
+.DS_Store
