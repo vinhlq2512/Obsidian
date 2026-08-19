@@ -10,6 +10,7 @@
           {
             "id": "94df46c3c34ea0a1",
             "type": "leaf",
+            "pinned": true,
             "state": {
               "type": "markdown",
               "state": {
@@ -17,11 +18,41 @@
                 "mode": "preview",
                 "source": false
               },
+              "pinned": true,
               "icon": "lucide-file",
               "title": "Consistent Prototype Learning for Few-Shot Continual Relation Extraction"
             }
+          },
+          {
+            "id": "455d877cf193b888",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "20 - Research/Paper Reading/2026-08-19 - ConPL - Gemini Notebook Workflow.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2026-08-19 - ConPL - Gemini Notebook Workflow"
+            }
+          },
+          {
+            "id": "0408298915e3b12d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "05 - Templates/Paper Reading Gemini Notebook Workflow.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Paper Reading Gemini Notebook Workflow"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -80,7 +111,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 484.796875
+    "width": 799.4921875
   },
   "right": {
     "id": "3f770d9999f1d4fe",
@@ -185,12 +216,17 @@
       "bases:Create new base": false
     }
   },
-  "active": "94df46c3c34ea0a1",
+  "active": "455d877cf193b888",
   "lastOpenFiles": [
-    "04 - Concepts/Continual Learning.md",
-    "20 - Research/Papers/Consistent Prototype Learning for Few-Shot Continual Relation Extraction.md",
-    "04 - Concepts/Embedding Space Regularization.md",
+    "20 - Research/Paper Reading/2026-08-19 - Attention Is All You Need - Gemini Notebook Workflow.md",
+    "20 - Research/Paper Reading/2026-08-19 - ConPL - Gemini Notebook Workflow.md",
+    "20 - Research/Paper Reading/2026-08-16 - Consistent Prototype Learning for Few-Shot Continual Relation Extraction.md",
     "20 - Research/Literature Notes/Continual Relation Extraction - Prototype, Prompt và Replay.md",
+    "05 - Templates/Paper Reading Gemini Notebook Workflow.md",
+    "05 - Templates/Paper Reading.md",
+    "20 - Research/Papers/Consistent Prototype Learning for Few-Shot Continual Relation Extraction.md",
+    "04 - Concepts/Continual Learning.md",
+    "04 - Concepts/Embedding Space Regularization.md",
     "09 - MOCs/Continual Learning.md",
     "04 - Concepts/Prototype Learning.md",
     "04 - Concepts/In-Memory Read Model.md",
@@ -202,7 +238,6 @@
     "09 - MOCs/System Design.md",
     "10 - Technical/System Design/ByteByteGo Source Map.md",
     "20 - Research/Paper Reading/2026-08-16 - Attention Is All You Need.md",
-    "20 - Research/Paper Reading/2026-08-16 - Consistent Prototype Learning for Few-Shot Continual Relation Extraction.md",
     "20 - Research/Papers/Adaptive Prompting for Continual Relation Extraction.md",
     "20 - Research/Research Dashboard.md",
     "00 - Sources/PDFs/Papers/Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf",
@@ -213,10 +248,6 @@
     "08 - Syntheses/How Transformer Block Works.md",
     "08 - Syntheses/Messaging and Event Streaming Patterns.md",
     "04 - Concepts/RabbitMQ.md",
-    "04 - Concepts/Apache Kafka.md",
-    "04 - Concepts/Load Shedding.md",
-    "04 - Concepts/Load Balancer.md",
-    "04 - Concepts/Linearized Attention.md",
     "10 - Technical/System Design",
     "00 - Sources/ByteByteGo/Images/2026-08-13_a-detailed-guide-to-api-composition-techniques_img_10.png",
     "00 - Sources/ByteByteGo/Images/2026-08-13_a-detailed-guide-to-api-composition-techniques_img_09.png",
