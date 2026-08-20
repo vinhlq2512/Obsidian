@@ -26,7 +26,7 @@ priority: medium
 reading_status: not-started
 rating:
 related_concepts:
-  - "[[Continual Learning]]"
+  - "[[04 - Concepts/Continual Learning|Continual Learning]]"
   - "[[Catastrophic Forgetting]]"
   - "[[Continual Relation Extraction]]"
   - "[[Continual Few-Shot Relation Extraction]]"
@@ -583,7 +583,7 @@ Cần thận trọng khi:
 
 ## Liên quan đến
 
-- [[Continual Learning]]
+- [[04 - Concepts/Continual Learning|Continual Learning]]
 - [[Catastrophic Forgetting]]
 - [[Continual Relation Extraction]]
 - [[Continual Few-Shot Relation Extraction]]

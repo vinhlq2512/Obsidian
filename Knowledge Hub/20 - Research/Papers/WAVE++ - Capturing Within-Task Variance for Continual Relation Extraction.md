@@ -340,7 +340,7 @@ Không nên áp dụng nguyên xi khi stream không có task boundaries, relatio
 ## Liên quan đến
 
 - [[Adaptive Prompting for Continual Relation Extraction]]
-- [[Continual Learning]]
+- [[04 - Concepts/Continual Learning|Continual Learning]]
 - [[Catastrophic Forgetting]]
 - [[Continual Relation Extraction]]
 - [[Prompt Pool]]
