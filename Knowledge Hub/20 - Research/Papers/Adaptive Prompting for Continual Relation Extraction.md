@@ -28,7 +28,7 @@ priority: medium
 reading_status: not-started
 rating:
 related_concepts:
-  - "[[Continual Learning]]"
+  - "[[04 - Concepts/Continual Learning|Continual Learning]]"
   - "[[Catastrophic Forgetting]]"
   - "[[Continual Relation Extraction]]"
   - "[[Prefix Tuning]]"
@@ -431,7 +431,7 @@ Relation-level predictor cải thiện task inference trung bình, nhưng không
 
 ## Liên kết
 
-- [[Continual Learning]]
+- [[04 - Concepts/Continual Learning|Continual Learning]]
 - [[Catastrophic Forgetting]]
 - [[Continual Relation Extraction]]
 - [[Relation Extraction]]
