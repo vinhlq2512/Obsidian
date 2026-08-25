@@ -185,6 +185,22 @@ Sentence + entity pair
 
 ## Phase 6 - Equations
 
+### Prompt operational equation walkthrough
+
+```text
+Walk me through the key equations or formal blocks in this paper.
+
+For each equation/block, explain:
+1. Input: what variables or objects go into it.
+2. Output: what it produces.
+3. Where it is used in the training/inference pipeline.
+4. What behavior it encourages.
+5. What would likely break or become weaker if removed.
+6. Which table, figure, ablation, or result supports its usefulness.
+
+Do not summarize the whole paper. Focus only on operational understanding of the equations and formal mechanisms.
+```
+
 | Eq/block | Dùng để làm gì? | Biến chính | Behavior được khuyến khích | Evidence / ablation | Status |
 |---|---|---|---|---|---|
 | Flexible prompt | condition PLM | prompt embeddings | adapt to new relations | chưa có PDF | todo |
