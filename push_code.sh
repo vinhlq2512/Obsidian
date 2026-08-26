@@ -1,16 +1,25 @@
 #!/bin/bash
+set -euo pipefail
 
 echo "🚀 Bắt đầu quá trình tạo nhánh và push code..."
 
-# Tạo tên nhánh theo pattern note-dd/mm/yyyy
-CURRENT_DATE=$(date +'%d/%m/%Y')
+# Always run from the folder that contains this script.
+cd "$(dirname "$0")"
+
+# Tạo tên nhánh theo pattern notes-dd-mm-yyyy
+CURRENT_DATE=$(date +'%d-%m-%Y')
 BRANCH_NAME="notes-$CURRENT_DATE"
+REMOTE_URL="https://github.com/vinhlq2512/Obsidian"
 
 # 1. Khởi tạo một git repository mới
 git init
 
 # 2. Thêm remote repository
-git remote add origin https://github.com/vinhlq2512/Obsidian
+if git remote get-url origin >/dev/null 2>&1; then
+  git remote set-url origin "$REMOTE_URL"
+else
+  git remote add origin "$REMOTE_URL"
+fi
 
 # 3. Lấy lịch sử commit từ nhánh main trên remote để có mốc so sánh (giúp tạo PR không bị lỗi)
 git fetch origin main
@@ -19,10 +28,16 @@ git fetch origin main
 git reset --mixed origin/main
 
 # 5. Tạo và chuyển sang nhánh mới
-git checkout -b "$BRANCH_NAME"
+git checkout -B "$BRANCH_NAME"
 
 # 6. Thêm tất cả các file có thay đổi hoặc mới tạo vào staging
 git add .
+
+if git diff --cached --quiet; then
+  echo "ℹ️ Không có thay đổi mới để commit."
+  rm -rf .git
+  exit 0
+fi
 
 # 7. Commit các thay đổi
 git commit -m "Update notes $CURRENT_DATE"
