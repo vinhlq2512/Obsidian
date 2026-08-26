@@ -16,7 +16,7 @@ completed: false
 need_review: true
 review_date:
 created_at: 2026-08-19
-updated_at: 2026-08-19
+updated_at: 2026-08-23
 tags:
   - paper-reading
   - gemini-notebook
@@ -186,13 +186,29 @@ Shifted target tokens
 
 ## Phase 6 — Equations
 
+### Prompt operational equation walkthrough
+
+```text
+Walk me through the key equations or formal blocks in this paper.
+
+For each equation/block, explain:
+1. Input: what variables or objects go into it.
+2. Output: what it produces.
+3. Where it is used in the training/inference pipeline.
+4. What behavior it encourages.
+5. What would likely break or become weaker if removed.
+6. Which table, figure, ablation, or result supports its usefulness.
+
+Do not summarize the whole paper. Focus only on operational understanding of the equations and formal mechanisms.
+```
+
 | Eq. | Dùng để làm gì? | Biến chính | Behavior được khuyến khích | Evidence / ablation | Status |
 |---:|---|---|---|---|---|
-| 1 | Tính scaled dot-product attention | $Q,K,V,d_k$ | attend theo similarity nhưng scale để softmax ổn định | [[Attention Is All You Need.pdf#page=4\|PDF tr. 4]] | todo |
-| 2 | Multi-head attention | $W_i^Q,W_i^K,W_i^V,W^O,h$ | học nhiều attention subspaces song song | Table 3 head ablation | todo |
-| 3 | Position-wise FFN | $W_1,b_1,W_2,b_2$ | nonlinear transform độc lập từng position | [[Attention Is All You Need.pdf#page=5\|PDF tr. 5]] | todo |
-| PE | Sin/cos positional encoding | $pos,i,d_{model}$ | inject absolute/relative position signal | Table 3 row E | todo |
-| LR schedule | warmup + inverse sqrt decay | $step,warmup,d_{model}$ | stable early training, decay later | [[Attention Is All You Need.pdf#page=7\|PDF tr. 7]] | todo |
+| 1 | Tính scaled dot-product attention | $Q,K,V,d_k$ | attend theo similarity nhưng scale để softmax ổn định, tránh softmax quá sắc khi $d_k$ lớn | [[Attention Is All You Need.pdf#page=4\|PDF tr. 4]] | source-checked |
+| 2 | Multi-head attention | $W_i^Q,W_i^K,W_i^V,W^O,h$ | học nhiều attention subspaces song song; single-head kém multi-head khoảng 0.9 BLEU trong Table 3 | [[Attention Is All You Need.pdf#page=5\|PDF tr. 5]], [[Attention Is All You Need.pdf#page=9\|PDF tr. 9]] | source-checked |
+| 3 | Position-wise FFN | $W_1,b_1,W_2$ | nonlinear transform độc lập từng position sau attention | [[Attention Is All You Need.pdf#page=5\|PDF tr. 5]] | source-checked |
+| PE | Sin/cos positional encoding | $pos,i,d_{model}$ | inject thứ tự token; learned positional embeddings gần như ngang sinusoidal trong Table 3 row E | [[Attention Is All You Need.pdf#page=6\|PDF tr. 6]], [[Attention Is All You Need.pdf#page=9\|PDF tr. 9]] | source-checked |
+| LR schedule | warmup + inverse sqrt decay | $step,warmup,d_{model}$ | tăng learning rate lúc đầu để ổn định, sau đó decay theo inverse square root | [[Attention Is All You Need.pdf#page=7\|PDF tr. 7]] | source-checked |
 
 ## Phase 7 — Loss Functions
 
@@ -252,6 +268,9 @@ Training objective
 | Dropout | regularization | baseline | no dropout worse | clear degradation | dropout important | dropout value universal |
 | Model size | capacity | base/big variants | smaller variants lower | bigger generally better | capacity helps | scaling law proven |
 | Positional encoding type | order signal | sinusoidal | learned PE similar | small/no major difference | both viable in setup | sinusoidal always superior |
+
+> [!note] Ranh giới evidence
+> Các dòng trên là `reported/observed` từ paper và paper note chính, chưa phải kết quả reproduce local.
 
 ## Phase 11 — Critical Reading
 
