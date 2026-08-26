@@ -16,7 +16,7 @@ completed: false
 need_review: true
 review_date:
 created_at: 2026-08-21
-updated_at: 2026-08-21
+updated_at: 2026-08-23
 tags:
   - paper-reading
   - gemini-notebook
@@ -178,12 +178,28 @@ Sentence + entity markers
 
 ## Phase 6 - Equations
 
+### Prompt operational equation walkthrough
+
+```text
+Walk me through the key equations or formal blocks in this paper.
+
+For each equation/block, explain:
+1. Input: what variables or objects go into it.
+2. Output: what it produces.
+3. Where it is used in the training/inference pipeline.
+4. What behavior it encourages.
+5. What would likely break or become weaker if removed.
+6. Which table, figure, ablation, or result supports its usefulness.
+
+Do not summarize the whole paper. Focus only on operational understanding of the equations and formal mechanisms.
+```
+
 | Eq/block | Dùng để làm gì? | Biến chính | Behavior được khuyến khích | Evidence / ablation | Status |
 |---|---|---|---|---|---|
-| Prefix tuning | điều kiện hóa self-attention | prefix keys/values | thích nghi PLM không fine-tune toàn bộ | [[Adaptive Prompting for Continual Relation Extraction- A Within-Task Variance Perspective.pdf#page=3\|PDF tr. 3]] | todo |
-| Sparse-MoE score | chọn prompt expert | input query, prompt keys | route input tới expert phù hợp | ablation số experts | todo |
-| Training objective | học task mới + bảo vệ cũ | new data loss, replay loss | cân bằng old/new classes | [[Adaptive Prompting for Continual Relation Extraction- A Within-Task Variance Perspective.pdf#page=5\|PDF tr. 5]] | todo |
-| Latent distribution | sinh replay features | mean/covariance hoặc prototype statistics | giữ vùng representation của relation cũ | [[Adaptive Prompting for Continual Relation Extraction- A Within-Task Variance Perspective.pdf#page=5\|PDF tr. 5]] | todo |
+| Prefix tuning | điều kiện hóa self-attention | prefix keys/values | thích nghi PLM không fine-tune toàn bộ | [[Adaptive Prompting for Continual Relation Extraction- A Within-Task Variance Perspective.pdf#page=3\|PDF tr. 3]] | source-checked |
+| Sparse-MoE score | chọn prompt expert | input query, prompt keys, $L\times K=8$ trong ablation | route input tới expert phù hợp; một expert/prompt tốt nhất ở TACRED $T_{10}$ | [[Adaptive Prompting for Continual Relation Extraction- A Within-Task Variance Perspective.pdf#page=4\|PDF tr. 4]], [[Adaptive Prompting for Continual Relation Extraction- A Within-Task Variance Perspective.pdf#page=7\|PDF tr. 7]] | source-checked |
+| Training objective | học task mới + bảo vệ cũ | current-task classification, replay query/prompted representations | cân bằng old/new classes và giảm classifier forgetting | [[Adaptive Prompting for Continual Relation Extraction- A Within-Task Variance Perspective.pdf#page=5\|PDF tr. 5]] | source-checked |
+| Latent distribution | sinh replay features | per-relation statistics cho query/prompted representations | giữ vùng representation của relation cũ mà không lưu raw examples | [[Adaptive Prompting for Continual Relation Extraction- A Within-Task Variance Perspective.pdf#page=5\|PDF tr. 5]] | source-checked |
 
 ## Phase 7 - Loss Functions
 
@@ -197,25 +213,25 @@ WAVE-CRE training signal
 
 | Loss/block | Inputs | Trains component | Behavior | Weight | Ablation |
 |---|---|---|---|---|---|
-| Current task classification | current examples | encoder/prompt/classifier | learn new relations | cần đọc lại | main training |
-| Replay loss | latent old samples | classifier/shared representation | retain old relations | cần đọc lại | replay ablation |
-| Prompt selection score | input + prompt keys | prompt pool/router | match examples to experts | cần đọc lại | expert number/pool ablation |
-| Task predictor objective | input + task labels | task predictor | infer task identity | cần đọc lại | task predictor analysis |
+| Current task classification | current examples | prompt/classifier | learn new relations | source-checked | main training |
+| Replay loss | latent old query/prompted samples | classifier/shared representation | retain old relations | source-checked | replay contributes to forgetting control but module-level replay ablation is not fully separated |
+| Prompt selection score | input + prompt keys | prompt pool/router | match examples to experts | source-checked | expert number/pool ablation |
+| Task predictor objective | input + relation/task labels | relation-level predictor -> task mapping | infer task identity | source-checked | task predictor analysis |
 
 ## Phase 8 - Experiments
 
 | Experiment | Research question | Dataset | Baselines | Metric | Table/Figure | Main result | Caveat |
 |---|---|---|---|---|---|---|---|
-| Main CRE results | WAVE-CRE có tốt hơn CRE baselines không? | FewRel/TACRED | prompt/replay CRE baselines | accuracy by learning stage | Table 1 | paper note ghi FewRel T10 85.0, TACRED T10 78.7 | chưa reproduced |
-| Prompt pool ablation | nhiều prompt/task có hơn một prompt/task không? | FewRel/TACRED | WAVE-CRE variants | final accuracy | ablation table | pool có đóng góp dương | chỉ trong framework này |
-| Number of experts | thêm experts có luôn tốt hơn không? | FewRel/TACRED | different expert counts | accuracy | ablation/analysis | cần đọc điểm bão hòa | cost tăng |
-| Task predictor | task identity inference ảnh hưởng thế nào? | FewRel/TACRED | predictor variants | task/relation accuracy | analysis | predictor là bottleneck tiềm năng | assumption inference |
+| Main CRE results | WAVE-CRE có tốt hơn CRE baselines không? | FewRel/TACRED | prompt/replay CRE baselines | accuracy by learning stage | Table 1 | FewRel $T_{10}$ 85.0, TACRED $T_{10}$ 78.7 theo paper note chính | reported, not reproduced |
+| Prompt pool ablation | nhiều prompt/task có hơn một prompt/task không? | TACRED task-incremental | WAVE-CRE vs không prompt pool | final accuracy | Table 2 | $T_{10}$ tăng từ 83.4 lên 85.2, tức +1.8 | chỉ trong framework này |
+| Number of experts | thêm experts có luôn tốt hơn không? | TACRED | $L,K$ variants giữ $L\times K=8$ | accuracy | Table 3 | $L=1,K=8$ đạt 85.2 ở $T_{10}$, tốt nhất trong sweep | cost/routing trade-off |
+| Task predictor | task identity inference ảnh hưởng thế nào? | FewRel/TACRED | WAVE-CRE, HiDe-Prompt, EPI | task prediction accuracy | Table 4 | trung bình WAVE-CRE cao hơn HiDe-Prompt/EPI, nhưng không thắng mọi task | predictor vẫn là bottleneck tiềm năng |
 
 ### Protocol fingerprint
 
 - Dataset and split: FewRel và TACRED theo setup CRE trong paper.
 - Scenario / label space: continual relation extraction, evaluate trên relation đã thấy.
-- Backbone: PLM/prefix-tuning style; cần đọc lại backbone cụ thể.
+- Backbone: frozen BERT; train prompt pools và classifier theo paper note chính.
 - Seeds / number of runs: cần kiểm chứng từ experiment section.
 - Metric and averaging: accuracy theo learning stage; cần đọc cách average task order.
 - Memory/replay: latent generative replay, không phải chỉ raw exemplar replay.
@@ -234,10 +250,10 @@ WAVE-CRE training signal
 
 | Component | Intended purpose | With component | Without component | Difference | Conclusion justified | Not justified |
 |---|---|---:|---:|---:|---|---|
-| Task-specific prompt pool | bắt within-task variance | cần điền | cần điền | cần điền | pool có ích trong setup này | mọi task đều cần nhiều prompts |
-| Number of experts | tăng capacity prompt | cần điền | cần điền | cần điền | có điểm trade-off | càng nhiều expert càng tốt |
-| Latent replay | bảo vệ relation cũ | cần điền | cần điền | cần điền | replay giúp classifier | Gaussian replay luôn đủ |
-| Task predictor | inference task identity | cần điền | cần điền | cần điền | predictor ảnh hưởng end-to-end | task identity đã được giải quyết hoàn toàn |
+| Task-specific prompt pool | bắt within-task variance | TACRED $T_{10}$ 85.2 | không prompt pool 83.4 | +1.8 | pool có ích trong setup này | mọi task đều cần nhiều prompts |
+| Number of experts | tăng capacity prompt | $L=1,K=8$: 85.2 | $L=8,K=1$: 84.2 | +1.0 | route độc lập theo expert có lợi | càng nhiều expert càng tốt |
+| Latent replay | bảo vệ relation cũ | có query/prompted replay | chưa có ablation tách riêng từng replay module trong note chính | chưa kết luận định lượng riêng | replay là cơ chế bảo vệ classifier | Gaussian replay luôn đủ |
+| Task predictor | inference task identity | WAVE-CRE trung bình FewRel 86.17 / TACRED 79.31 | HiDe-Prompt 80.09 / 72.01; EPI 62.67 / 62.53 | WAVE-CRE cao hơn trung bình | predictor ảnh hưởng end-to-end | task identity đã được giải quyết hoàn toàn |
 
 ## Phase 11 - Critical Reading
 
@@ -257,9 +273,9 @@ WAVE-CRE training signal
 | Code | todo | tìm official repo nếu cần reproduce |
 | Dataset split | todo | đối chiếu FewRel/TACRED split |
 | Hyperparameters | todo | extract từ paper/code |
-| Main table | todo | điền chính xác các số Table 1 |
-| Ablation | todo | điền số with/without component |
-| Compute | todo | tìm GPU/training cost nếu paper báo |
+| Main table | partial | đã ghi $T_{10}$ FewRel/TACRED; cần full stage table nếu reproduce |
+| Ablation | partial | đã điền prompt pool, expert count, task predictor; replay module-level còn thiếu |
+| Compute | open | tìm GPU/training cost nếu paper báo |
 
 ## Phase 13 - Completeness / Oral Exam
 
@@ -283,8 +299,9 @@ Quiz me on WAVE-CRE. Ask one question at a time. Focus on within-task variance, 
 
 ### Ý cần chuyển sang paper note
 
-- [ ] Điền lại equations bằng ký hiệu chính xác.
-- [ ] Điền ablation numbers thay vì chỉ qualitative.
+- [x] Điền lại equation/formal blocks ở mức operational từ paper note/PDF.
+- [x] Điền ablation numbers chính cho prompt pool, expert count và task predictor.
+- [ ] Tách định lượng riêng của các replay module nếu paper/code cho phép.
 - [ ] Ghi rõ task predictor là assumption/bottleneck.
 - [ ] Khi so sánh với WAVE++, tách phần inherited WAVE-CRE và phần WAVE++ thêm mới.
 

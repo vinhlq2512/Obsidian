@@ -16,7 +16,7 @@ completed: false
 need_review: true
 review_date:
 created_at: 2026-08-21
-updated_at: 2026-08-21
+updated_at: 2026-08-23
 tags:
   - paper-reading
   - gemini-notebook
@@ -179,13 +179,29 @@ Sentence + entity pair
 
 ## Phase 6 - Equations
 
+### Prompt operational equation walkthrough
+
+```text
+Walk me through the key equations or formal blocks in this paper.
+
+For each equation/block, explain:
+1. Input: what variables or objects go into it.
+2. Output: what it produces.
+3. Where it is used in the training/inference pipeline.
+4. What behavior it encourages.
+5. What would likely break or become weaker if removed.
+6. Which table, figure, ablation, or result supports its usefulness.
+
+Do not summarize the whole paper. Focus only on operational understanding of the equations and formal mechanisms.
+```
+
 | Eq/block | Dùng để làm gì? | Biến chính | Behavior được khuyến khích | Evidence / ablation | Status |
 |---|---|---|---|---|---|
-| CRE formalization | định nghĩa stream/task/relations | tasks, relations, examples | evaluate trên labels đã thấy | [[Capturing Within-Task Variance for Continual Relation Extraction with Adaptive Prompting.pdf#page=4\|PDF tr. 4]] | todo |
-| Prompt pool scoring | chọn prompt experts | input query, expert keys | input-specific adaptation | prompt pool ablation | todo |
-| Label alignment loss | align input với label text | input embedding, label embedding | semantic separation | label-description ablation | todo |
-| Cascade voting | task/relation decision | candidate scores | robust task inference | task prediction analysis | todo |
-| Replay objective | retain old classes | latent old samples | reduce forgetting | replay ablation | todo |
+| CRE formalization | định nghĩa stream/task/relations | tasks, relations, examples | evaluate trên labels đã thấy | [[Capturing Within-Task Variance for Continual Relation Extraction with Adaptive Prompting.pdf#page=4\|PDF tr. 4]] | source-checked |
+| Prompt pool scoring | chọn prompt experts | input query, expert keys | input-specific adaptation; prompt pool -> một prompt/task làm FewRel $T_{10}$ giảm 1.3 và TACRED giảm 1.4 | [[Capturing Within-Task Variance for Continual Relation Extraction with Adaptive Prompting.pdf#page=8\|PDF tr. 8]], [[Capturing Within-Task Variance for Continual Relation Extraction with Adaptive Prompting.pdf#page=18\|PDF tr. 18]] | source-checked |
+| Label alignment loss | align input với label text | input embedding, label-description embedding | semantic separation; bỏ label descriptions làm FewRel $T_{10}$ giảm 1.9 và TACRED giảm 1.8 | [[Capturing Within-Task Variance for Continual Relation Extraction with Adaptive Prompting.pdf#page=10\|PDF tr. 10]], [[Capturing Within-Task Variance for Continual Relation Extraction with Adaptive Prompting.pdf#page=18\|PDF tr. 18]] | source-checked |
+| Cascade voting | task/relation decision | Mahalanobis scores từ BERT/prompt pools | robust task inference; $T_{10}$ task prediction hơn WAVE-CRE 2.9 trên FewRel và 5.6 trên TACRED | [[Capturing Within-Task Variance for Continual Relation Extraction with Adaptive Prompting.pdf#page=12\|PDF tr. 12]], [[Capturing Within-Task Variance for Continual Relation Extraction with Adaptive Prompting.pdf#page=19\|PDF tr. 19]] | source-checked |
+| Replay objective | retain old classes | latent old samples từ Gaussian statistics | giảm forgetting; bỏ generative replay làm FewRel $T_{10}$ giảm 25.6 và TACRED giảm 22.2 | [[Capturing Within-Task Variance for Continual Relation Extraction with Adaptive Prompting.pdf#page=14\|PDF tr. 14]], [[Capturing Within-Task Variance for Continual Relation Extraction with Adaptive Prompting.pdf#page=18\|PDF tr. 18]] | source-checked |
 
 ## Phase 7 - Loss Functions
 
@@ -200,26 +216,26 @@ WAVE++ training signal
 
 | Loss/block | Inputs | Trains component | Behavior | Weight | Ablation |
 |---|---|---|---|---|---|
-| Relation classification | current examples | encoder/classifier | classify new relations | cần đọc lại | main result |
-| Label-description contrastive/alignment | input + label descriptions | representation/label anchors | reduce semantic confusion | cần đọc lại | label description ablation |
-| Replay loss | generated old latent samples | classifier/shared space | retain old relations | cần đọc lại | replay ablation |
-| Cascade voting objective/score | task/relation candidates | task predictor/voting | improve task identity | cần đọc lại | task prediction analysis |
+| Relation classification | current examples | classifier/prompt pool hiện tại | classify new relations | source-checked | main result |
+| Label-description contrastive/alignment | input + label descriptions | representation/label anchors | reduce semantic confusion | source-checked | label description ablation |
+| Replay loss | generated old latent samples | classifier/shared space | retain old relations | source-checked | replay ablation, largest drop |
+| Cascade voting objective/score | task/relation candidates | voting score, không phải learned MLP task predictor | improve task identity | source-checked | task prediction analysis |
 
 ## Phase 8 - Experiments
 
 | Experiment | Research question | Dataset | Baselines | Metric | Table/Figure | Main result | Caveat |
 |---|---|---|---|---|---|---|---|
 | Main results | WAVE++ có hơn WAVE-CRE/SOTA không? | FewRel/TACRED | WAVE-CRE, EoE, rehearsal baselines | final-stage accuracy | main table | paper note ghi FewRel T10 87.7, TACRED T10 82.5 | protocol-specific |
-| Ablation | component nào đóng góp? | FewRel/TACRED | WAVE++ variants | accuracy drop | ablation table | replay drop lớn nhất theo note hiện có | cần điền full numbers |
-| Task prediction | cascade voting có tốt hơn WAVE-CRE predictor không? | FewRel/TACRED | WAVE-CRE | task prediction accuracy | analysis | paper note ghi WAVE++ hơn WAVE-CRE ở T10 | latency tăng |
-| Label description appendix | label wording/semantics có ảnh hưởng không? | FewRel/TACRED | description variants | accuracy | appendix | cần đọc lại | description quality sensitive |
+| Ablation | component nào đóng góp? | FewRel/TACRED | WAVE++ variants | accuracy drop | ablation table | bỏ replay giảm 25.6/22.2; bỏ descriptions giảm 1.9/1.8; bỏ prompt pool giảm 1.3/1.4 | reported/observed, not reproduced |
+| Task prediction | cascade voting có tốt hơn WAVE-CRE predictor không? | FewRel/TACRED | WAVE-CRE | task prediction accuracy | analysis | FewRel 88.3 vs 85.4; TACRED 84.8 vs 79.2 ở $T_{10}$ | latency tăng |
+| Label description appendix | label wording/semantics có ảnh hưởng không? | FewRel/TACRED | description variants | accuracy | appendix | appendix kiểm sensitivity của label descriptions | description quality sensitive |
 | Running time | cost tăng bao nhiêu? | FewRel/TACRED | WAVE-CRE vs WAVE++ | ms/sample hoặc time | appendix | inference latency tăng | trade-off deployment |
 
 ### Protocol fingerprint
 
 - Dataset and split: FewRel và TACRED, chi tiết appendix. [[Capturing Within-Task Variance for Continual Relation Extraction with Adaptive Prompting.pdf#page=30|PDF tr. 30]]
 - Scenario / label space: continual relation extraction, evaluate sau mỗi learning stage.
-- Backbone: PLM với prefix/prompt style; cần đọc implementation chi tiết.
+- Backbone: BERT frozen; train prompt pools và classifier.
 - Seeds / number of runs: cần kiểm từ experiment section.
 - Metric and averaging: final-stage accuracy và stage-wise accuracy.
 - Replay/memory: latent generative replay.
@@ -240,10 +256,10 @@ WAVE++ training signal
 
 | Component | Intended purpose | With component | Without component | Difference | Conclusion justified | Not justified |
 |---|---|---:|---:|---:|---|---|
-| Prompt pool | capture within-task variance | cần điền | cần điền | cần điền | adaptive prompting có ích | variance đã được đo trực tiếp |
-| Label descriptions | semantic anchors | cần điền | cần điền | cần điền | label semantics hỗ trợ model | description nào cũng tốt |
-| Generative replay | retain old relations | cần điền | cần điền | cần điền | replay rất quan trọng | rehearsal-free conclusion |
-| Cascade voting | task identity inference | cần điền | cần điền | cần điền | task prediction cải thiện | không có inference overhead |
+| Prompt pool | capture within-task variance | FewRel 87.7 / TACRED 82.5 | một prompt/task: 86.4 / 81.1 | +1.3 / +1.4 | adaptive prompting có ích | variance đã được đo trực tiếp |
+| Label descriptions | semantic anchors | FewRel 87.7 / TACRED 82.5 | bỏ descriptions: 85.8 / 80.7 | +1.9 / +1.8 | label semantics hỗ trợ model | description nào cũng tốt |
+| Generative replay | retain old relations | FewRel 87.7 / TACRED 82.5 | bỏ replay: 62.1 / 60.3 | +25.6 / +22.2 | replay rất quan trọng trong framework này | rehearsal-free nghĩa là không lưu gì |
+| Cascade voting | task identity inference | FewRel 88.3 / TACRED 84.8 task prediction | WAVE-CRE 85.4 / 79.2 | +2.9 / +5.6 | task prediction cải thiện | không có inference overhead |
 
 ## Phase 11 - Critical Reading
 
@@ -263,10 +279,10 @@ WAVE++ training signal
 | Code | todo | tìm official repo nếu cần reproduce |
 | Dataset split | todo | đối chiếu appendix |
 | Label descriptions | todo | trích nguồn/format descriptions |
-| Main table | todo | điền full stage/result numbers |
-| Ablation | todo | điền drops từng component |
-| Task prediction | todo | điền accuracy/latency cụ thể |
-| Statistical tests | todo | kiểm p-value/test setup trong appendix |
+| Main table | partial | đã ghi $T_{10}$ FewRel/TACRED và so với WAVE-CRE/EoE |
+| Ablation | done-for-T10 | đã điền prompt pool, label descriptions, generative replay |
+| Task prediction | partial | đã điền $T_{10}$ task prediction; latency vẫn cần đọc appendix khi reproduce |
+| Statistical tests | partial | paper note ghi Royston tests $p>0.05$ trên tám class của một FewRel task; cần kiểm setup nếu cite sâu |
 
 ## Phase 13 - Completeness / Oral Exam
 
@@ -291,7 +307,7 @@ Quiz me on WAVE++. Ask one question at a time. Focus on differences from WAVE-CR
 ### Ý cần chuyển sang paper note
 
 - [ ] Bổ sung exact equations/losses nếu cần.
-- [ ] Điền full ablation numbers từ PDF.
+- [x] Điền full ablation numbers chính ở $T_{10}$ từ paper note/PDF.
 - [ ] Ghi rõ component nào inherited từ WAVE-CRE, component nào mới.
 - [ ] Thêm caveat về inference latency và task prediction.
 

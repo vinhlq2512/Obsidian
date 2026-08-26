@@ -149,7 +149,52 @@ Recommended sections to fill:
 - `Phase 11 — Critical Reading` prompts/checklist
 - `Final Paper Note Handoff`
 
+For `Phase 6 — Equations`, include this operational walkthrough prompt before the equation queue when the note does not already have an equivalent prompt:
+
+```text
+Walk me through the key equations or formal blocks in this paper.
+
+For each equation/block, explain:
+1. Input: what variables or objects go into it.
+2. Output: what it produces.
+3. Where it is used in the training/inference pipeline.
+4. What behavior it encourages.
+5. What would likely break or become weaker if removed.
+6. Which table, figure, ablation, or result supports its usefulness.
+
+Do not summarize the whole paper. Focus only on operational understanding of the equations and formal mechanisms.
+```
+
 Keep prompts from the template intact unless the user asks for a shorter custom prompt bank.
+
+### Step 6A: Incorporate Gemini/NotebookLM Output
+
+When the user pastes Gemini/NotebookLM output for an existing workflow phase, update the target phase directly if the target note is clear. Treat the pasted output as assisted scaffold, not as the user's closed-book recall.
+
+Procedure:
+- Read the pasted text and identify which phase/table/checklist it belongs to.
+- Do not paste raw Gemini output wholesale when it contains noisy citations, footnote IDs, UI artifacts such as `more_horiz`, or unsupported claims.
+- Convert the useful content into clean Vietnamese notes, tables, or checklists that match the existing phase structure.
+- Add a short callout before inserted assisted content, for example:
+
+```markdown
+> [!note] Cách dùng phần này
+> Bảng dưới là **scaffold từ Gemini output đã lọc lại theo paper note/PDF**. Dùng nó để kiểm tra khi đọc lại nguồn, không coi là closed-book recall cá nhân.
+```
+
+- Use `gemini-draft` or `scaffold` as the row status when the content comes mainly from Gemini/NotebookLM and has not been confirmed by the user's own recall.
+- Keep user-authored first-person sections separate. Do not write as "tôi hiểu..." unless the user supplied that wording.
+- Preserve useful uncertainty as checklist items, especially formula/code mismatches, vague evidence, or claims that require PDF/code verification.
+- Update `updated_at` on the workflow note when modifying substantive content.
+
+For `Phase 6 — Equations`, prefer an operational table with these columns when integrating a Gemini equation walkthrough:
+
+```markdown
+| Eq/block | Dùng để làm gì? | Input -> Output | Dùng ở đâu trong pipeline | Behavior được khuyến khích | Nếu bỏ/yếu đi thì sao? | Evidence / ablation | Status |
+|---|---|---|---|---|---|---|---|
+```
+
+Use page-grounded PDF links in `Evidence / ablation` and escape wikilink alias pipes inside tables. If Gemini cites a result that cannot be traced to the PDF, either remove it or mark it as a checklist item to verify.
 
 ### Step 7: Evidence Rules
 

@@ -16,7 +16,7 @@ completed: false
 need_review: true
 review_date:
 created_at: 2026-08-19
-updated_at: 2026-08-19
+updated_at: 2026-08-23
 tags:
   - paper-reading
   - gemini-notebook
@@ -63,11 +63,11 @@ Do not summarize the paper in detail yet. Create a structural map of this paper 
 
 ### Chỗ cần đọc trước
 
-- [ ] Abstract + Introduction
-- [ ] Section 3 NK-CRE
-- [ ] Section 4.1-4.4 method và Algorithm 1
-- [ ] Table 1-3
-- [ ] Limitations + Appendix prototype distortion
+- [x] Abstract + Introduction
+- [x] Section 3 NK-CRE
+- [x] Section 4.1-4.4 method và Algorithm 1
+- [x] Table 1-3
+- [x] Limitations + Appendix prototype distortion
 
 ## Phase 2 — Pass 1 Recall
 
@@ -75,27 +75,33 @@ Do not summarize the paper in detail yet. Create a structural map of this paper 
 
 **Problem**
 
--
+- xử lí continual learning, giảm quên lãng các task và các relation sau
 
 **Why does it matter?**
 
--
+- Khi xuất hiện các quan hệ mới, mô hình **vẫn bắt buộc phải được huấn luyện tiếp** (continually trained). Ý nghĩa thực sự của Continual Learning là giúp mô hình học thêm kiến thức mới **mà không cần phải huấn luyện lại từ đầu** (retrain từ scratch) trên toàn bộ dữ liệu của tất cả các lớp cũ (vốn rất tốn kém hoặc dữ liệu cũ đã bị xóa vì lý do bảo mật) và **tránh hiện tượng quên lãng thảm họa** (catastrophic forgetting)
 
 **Research gap**
 
--
+- **Tăng cường phân tách:** Khớp phân phối là chưa đủ. Nên kết hợp thêm **Supervised Contrastive Learning** để đẩy các prototypes của những quan hệ (relations) khác nhau ra xa, tối đa hóa lề (margin) thay vì chỉ co cụm chúng lại.
+    
+- **Tham số hóa bộ nhớ (Parameter-Efficient Memory):** Hướng đi SOTA hiện tại là từ bỏ hoàn toàn việc lưu trữ mẫu thô (Replay Buffer). Thay vào đó, có thể mã hóa "phân phối" này trực tiếp vào các task-specific soft prompts (Prompt Tuning) hoặc dùng **LoRA**, giải quyết triệt để bài toán rò rỉ dữ liệu và Overfitting trên memory.
 
 **Main idea**
 
--
+- Mô hình thực sự lưu trữ và sử dụng lại các **prototype** (véc-tơ đại diện cho lớp quan hệ) đã được tối ưu từ các tác vụ huấn luyện trước đó để giữ vững đặc trưng của chúng
 
 **Main contribution**
 
--
+1. Định nghĩa và thiết lập bài toán **N-way-K-shot Continual Relation Extraction (NK-CRE)** nghiêm ngặt, sát với thực tế few-shot học liên tục.
+2. Đề xuất phương pháp **Consistent Prototype Learning (ConPL)** kết hợp học mẫu gợi ý (**Prompt Learning**) và cấu trúc bộ nhớ kép: **Sample Memory** (lưu mẫu dữ liệu) và **Prototype Memory** (lưu véc-tơ prototype cố định của lớp cũ).
+3. Đưa ra các hàm mất mát **Consistency Loss** (đảm bảo tính nhất quán phân phối) và **Focal Loss** để mô hình tập trung phân biệt các quan hệ dễ nhầm lẫn
 
 **Main result**
 
--
+1. ConPL vượt trội hơn hẳn so với các mô hình mạnh nhất trước đó trên hai bộ dữ liệu FewRel và TACRED.
+2. Mô hình giảm thiểu đáng kể tỷ lệ quên lãng (forgetting rate), đạt mức rất gần với cận trên lý tưởng là **JointTrain** (huấn luyện chung trên tất cả dữ liệu gộp lại).
+3. Giảm thiểu tối đa sự biến dạng của prototype theo thời gian (prototype distortion)
 
 ### Prompt kiểm tra recall
 
@@ -123,9 +129,27 @@ Compare my understanding against the paper. Return what is correct, inaccurate, 
 
 ### Câu hỏi tự kiểm tra
 
-- [ ] NK-CRE khác CFRL ở task đầu như thế nào?
-- [ ] Vì sao một exemplar/relation chưa đủ để giữ representation cũ?
-- [ ] Vì sao confusing negatives quan trọng trong relation extraction?
+- [x] NK-CRE khác CFRL ở task đầu như thế nào?
+	- **CFRL (Continual Few-Shot Relation Learning):** Thường sử dụng chiến lược thiết lập dữ liệu bất đối xứng. Ở task đầu tiên (Task 0), mô hình được cung cấp một tập dữ liệu rất lớn chứa nhiều quan hệ và dồi dào mẫu huấn luyện. Mục đích là để học một không gian biểu diễn (Representation Space) và bộ trích xuất đặc trưng nền tảng vững chắc trước khi bước vào các task tiếp theo vốn bị giới hạn dữ liệu (Few-shot).
+    
+	- **NK-CRE (N-way-K-shot Continual Relation Extraction):** Thiết lập sự khắt khe ngay từ vạch xuất phát bằng cách áp dụng **Few-shot cho toàn bộ quá trình**. Ở task đầu tiên, mô hình không có lợi thế từ dữ liệu lớn mà phải học và khởi tạo các prototype chỉ từ một số lượng mẫu $K$ rất nhỏ cho $N$ quan hệ. Điều này ép mô hình phải có cơ chế như Prompt Learning hoặc Consistent Prototype Learning để tránh việc khởi tạo biểu diễn bị sai lệch ngay từ đầu.
+- [x] Vì sao một exemplar/relation chưa đủ để giữ representation cũ?
+	- Việc chỉ lưu một mẫu (Exemplar) để đại diện cho một quan hệ sẽ gây ra hiệu ứng ngược do các giới hạn về mặt thống kê và học máy:
+
+		- **Sự đa dạng ngữ cảnh (Intra-class Variance):** Một quan hệ trong ngôn ngữ tự nhiên (ví dụ: _Thành lập tại_) có thể được biểu đạt bằng hàng trăm cấu trúc cú pháp và từ vựng khác nhau. Một mẫu duy nhất chỉ phản ánh được một mảnh ghép cực nhỏ, làm mất đi tính đa dạng của không gian đặc trưng.
+		    
+		- **Bẫy quá khớp trên bộ nhớ (Overfitting on Memory):** Khi sử dụng lại một mẫu duy nhất để củng cố (Replay) qua nhiều epoch, mô hình sẽ có xu hướng "học vẹt" các đặc trưng nhiễu (noise) của câu văn cụ thể đó thay vì bản chất của quan hệ.
+		    
+		- **Sụp đổ phân phối (Distribution Collapse):** Các phương pháp như NK-CRE cần tính toán khoảng cách giữa các phân phối để duy trì kiến thức cũ. Một điểm dữ liệu đơn lẻ không thể tạo ra phương sai (variance), làm cho cụm phân phối của quan hệ cũ bị thu hẹp thành một điểm, dễ dàng bị phá vỡ khi mô hình cập nhật trọng số cho task mới.
+- [x] Vì sao confusing negatives quan trọng trong relation extraction?
+
+	"Confusing Negatives" (Các mẫu âm tính gây nhầm lẫn) là những câu có cấu trúc từ vựng hoặc loại thực thể cực kỳ giống với mẫu dương tính nhưng thực chất lại mang một quan hệ khác hoặc không có quan hệ (No_Relation).
+
+	- **Ngăn chặn học đường tắt (Shortcut Learning):** Nếu không có confusing negatives, mô hình dễ dàng đoán quan hệ chỉ dựa trên loại thực thể (Ví dụ: Thấy thực thể [Người] và [Thành phố] là tự động đoán quan hệ _Sinh ra tại_). Confusing negatives ép mô hình phải tập trung vào cấu trúc ngữ nghĩa sâu của câu để phân loại.
+	    
+	- **Tinh chỉnh ranh giới quyết định (Decision Boundary Refinement):** Trong học đối chiếu (Contrastive Learning), việc đưa các mẫu gây nhầm lẫn vào quá trình huấn luyện sẽ ép mô hình đẩy các class tương đồng ra xa nhau, tạo ra một ranh giới quyết định sắc nét hơn và làm giảm sự ảnh hưởng của các dữ liệu nhiễu (context noise).
+	    
+	- **Tối ưu hóa Gradient:** Thay vì để mô hình học qua hàng ngàn mẫu negatives dễ (easy negatives) vốn không cung cấp thêm lượng thông tin hữu ích nào và gây mất cân bằng dữ liệu, tập trung vào confusing negatives giúp quá trình hội tụ nhanh hơn và biểu diễn không gian nhúng có tính phân biệt cao hơn.
 
 ## Phase 4 — Method / Architecture
 
@@ -158,8 +182,23 @@ Sentence + head/tail entity
 
 ### Điều tôi vẫn chưa hiểu
 
-- [ ] $P^k$, $\hat P^k$, $\bar P^k$, $\tilde P^k$ khác nhau chính xác ở mỗi stage ra sao?
-- [ ] Code có triển khai Eq. 7 đúng như paper hay có focal modulation không?
+- [x] $P^k$, $\hat P^k$, $\bar P^k$, $\tilde P^k$ khác nhau chính xác ở mỗi stage ra sao?
+
+	Tác giả sử dụng một hệ thống ký hiệu khá dày đặc để phục vụ các mục đích cấp phát bộ nhớ khác nhau trong từng giai đoạn huấn luyện. Dựa vào nội dung bài báo, bản chất của chúng như sau:
+	
+	- **$\tilde{P}^k$ (Temporary Prototypes):** Là nguyên mẫu _tạm thời_ của task thứ $k$. Chúng được khởi tạo ngay ở đầu Stage 1 bằng cách trung bình hóa toàn bộ mẫu huấn luyện của quan hệ mới trong $D_{train}^k$.
+	    
+	- **$P^k$ (Memory Prototypes):** Là nguyên mẫu _chính thức_ của task thứ $k$ được lưu trữ cố định. Khác với $\tilde{P}^k$, $P^k$ chỉ được tính toán lại dựa trên các mẫu tiêu biểu (typical samples) đã được chọn lọc để lưu vào Sample Memory $S^k$ ở Stage 2.
+	    
+	- **$\bar{P}^k$ (Current All Prototypes):** Là tập hợp tất cả các prototype đang tham gia vào quá trình tính loss tại task hiện tại. Trong Stage 1, nó là sự kết hợp của kiến thức cũ và nguyên mẫu tạm thời: $\bar{P}^k = \hat{P}^{k-1} \cup \tilde{P}^k$. Sang Stage 2 và 3, nó được cập nhật bằng nguyên mẫu chính thức: $\bar{P}^k = \hat{P}^{k-1} \cup P^k$.
+	    
+	- **$\hat{P}^k$ (Global Prototype Memory):** Là kho lưu trữ nguyên mẫu toàn cục của tất cả các task tính đến $k$. Nó chỉ được chốt lại ở cuối quá trình huấn luyện: $\hat{P}^k = \hat{P}^{k-1} \cup P^k$.
+- [x] Code có triển khai Eq. 7 đúng như paper hay có focal modulation không?
+	- **Về mặt công thức (Paper):** Tác giả khẳng định họ sử dụng "focal loss" để giải quyết sự nhầm lẫn giữa các lớp tương đồng. Tuy nhiên, công thức $L_{fc} = - \sum \log p_s(r_i\vert{}x_i)$ (Eq. 7) về mặt toán học chỉ là hàm **Cross-Entropy Loss tiêu chuẩn**. Khác biệt duy nhất là phân phối xác suất $p_s$ không tính trên toàn bộ các lớp, mà chỉ tính softmax trên một tập bị thu hẹp $P_{sim}^i$ (gồm target prototype và các confusing negative prototypes).
+	    
+	- **Khoảng trống lý thuyết:** Công thức này hoàn toàn vắng bóng nhân tử điều biến (modulating factor) $(1 - p_s)^\gamma$ – linh hồn của Focal Loss nguyên bản.
+	    
+	- **Đánh giá việc triển khai (Code):** Có hai khả năng xảy ra trong mã nguồn thực tế. Một là tác giả đã tự định nghĩa lại khái niệm "focal" theo nghĩa bóng (tức là "focus" việc tính loss vào các hard negatives) và thực sự code hàm Cross-Entropy giới hạn logits. Hai là họ có implement $(1 - p_s)^\gamma$ trong code nhưng lại trình bày thiếu trong bài báo. Cách tính toán trong Eq. 6 và 7 mang dáng dấp của _Hard Negative Mining_ hơn là cấu trúc Focal Loss truyền thống.
 
 ## Phase 5 — Section Recall
 
@@ -180,15 +219,40 @@ Sentence + head/tail entity
 
 ## Phase 6 — Equations
 
-| Eq. | Dùng để làm gì? | Biến chính | Behavior được khuyến khích | Evidence / ablation | Status |
-|---:|---|---|---|---|---|
-| 1 | Encode prompt thành relation representation | $f_\theta(x_{input})$, `[MASK]` | dùng PLM cho relation embedding | [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf#page=4\|PDF tr. 4]] | todo |
-| 2 | Tính prototype class mới | $D_j^k$, $p_j$ | gom K-shot samples thành class anchor | [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf#page=4\|PDF tr. 4]] | todo |
-| 3-4 | Prototype classifier + CE | $f_\theta(x_i)$, $p_l$, $\hat R^k$ | phân loại theo similarity tới prototypes | [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf#page=4\|PDF tr. 4]] | todo |
-| 5 | Classification consistency | memory sample, prototype đúng | kéo old sample embedding về đúng anchor | ablation Table 2/Figure 4 | todo |
-| 7 | Confusing-class loss | $P_i^{sim}$, $\alpha$ | ép phân biệt positive với hard/confusing negatives | bỏ $L_{fc}$ giảm 10.66 tại T8 | todo |
-| 8 | Distribution consistency | vector similarity tới $\hat P^k$ | giữ relative class geometry | Figure 4 tăng 2.0 khi dùng sample memory | todo |
-| 9-10 | Objective theo stage | $\lambda_{ce},\lambda_{cc},\lambda_{fc},\lambda_{dc}$ | Stage 3 thêm $L_{dc}$ trên memory | [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf#page=5\|PDF tr. 5]] | todo |
+### Prompt operational equation walkthrough
+
+```text
+Walk me through the key equations or formal blocks in this paper.
+
+For each equation/block, explain:
+1. Input: what variables or objects go into it.
+2. Output: what it produces.
+3. Where it is used in the training/inference pipeline.
+4. What behavior it encourages.
+5. What would likely break or become weaker if removed.
+6. Which table, figure, ablation, or result supports its usefulness.
+
+Do not summarize the whole paper. Focus only on operational understanding of the equations and formal mechanisms.
+```
+
+> [!note] Cách dùng phần này
+> Bảng dưới là **scaffold từ Gemini output đã lọc lại theo paper note/PDF**. Dùng nó để kiểm tra công thức khi đọc lại Section 4, không coi là closed-book recall cá nhân.
+
+| Eq/block                                     | Dùng để làm gì?                                                                      | Input -> Output                                                                                                                                                  | Dùng ở đâu trong pipeline                                                            | Behavior được khuyến khích                                                                                | Nếu bỏ/yếu đi thì sao?                                                                                                                        | Evidence / ablation                                                                                                                                                                                                                                                                                                                              | Status       |
+| -------------------------------------------- | ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ |
+| Eq. 1 — Prompt-based relation representation | Encode câu thành relation representation qua prompt cloze                            | Input: câu $x$, head $e_h$, tail $e_t$, encoder $f_\theta$ -> Output: hidden state tại `[MASK]`, $h_{[\text{MASK}]}$                                             | Bước đầu của train/inference trước khi tính prototype hoặc classify                  | Khai thác prior knowledge của BERT bằng template `[CLS], head, [MASK], tail, [SEP], sentence, [SEP]`      | Nếu dùng pooling thường, boundary ngữ nghĩa giữa relation có thể nhiễu hơn và few-shot sample efficiency kém hơn                              | Prompt encoder: [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf#page=4\|PDF tr. 4]]; prompt-tuning baselines cải thiện ở Table 1: [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf#page=7\|PDF tr. 7]]                                                                              | gemini-draft |
+| Eq. 2 + Stage 2 memory update                | Tính temporary prototype và chọn exemplar/prototype để lưu memory                    | Input: $D_j^k$, embedding $f_\theta(x_i)$, key sample gần class center -> Output: $p_j$, sample memory $\hat S^k$, prototype memory $\hat P^k$                   | Stage 1 tính prototype tạm; Stage 2 chọn key sample và tái khởi tạo prototype memory | Khóa class anchor cũ thay vì để prototype cũ bị recompute/trôi theo encoder mới                           | Nếu không có Prototype Memory, class anchor cũ dễ bị prototype distortion khi học task mới                                                    | Bỏ PM giảm T8 từ 85.77 xuống 82.21 (-3.56): [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf#page=8\|Table 2, PDF tr. 8]]; distortion/forgetting: [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf#page=1\|Figure 1, PDF tr. 1]]                                                     | gemini-draft |
+| Eq. 3-4 — Prototype classifier + $L_{ce}$    | Classify bằng cosine-softmax tới prototypes của các relation đã thấy                 | Input: $f_\theta(x_i)$, prototypes $p_l$, seen relations $\hat R^k$ -> Output: $p(r_i\mid x_i)$ và CE loss                                                       | Stage 1/2/3 như core classification signal                                           | Ép embedding gần prototype đúng và xa prototype sai trong toàn bộ label space đã thấy                     | Nếu thiếu core CE, model không có tín hiệu phân loại relation ổn định; các consistency loss chỉ giữ geometry chứ không thay mục tiêu classify | Công thức classifier/CE: [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf#page=4\|PDF tr. 4]]                                                                                                                                                                                                                      | gemini-draft |
+| Eq. 5 — $L_{cc}$ classification consistency  | Giữ memory sample gần prototype đúng đã lưu                                          | Input: old memory samples $\hat S^{k-1}$, prototype đúng $p_i$, current embedding $f_\theta(x_i)$ -> Output: khoảng cách L2/scalar penalty                       | Stage 1/2 trong $L_{class}$ và Stage 3 trong $L_{cons}$                              | Chống encoder drift làm sample cũ rời khỏi anchor cũ                                                      | Nếu bỏ, embedding của old samples có thể trôi khỏi prototype memory và gây misclassification/forgetting                                       | Bỏ $L_{cc}$ giảm nhẹ trong setting chính; khi tính probability bằng sample memory, $L_{cc}$ tăng 0.73 tại T8: [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf#page=8\|Table 2, PDF tr. 8]], [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf#page=9\|Figure 4, PDF tr. 9]]          | gemini-draft |
+| Eq. 6-7 — Confusing-class loss $L_{fc}$      | Tập trung phân biệt positive prototype với hard/confusing negative prototypes        | Input: $f_\theta(x_i)$, prototype đúng $p_i$, nearest negative $p_i^{mn}$, negatives qua threshold $\alpha$ trong $P_i^{sim}$ -> Output: restricted softmax loss | Stage 1/2 trong $L_{class}$ và Stage 3 trong $L_{cons}$                              | Làm ranh giới giữa relation gần nghĩa sắc hơn, ví dụ các relation dễ nhầm như family relations            | Nếu bỏ, model dễ merge/overwrite boundary của class gần nhau; đây là ablation rơi mạnh nhất                                                   | Bỏ $L_{fc}$ giảm T8 từ 85.77 xuống 75.11 (-10.66): [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf#page=8\|Table 2, PDF tr. 8]]; confusing-class visualization: [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf#page=8\|Figure 3, PDF tr. 8]]                                      | gemini-draft |
+| Eq. 8 — Distribution consistency $L_{dc}$    | Giữ cấu trúc khoảng cách tương đối giữa sample embedding và toàn bộ prototype memory | Input: memory samples $\hat S^k$, target prototype $p_i$, all prototypes $\hat P^k$ -> Output: penalty giữa hai vector similarity/distance distributions         | Chỉ ở Stage 3 memory-only consolidation                                              | Giữ global geometry: không chỉ sample gần prototype đúng, mà còn giữ quan hệ tương đối với các class khác | Nếu bỏ, memory-only replay dễ overfit vào vài exemplar và làm layout old/new relation mất cân bằng                                            | Bỏ $L_{dc}$ giảm nhẹ trong setting chính; Figure 4 cho thấy $L_{dc}$ tăng 2.0 điểm khi dùng sample-memory probability: [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf#page=8\|Table 2, PDF tr. 8]], [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf#page=9\|Figure 4, PDF tr. 9]] | gemini-draft |
+| Eq. 9-10 — Objectives theo stage             | Ghép các loss thành mục tiêu huấn luyện cho Stage 1/2 và Stage 3                     | Input: $\lambda_{ce},\lambda_{cc},\lambda_{fc},\lambda_{dc}$ cùng các loss tương ứng -> Output: $L_{class}$ hoặc $L_{cons}$                                      | Stage 1/2 dùng $L_{class}$; Stage 3 dùng $L_{cons}$ có thêm $L_{dc}$                 | Tách học task mới + memory cũ khỏi bước consolidation chỉ trên memory                                     | Nếu không có Stage 3/$L_{cons}$, model thiếu bước cân bằng lại tất cả relation đã thấy sau khi thêm memory mới                                | Objective và Algorithm 1: [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf#page=5\|PDF tr. 5]]; bỏ consistent learning module giảm 85.77 -> 84.25: [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf#page=8\|Table 2, PDF tr. 8]]                                                     | gemini-draft |
+
+### Điểm cần kiểm tra lại khi đọc công thức
+
+- [ ] Paper gọi Eq. 7 là focal loss, nhưng công thức giống restricted cross-entropy hơn focal loss chuẩn vì không có modulation factor $(1-p_t)^\gamma$.
+- [ ] Phân biệt rõ $L_{cc}$ giữ **sample-prototype point alignment**, còn $L_{dc}$ giữ **relative distribution/geometry** với toàn bộ prototype memory.
+- [ ] Không lấy claim từ Gemini nếu không trỏ lại được về PDF/Table/Figure; các số ablation chính nên ưu tiên Table 2 và Figure 4.
 
 ## Phase 7 — Loss Functions
 
@@ -282,7 +346,10 @@ Total training
 
 ## Phase 13 — Completeness / Oral Exam
 
-- [ ] Giải thích NK-CRE không nhìn paper.
+- [x] Giải thích NK-CRE không nhìn paper.
+	NK-CRE là một thiết lập bài toán học liên tục (Continual Learning) cực kỳ nghiêm ngặt. Trong đó, luồng dữ liệu (data stream) được chia thành nhiều task tuần tự. Tại _bất kỳ_ task nào, mô hình cũng chỉ được cung cấp chính xác $N$ quan hệ (relations) mới, và mỗi quan hệ chỉ có đúng $K$ mẫu dữ liệu (samples) được gán nhãn.
+	
+	**Bản chất:** Nó ép mô hình giải quyết đồng thời hai bài toán khó nhất: **Data Sparsity** (Dữ liệu thưa thớt - không đủ để hội tụ trọng số) và **Catastrophic Forgetting** (Quên thảm khốc - mất đi ranh giới quyết định của các quan hệ ở task trước).
 - [ ] Phân biệt CFRL vs NK-CRE ở task đầu.
 - [ ] Vẽ ba stage ConPL.
 - [ ] Giải thích $L_{cc}$ vs $L_{dc}$.

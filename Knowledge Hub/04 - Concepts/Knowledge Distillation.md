@@ -3,10 +3,12 @@ type: concept
 status: developing
 sources:
   - "[[NLP Transformers - Chapter 08 - Making Transformers Efficient in Production]]"
+  - "[[Distilling the Knowledge in a Neural Network]]"
 source_sections:
   - "[[NLP Transformers - Chapter 08 - Making Transformers Efficient in Production]]"
+  - "[[Distilling the Knowledge in a Neural Network]]"
 first_seen: 2026-08-03
-last_updated: 2026-08-03
+last_updated: 2026-08-26
 tags:
   - concept
   - model-compression
@@ -77,6 +79,14 @@ total_loss = alpha * hard_label_loss + (1 - alpha) * distillation_loss
 Trong đó `alpha` điều khiển mức tin vào nhãn thật so với tín hiệu teacher.
 
 Distillation loss thường dùng [[KL Divergence]] để đo sự khác nhau giữa hai phân phối xác suất: phân phối của teacher và phân phối của student. Training giảm KL divergence để student bắt chước teacher tốt hơn.
+
+## Paper gốc của temperature distillation
+
+[[Distilling the Knowledge in a Neural Network]] là paper nền tảng phổ biến hóa cách dùng softmax temperature để tạo soft targets cho student.
+
+Điểm paper nhấn mạnh là knowledge không nhất thiết nằm ở chính weights của teacher. Một cách nhìn trừu tượng hơn là knowledge nằm ở mapping từ input sang output distribution: với mỗi input, teacher cho biết không chỉ class đúng mà cả các class sai nào tương đối gần nhau. [[Distilling the Knowledge in a Neural Network.pdf#page=1|PDF tr. 1]], [[Distilling the Knowledge in a Neural Network.pdf#page=2|PDF tr. 2]]
+
+Paper cũng chỉ ra matching logits là một trường hợp đặc biệt của distillation khi temperature rất cao và logits được zero-mean theo từng transfer case. Ở temperature trung bình, objective ít ép student khớp các logit rất âm, điều này có thể hữu ích khi student không đủ capacity hoặc khi các logit đó nhiễu. [[Distilling the Knowledge in a Neural Network.pdf#page=3|PDF tr. 3]]
 
 ## Knowledge Distillation for Fine-Tuning
 
@@ -315,6 +325,7 @@ Distillation giống như dùng model lớn làm người hướng dẫn, rồi 
 
 ## Liên kết
 
+- [[Distilling the Knowledge in a Neural Network]]
 - [[Transformer Inference Optimization]]
 - [[Model Benchmarking]]
 - [[Hyperparameter Optimization]]
