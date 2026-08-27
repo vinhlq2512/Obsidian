@@ -55,16 +55,18 @@
             "id": "dbe4eb0ad19c24fd",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "00 - Sources/PDFs/Papers/Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf"
+                "file": "20 - Research/Paper Reading/2026-08-19 - ConPL - Gemini Notebook Workflow.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "Consistent Prototype Learning for Few-Shot Continual Relation Extraction"
+              "icon": "lucide-file",
+              "title": "2026-08-19 - ConPL - Gemini Notebook Workflow"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -139,7 +141,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "20 - Research/Papers/Distilling the Knowledge in a Neural Network.md",
+                "file": "20 - Research/Paper Reading/2026-08-19 - ConPL - Gemini Notebook Workflow.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -158,7 +160,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "20 - Research/Papers/Distilling the Knowledge in a Neural Network.md",
+                "file": "20 - Research/Paper Reading/2026-08-19 - ConPL - Gemini Notebook Workflow.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -201,7 +203,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "20 - Research/Papers/Distilling the Knowledge in a Neural Network.md",
+                "file": "20 - Research/Paper Reading/2026-08-19 - ConPL - Gemini Notebook Workflow.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -228,16 +230,16 @@
       "bases:Create new base": false
     }
   },
-  "active": "a5a43ae418bcfd9d",
+  "active": "dbe4eb0ad19c24fd",
   "lastOpenFiles": [
-    "20 - Research/Papers/Consistent Prototype Learning for Few-Shot Continual Relation Extraction.md",
+    "20 - Research/Paper Reading/2026-08-21 - WAVE-CRE - Gemini Notebook Workflow.md",
+    "20 - Research/Paper Reading/2026-08-19 - ConPL - Gemini Notebook Workflow.md",
     "00 - Sources/PDFs/Papers/Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf",
     "20 - Research/Papers/Distilling the Knowledge in a Neural Network.md",
+    "20 - Research/Papers/Consistent Prototype Learning for Few-Shot Continual Relation Extraction.md",
     "00 - Sources/PDFs/Papers/Distilling the Knowledge in a Neural Network.pdf",
-    "20 - Research/Paper Reading/2026-08-21 - WAVE-CRE - Gemini Notebook Workflow.md",
     "00 - Sources/PDFs/Papers/Adaptive Prompting for Continual Relation Extraction- A Within-Task Variance Perspective.pdf",
     "20 - Research/Paper Reading/2026-08-21 - FPrompt-PLM - Gemini Notebook Workflow.md",
-    "20 - Research/Paper Reading/2026-08-19 - ConPL - Gemini Notebook Workflow.md",
     "20 - Research/Literature Notes/Continual Relation Extraction - Prototype, Prompt và Replay.md",
     "20 - Research/Paper Reading/2026-08-21 - CPL - Gemini Notebook Workflow.md",
     "20 - Research/Papers/Making Pre-trained Language Models Better Continual Few-Shot Relation Extractors.md",

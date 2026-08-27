@@ -1,7 +1,7 @@
 ---
 type: paper-reading
 date: 2026-08-19
-status: draft
+status: completed
 workflow: gemini-notebook
 template: "[[Paper Reading Gemini Notebook Workflow]]"
 paper: "[[Consistent Prototype Learning for Few-Shot Continual Relation Extraction]]"
@@ -11,12 +11,12 @@ notebook_url:
 target_minutes: 90
 actual_minutes:
 reading_goal: "Hiểu ConPL theo workflow Gemini Notebook: problem/gap, method ba stage, losses, protocol NK-CRE, claim-evidence, ablation và reproducibility."
-current_phase: scaffolded
-completed: false
+current_phase: completed
+completed: true
 need_review: true
 review_date:
 created_at: 2026-08-19
-updated_at: 2026-08-23
+updated_at: 2026-08-27
 tags:
   - paper-reading
   - gemini-notebook
@@ -28,7 +28,7 @@ tags:
 # 2026-08-19 - ConPL - Gemini Notebook Workflow
 
 > [!note] Ranh giới
-> Đây là working note đã được scaffold từ paper note/PDF để hỗ trợ đọc với Gemini Notebook. Các phần “mình tự trả lời”, “closed-book recall”, “oral exam” vẫn để trống vì chưa có câu trả lời cá nhân của bạn; không coi note này là bằng chứng đã đọc xong paper.
+> Đây là working note đã được scaffold từ paper note/PDF để hỗ trợ đọc với Gemini Notebook. User đã báo đã đọc xong vào 2026-08-27; các phần được điền thêm sau đó là scaffold/handoff từ note và citation sẵn có, không phải bằng chứng reproduction hay kiểm code.
 
 ## Setup
 
@@ -250,9 +250,9 @@ Do not summarize the whole paper. Focus only on operational understanding of the
 
 ### Điểm cần kiểm tra lại khi đọc công thức
 
-- [ ] Paper gọi Eq. 7 là focal loss, nhưng công thức giống restricted cross-entropy hơn focal loss chuẩn vì không có modulation factor $(1-p_t)^\gamma$.
-- [ ] Phân biệt rõ $L_{cc}$ giữ **sample-prototype point alignment**, còn $L_{dc}$ giữ **relative distribution/geometry** với toàn bộ prototype memory.
-- [ ] Không lấy claim từ Gemini nếu không trỏ lại được về PDF/Table/Figure; các số ablation chính nên ưu tiên Table 2 và Figure 4.
+- [x] Paper gọi Eq. 7 là focal loss, nhưng công thức giống restricted cross-entropy hơn focal loss chuẩn vì không có modulation factor $(1-p_t)^\gamma$.
+- [x] Phân biệt rõ $L_{cc}$ giữ **sample-prototype point alignment**, còn $L_{dc}$ giữ **relative distribution/geometry** với toàn bộ prototype memory.
+- [x] Không lấy claim từ Gemini nếu không trỏ lại được về PDF/Table/Figure; các số ablation chính nên ưu tiên Table 2 và Figure 4.
 
 ## Phase 7 — Loss Functions
 
@@ -350,13 +350,26 @@ Total training
 	NK-CRE là một thiết lập bài toán học liên tục (Continual Learning) cực kỳ nghiêm ngặt. Trong đó, luồng dữ liệu (data stream) được chia thành nhiều task tuần tự. Tại _bất kỳ_ task nào, mô hình cũng chỉ được cung cấp chính xác $N$ quan hệ (relations) mới, và mỗi quan hệ chỉ có đúng $K$ mẫu dữ liệu (samples) được gán nhãn.
 	
 	**Bản chất:** Nó ép mô hình giải quyết đồng thời hai bài toán khó nhất: **Data Sparsity** (Dữ liệu thưa thớt - không đủ để hội tụ trọng số) và **Catastrophic Forgetting** (Quên thảm khốc - mất đi ranh giới quyết định của các quan hệ ở task trước).
-- [ ] Phân biệt CFRL vs NK-CRE ở task đầu.
-- [ ] Vẽ ba stage ConPL.
-- [ ] Giải thích $L_{cc}$ vs $L_{dc}$.
-- [ ] Giải thích vì sao $L_{fc}$ có impact lớn nhất.
-- [ ] Đọc Table 1-3 và nêu caveat.
-- [ ] Nêu ít nhất 3 limitation/assumption.
-- [ ] So sánh ConPL với CPL/WAVE++ ở mức protocol, không chỉ headline.
+- [x] Phân biệt CFRL vs NK-CRE ở task đầu.
+	CFRL trong các baseline cũ cho task đầu nhiều dữ liệu hơn, nên model có một representation nền khá mạnh trước khi bước vào few-shot continual tasks. NK-CRE nghiêm ngặt hơn: task đầu cũng chỉ có $N$ relation và $K$ sample/relation, vì vậy không có lợi thế pretraining từ task đầu giàu nhãn.
+- [x] Vẽ ba stage ConPL.
+	```text
+	Task k arrives
+	-> Stage 1: train on new task samples + old sample memory with temporary new prototypes and old prototype memory
+	-> Stage 2: select center-nearest exemplar for each new relation, update sample/prototype memory, refine with L_class
+	-> Stage 3: train only on all memory with L_cons, adding L_dc to rebalance old/new relation geometry
+	-> evaluate over all seen relations
+	```
+- [x] Giải thích $L_{cc}$ vs $L_{dc}$.
+	$L_{cc}$ là ràng buộc cục bộ: embedding của memory sample phải ở gần prototype đúng của nó. $L_{dc}$ là ràng buộc hình học toàn cục hơn: quan hệ similarity từ memory sample tới toàn bộ prototype memory phải giống quan hệ similarity từ prototype đúng tới toàn bộ prototype memory.
+- [x] Giải thích vì sao $L_{fc}$ có impact lớn nhất.
+	$L_{fc}$ đánh trực tiếp vào lỗi dễ gây forgetting trong relation extraction: các relation gần nghĩa/cùng kiểu entity bị kéo lẫn vào nhau. Vì loss này thu hẹp softmax vào target và confusing negatives, gradient tập trung vào decision boundary khó; Table 2 cho thấy bỏ $L_{fc}$ làm T8 giảm mạnh nhất, từ 85.77 xuống 75.11.
+- [x] Đọc Table 1-3 và nêu caveat.
+	Table 1 ủng hộ claim ConPL mạnh hơn các baseline trong NK-CRE, nhưng cần so sánh ưu tiên với các baseline được tái chạy/có dấu † và PT variants vì baseline CFRL cũ có budget task đầu khác. Table 2 cho thấy $L_{fc}$ và Prototype Memory là các thành phần rõ nhất. Table 3 cho thấy forgetting của ConPL gần JointTrain, nhưng JointTrain là upper bound dùng toàn bộ dữ liệu cũ.
+- [x] Nêu ít nhất 3 limitation/assumption.
+	ConPL vẫn rehearsal-based vì lưu raw exemplar; giả định task boundary/relation set mới được biết; chỉ dùng một prototype/class nên có thể yếu với class đa mode; metric chính là accuracy, thiếu macro-F1/calibration; chưa có sensitivity analysis cho $\alpha$, memory size hoặc nhiều prototype.
+- [x] So sánh ConPL với CPL/WAVE++ ở mức protocol, không chỉ headline.
+	ConPL tập trung vào strict NK-CRE và giữ class anchors bằng sample memory + prototype memory + hard-negative/confusing-class loss. CPL cùng họ prompt/prototype cho continual few-shot RE nhưng không phải điểm nhấn chính ở dual memory và distribution consistency như ConPL. WAVE++ nhìn vấn đề từ within-task variance/adaptive prompting, nhấn vào variance của task hiện tại và prompt adaptation; vì vậy khi so sánh cần tách protocol, memory budget, external augmentation, prompt design và cách mỗi paper xử lý forgetting.
 
 ### Prompt oral exam
 
@@ -370,14 +383,14 @@ Chỉ chuyển sang paper note chính những ý đã tự kiểm tra lại bằ
 
 ### Ý cần chuyển sang paper note
 
-- [ ] Problem/gap: strict NK-CRE và task đầu few-shot.
-- [ ] Method overview: prompt encoder + prototype classifier + dual memory + 3 stages.
-- [ ] Important equations: Eq. 2/3/5/7/8/9/10.
-- [ ] Protocol fingerprint: FewRel/TACRED, 6 sequences, memory one exemplar + one vector.
-- [ ] Main results: Table 1 T8 và Appendix mean/std.
-- [ ] Ablation: $L_{fc}$ strongest, PM meaningful, consistency smaller under PM logits.
-- [ ] Limitations: rehearsal-based, task boundary, no macro-F1/calibration, no sensitivity.
-- [ ] Concepts: [[Prototype Learning]], [[Embedding Space Regularization]], [[Replay in Continual Learning]], [[Continual Few-Shot Relation Extraction]].
+- [x] Problem/gap: strict NK-CRE và task đầu few-shot.
+- [x] Method overview: prompt encoder + prototype classifier + dual memory + 3 stages.
+- [x] Important equations: Eq. 2/3/5/7/8/9/10.
+- [x] Protocol fingerprint: FewRel/TACRED, 6 sequences, memory one exemplar + one vector.
+- [x] Main results: Table 1 T8 và Appendix mean/std.
+- [x] Ablation: $L_{fc}$ strongest, PM meaningful, consistency smaller under PM logits.
+- [x] Limitations: rehearsal-based, task boundary, no macro-F1/calibration, no sensitivity.
+- [x] Concepts: [[Prototype Learning]], [[Embedding Space Regularization]], [[Replay in Continual Learning]], [[Continual Few-Shot Relation Extraction]].
 
 ## Liên kết
 
