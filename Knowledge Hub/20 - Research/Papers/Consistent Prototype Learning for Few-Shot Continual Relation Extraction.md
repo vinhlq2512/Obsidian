@@ -1,6 +1,6 @@
 ---
 type: paper
-status: unread
+status: completed
 title: "Consistent Prototype Learning for Few-Shot Continual Relation Extraction"
 authors:
   - Xiudi Chen
@@ -21,7 +21,7 @@ topic:
   - prototype learning
   - catastrophic forgetting
 priority: medium
-reading_status: in-progress
+reading_status: completed
 rating:
 related_concepts:
   - "[[04 - Concepts/Continual Learning|Continual Learning]]"
@@ -35,7 +35,7 @@ related_concepts:
   - "[[Contrastive Learning]]"
   - "[[Relation Extraction]]"
 created_at: 2026-08-13
-updated_at: 2026-08-18
+updated_at: 2026-08-27
 tags:
   - paper
   - continual-learning
@@ -205,6 +205,12 @@ d(f_\theta(x_i),\hat P^k)-d(p_i,\hat P^k)
 $$
 
 $L_{cc}$ là ràng buộc **điểm–tâm**; $L_{dc}$ giữ **cấu trúc tương đối** của điểm với toàn bộ class space. [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf#page=5|Bằng chứng: PDF trang 5, Eq. 8]]
+
+### Điểm kiểm tra công thức
+
+- **Eq. 7 / $L_{fc}$:** paper gọi đây là focal loss, nhưng công thức công bố giống restricted cross-entropy trên target + confusing negatives hơn focal loss chuẩn vì không có modulation factor $(1-p_t)^\gamma$. Cần giữ cách diễn giải thận trọng cho tới khi đối chiếu implementation. [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf#page=5|Bằng chứng: PDF trang 5, Eq. 7]]
+- **$L_{cc}$ vs $L_{dc}$:** $L_{cc}$ giữ sample-prototype point alignment; $L_{dc}$ giữ relative distribution/geometry giữa memory sample và toàn bộ prototype memory. [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf#page=5|Bằng chứng: PDF trang 5, Eq. 8]]
+- **Gemini scaffold vs evidence:** không dùng claim từ Gemini/NotebookLM nếu không trỏ lại được về PDF, bảng hoặc hình. Với ConPL, các số ablation chính nên ưu tiên Table 2 và phân tích Figure 4. [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf#page=8|Table 2: PDF trang 8]]; [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction.pdf#page=9|Figure 4: PDF trang 9]]
 
 ## Quy trình huấn luyện ba stage
 
