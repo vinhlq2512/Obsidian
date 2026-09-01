@@ -1,21 +1,24 @@
 ---
 type: paper
-status: unread
-title: "Making Pre-trained Language Models Better Continual Few-Shot Relation Extractors"
+status: reading
+title: Making Pre-trained Language Models Better Continual Few-Shot Relation Extractors
+aliases:
+  - CPL
+  - Contrastive Prompt Learning
 authors:
   - Shengkun Ma
   - Jiale Han
   - Yi Liang
   - Bo Cheng
 year: 2024
-venue: "Proceedings of the 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation (LREC-COLING 2024), 10970-10983"
-url: "https://aclanthology.org/2024.lrec-main.957/"
+venue: Proceedings of the 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation (LREC-COLING 2024), 10970-10983
+url: https://aclanthology.org/2024.lrec-main.957/
 pdf: "[[Making Pre-trained Language Models Better Continual Few-Shot Relation Extractors.pdf]]"
 zotero_key:
 citekey: ma-etal-2024-making
 doi:
 arxiv: "2402.15713"
-code: "https://github.com/mashengkun/CPL"
+code: https://github.com/mashengkun/CPL
 topic:
   - continual few-shot relation extraction
   - continual learning
