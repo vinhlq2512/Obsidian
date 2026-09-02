@@ -16,7 +16,7 @@ completed: false
 need_review: true
 review_date:
 created_at: 2026-08-21
-updated_at: 2026-08-23
+updated_at: 2026-09-01
 tags:
   - paper-reading
   - gemini-notebook
@@ -38,6 +38,21 @@ tags:
 - Mục tiêu buổi đọc: tách rõ WAVE++ thêm gì so với WAVE-CRE, mỗi component được chứng minh bằng result/ablation nào.
 - Phần cần đọc trước: Introduction, Method, Main Results, Ablation, Appendix label descriptions/significance/time.
 - PDF count đã kiểm tra: 30 trang.
+
+## Từ điển khái niệm nhanh
+
+| Khái niệm | Định nghĩa ngắn trong paper này | Vì sao quan trọng | Link |
+|---|---|---|---|
+| CRE | Continual Relation Extraction: relation label space mở rộng theo task và model phải nhớ relation cũ. | Đây là bài toán nền của WAVE++. | [[Continual Relation Extraction]] |
+| WAVE++ | Bản mở rộng của WAVE-CRE với adaptive prompt pool, label-description alignment, cascade voting và latent replay. | Là paper cần đọc như extension chứ không phải duplicate của WAVE-CRE. | [[WAVE++ - Capturing Within-Task Variance for Continual Relation Extraction]] |
+| Within-task variance | Sự đa dạng nội bộ của examples trong cùng task/relation group. | Là động cơ chính cho nhiều prompt experts thay vì một prompt/task. | [[WAVE++ - Capturing Within-Task Variance for Continual Relation Extraction]] |
+| Prompt pool | Tập prompt/prefix experts để route input vào adapter phù hợp. | Giữ khả năng thích nghi với nhiều mode trong task. | [[Prompt Pool]] |
+| Label description | Mô tả bằng ngôn ngữ tự nhiên của relation label. | WAVE++ dùng label semantics làm anchor cho relation/task inference. | [[Relation Extraction]] |
+| Label-description alignment | Căn representation của input với representation/mô tả label liên quan. | Giúp giảm nhầm relation gần nghĩa và tận dụng semantics của label. | [[Embedding Space Regularization]] |
+| Cascade voting | Cơ chế quyết định theo nhiều bước/votes để chọn task hoặc relation ổn định hơn. | Nhắm vào lỗi task prediction/inference trong CRE. | [[Continual Relation Extraction]] |
+| Latent generative replay | Replay synthetic latent vectors của relation cũ thay vì lưu đầy đủ raw examples. | Bảo vệ classifier trước bias task mới với ít raw memory hơn. | [[Replay in Continual Learning]] |
+| Statistical significance | Kiểm định xem improvement có ổn định hay chỉ do variance giữa runs. | Appendix WAVE++ dùng để củng cố claim kết quả. | [[Model Benchmarking]] |
+| Running time | Chi phí train/inference khi thêm prompt pool, voting và replay. | Cần đọc cùng accuracy để đánh giá trade-off thực tế. | [[Transformer Inference Optimization]] |
 
 ## Phase 1 - Paper Map
 

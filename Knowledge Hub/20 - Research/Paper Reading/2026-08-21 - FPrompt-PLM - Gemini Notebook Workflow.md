@@ -16,7 +16,7 @@ completed: false
 need_review: true
 review_date:
 created_at: 2026-08-21
-updated_at: 2026-08-21
+updated_at: 2026-09-01
 tags:
   - paper-reading
   - gemini-notebook
@@ -39,6 +39,25 @@ tags:
 - Mục tiêu buổi đọc: dựng bản đồ đọc sâu trước, sau đó bổ sung equations/results/ablation khi có PDF.
 - Phần cần đọc trước khi có PDF: abstract/metadata, README, dataset/code structure.
 - Phần cần đọc khi có PDF: Method, Losses, Experiments, Ablation, Case Study, Limitations.
+
+## Từ điển khái niệm nhanh
+
+> [!warning] Evidence boundary
+> Note này chưa có PDF local, nên bảng dưới là scaffold từ metadata/abstract/repository hiện có. Các định nghĩa về công thức, kết quả và ablation vẫn cần kiểm lại khi có PDF.
+
+| Khái niệm | Định nghĩa ngắn trong paper này | Vì sao quan trọng | Link |
+|---|---|---|---|
+| CFS-RE | Continual Few-Shot Relation Extraction: học relation mới theo stream task với rất ít labeled examples. | Là bài toán nền của FPrompt-PLM. | [[Continual Few-Shot Relation Extraction]] |
+| FPrompt-PLM | Flexible-Prompt on PLM: framework dùng flexible prompts và prototype-based prediction cho continual few-shot RE. | Đây là method chính cần đối chiếu khi có PDF. | [[FPrompt-PLM - Flexible-Prompt on Pretrained Language Model for Continual Few-Shot Relation Extraction]] |
+| Flexible prompt | Prompt representation có thể thay đổi/chọn theo task hoặc input thay vì một template cố định. | Là cách paper dự kiến tận dụng PLM trong low-resource continual setting. | [[Prompt Tuning]] |
+| Prompt pool | Tập nhiều prompt vectors/templates được lưu và chọn trong quá trình học liên tục. | Giúp lưu adaptation knowledge mà không nhất thiết fine-tune toàn bộ model. | [[Prompt Pool]] |
+| Prototype pool | Tập prototype vectors đại diện cho relation/classes đã học. | Là anchor cho nearest-prototype classification và retention. | [[Prototype Learning]] |
+| Nearest-prototype learning | Phân loại sample theo prototype gần nhất trong embedding space. | Phù hợp class-incremental relation prediction khi label set tăng dần. | [[Prototype Learning]] |
+| Meta-training | Giai đoạn học initialization/strategy để thích nghi tốt với few-shot tasks. | Có thể giải thích vì sao method nhắm tới data scarcity. | [[Few-shot Learning]] |
+| Continual meta-finetuning | Fine-tune tiếp theo chuỗi task mới nhưng giữ khả năng với relation cũ. | Là nơi forgetting và overfitting xuất hiện đồng thời. | [[04 - Concepts/Continual Learning|Continual Learning]] |
+| Distillation loss | Loss ép model hiện tại giữ behavior/representation từ trạng thái trước. | Một cơ chế thường dùng để giảm catastrophic forgetting. | [[Catastrophic Forgetting]] |
+| Prototype diversity | Ràng buộc làm các prototypes đủ phân tách, tránh collapse hoặc quá gần nhau. | Quan trọng khi relation gần nghĩa và few-shot prototypes dễ nhiễu. | [[Prototype Learning]], [[Contrastive Learning]] |
+| TODO khi có PDF | Kiểm page evidence cho equations, results, ablations, case study và limitations. | Tránh biến scaffold chưa kiểm thành bằng chứng nguồn. | [[FPrompt-PLM - Flexible-Prompt on Pretrained Language Model for Continual Few-Shot Relation Extraction]] |
 
 ## Phase 1 - Paper Map
 

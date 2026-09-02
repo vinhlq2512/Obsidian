@@ -139,6 +139,7 @@ Preserve active-reading boundaries:
 
 Recommended sections to fill:
 - `Setup`
+- `Từ điển khái niệm nhanh`
 - `Phase 1 — Paper Map`
 - `Phase 3 — Problem / Motivation / Gap`
 - `Phase 4 — Method / Architecture`
@@ -148,6 +149,26 @@ Recommended sections to fill:
 - `Phase 10 — Ablation Study`
 - `Phase 11 — Critical Reading` prompts/checklist
 - `Final Paper Note Handoff`
+
+For `Từ điển khái niệm nhanh`, place the section immediately after `Setup` when the paper has dense terminology, many symbols/modules, or concepts that recur across multiple related papers. This section should help the reader decode the workflow before entering Phase 1; it is not a substitute for canonical concept notes.
+
+Use this compact table by default:
+
+```markdown
+## Từ điển khái niệm nhanh
+
+| Khái niệm | Định nghĩa ngắn trong paper này | Vì sao quan trọng | Link |
+|---|---|---|---|
+| <term> | <source-grounded one-sentence definition> | <role in the paper/workflow> | [[Canonical Concept]] |
+```
+
+Rules for the quick concept dictionary:
+- Keep definitions short, paper-specific, and source-grounded.
+- Prefer existing canonical concept notes in `04 - Concepts`; search before linking or creating new concepts.
+- Use wikilinks for internal concepts and paper notes.
+- Include symbols/modules that are easy to confuse, e.g. replay memory vs feature bucket, sample memory vs prototype memory, temporary vs global prototypes.
+- Do not write personal mastery or first-person understanding in this section.
+- If a concept is important but no canonical note exists, link the closest existing concept and add a TODO/checklist item instead of creating a duplicate by reflex.
 
 For `Phase 6 — Equations`, include this operational walkthrough prompt before the equation queue when the note does not already have an equivalent prompt:
 

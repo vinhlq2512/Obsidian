@@ -16,7 +16,7 @@ completed: false
 need_review: true
 review_date:
 created_at: 2026-08-19
-updated_at: 2026-08-23
+updated_at: 2026-09-01
 tags:
   - paper-reading
   - gemini-notebook
@@ -39,6 +39,21 @@ tags:
 - Mục tiêu buổi đọc: hiểu vì sao Transformer bỏ recurrence/convolution, cách scaled dot-product attention và multi-head attention hoạt động, và Table 2-3 chứng minh gì.
 - Phần cần đọc trước: Abstract, Introduction, Figure 1-2, Sections 3.1-3.5, Table 1-3, Conclusion.
 - PDF count đã kiểm tra: 15 trang.
+
+## Từ điển khái niệm nhanh
+
+| Khái niệm | Định nghĩa ngắn trong paper này | Vì sao quan trọng | Link |
+|---|---|---|---|
+| Sequence transduction | Bài toán biến input sequence thành output sequence, ví dụ machine translation. | Đây là task mà Transformer được đánh giá chính trong paper. | [[Transformer]] |
+| Transformer | Encoder-decoder architecture chỉ dùng attention và feed-forward layers, không dùng recurrence/convolution. | Đây là đóng góp kiến trúc trung tâm của paper. | [[Transformer]] |
+| Self-attention | Mỗi token tạo representation bằng cách attend tới các token khác trong cùng sequence. | Thay thế recurrence/convolution để kết nối dependency xa với path length ngắn. | [[Self-Attention]] |
+| Scaled dot-product attention | Attention tính bằng $QK^\top/\sqrt{d_k}$ rồi nhân với $V$. | Scaling giúp logits ổn định hơn khi dimension key lớn. | [[Self-Attention]] |
+| Multi-head attention | Chạy nhiều attention heads song song trên các projection khác nhau rồi concat lại. | Cho model học nhiều kiểu quan hệ token-token ở các subspace khác nhau. | [[Multi-Head Attention]] |
+| Encoder-decoder attention | Decoder queries attend tới encoder outputs làm keys/values. | Kết nối output đang sinh với input sentence trong translation. | [[Cross-Attention]] |
+| Positional encoding | Vector vị trí cộng vào token embedding để cung cấp thứ tự sequence. | Attention-only model không tự có notion về vị trí nếu thiếu positional signal. | [[Positional Embeddings]] |
+| Position-wise FFN | Cùng một feed-forward network áp dụng độc lập cho từng position. | Thêm nonlinear transformation sau attention mà vẫn giữ parallelism theo position. | [[Transformer]] |
+| Residual connection + LayerNorm | Skip connection quanh sublayer rồi chuẩn hóa representation. | Giúp train stack encoder/decoder sâu ổn định hơn. | [[Transformer]], [[Layer Normalization]] |
+| BLEU | Metric đánh giá machine translation dựa trên n-gram overlap với reference. | Là metric chính trong Table 2 để so sánh WMT results. | [[BLEU]] |
 
 ## Phase 1 — Paper Map
 

@@ -16,7 +16,7 @@ completed: true
 need_review: true
 review_date:
 created_at: 2026-08-19
-updated_at: 2026-08-27
+updated_at: 2026-09-01
 tags:
   - paper-reading
   - gemini-notebook
@@ -39,6 +39,25 @@ tags:
 - Mục tiêu buổi đọc: hiểu vì sao ConPL cần cả sample memory và prototype memory, cách ba stage huấn luyện vận hành, và ablation chứng minh gì.
 - Phần cần đọc trước: Introduction, Section 3, Section 4, Table 1-3, limitations.
 - PDF count đã kiểm tra: 14 trang.
+
+## Từ điển khái niệm nhanh
+
+| Khái niệm | Định nghĩa ngắn trong paper này | Vì sao quan trọng | Link |
+|---|---|---|---|
+| CRE | Continual Relation Extraction: học relation mới theo chuỗi task và vẫn phải phân loại được tất cả relation đã thấy. | Là khung bài toán nền trước khi paper siết thêm ràng buộc few-shot. | [[Continual Relation Extraction]] |
+| NK-CRE | N-way K-shot Continual Relation Extraction: mỗi task có $N$ relation mới và mỗi relation chỉ có $K$ training samples, kể cả task đầu. | Đây là protocol nghiêm ngặt mà ConPL đề xuất để tránh lợi thế base task nhiều dữ liệu. | [[Continual Few-Shot Relation Extraction]] |
+| ConPL | Consistent Prototype Learning: framework dùng prompt encoder, prototype classifier, sample memory, prototype memory và consistent learning. | Đây là đóng góp chính của paper để giảm forgetting/prototype distortion. | [[Consistent Prototype Learning for Few-Shot Continual Relation Extraction]] |
+| Prototype | Vector đại diện cho một relation, thường lấy từ mean embedding hoặc exemplar gần class center. | Là class anchor cho classifier và cũng là đối tượng có thể bị distortion qua task. | [[Prototype Learning]] |
+| Prototype distortion | Hiện tượng prototype/embedding geometry của relation cũ bị lệch sau khi model học task mới. | Paper coi đây là cơ chế liên quan trực tiếp đến catastrophic forgetting. | [[Prototype Learning]], [[Catastrophic Forgetting]] |
+| Sample memory $\hat S^k$ | Bộ nhớ lưu raw exemplar đã chọn cho mỗi relation đến task $k$. | Cung cấp dữ liệu thật để replay, nhưng vẫn tạo storage/privacy trade-off. | [[Replay in Continual Learning]] |
+| Prototype memory $\hat P^k$ | Bộ nhớ lưu prototype vector cho mỗi relation đã thấy đến task $k$. | Giữ class anchors cũ để classifier không phải recompute từ memory quá ít. | [[Prototype Learning]] |
+| Temporary prototype $\tilde P^k$ | Prototype tạm của relation mới, tính từ $K$ samples trong current task trước khi chọn exemplar chính thức. | Dùng trong Stage 1 để học task mới cùng old prototype memory. | [[Prototype Learning]] |
+| Current all prototypes $\bar P^k$ | Tập prototype đang tham gia loss ở task hiện tại: old prototypes cộng prototype của relation mới. | Giúp Stage 1/2 phân loại trên toàn bộ label space đã thấy. | [[Prototype Learning]] |
+| $L_{cc}$ | Classification consistency loss: kéo embedding của memory sample về gần prototype đúng đã lưu. | Chống encoder drift làm old sample rời khỏi class anchor. | [[Embedding Space Regularization]] |
+| $L_{dc}$ | Distribution consistency loss: giữ quan hệ similarity tương đối giữa memory sample và toàn bộ prototype memory. | Bảo vệ geometry toàn cục, không chỉ khoảng cách sample-prototype đúng. | [[Embedding Space Regularization]] |
+| $L_{fc}$ | Loss trên tập target + confusing negative prototypes; paper gọi là focal loss nhưng công thức giống restricted cross-entropy hơn. | Đây là thành phần ablation mạnh nhất, tập trung vào relation dễ nhầm. | [[Contrastive Learning]] |
+| Whole accuracy | Accuracy sau task $k$ trên test set của tất cả relation đã thấy. | Là metric chính trong Table 1, cần phân biệt với accuracy chỉ trên task mới. | [[Continual Few-Shot Relation Extraction]] |
+| Mean forgetting | Metric đo mức giảm hiệu năng trên task cũ sau khi học các task sau. | Table 3 dùng nó để bổ sung evidence ngoài final accuracy. | [[Catastrophic Forgetting]] |
 
 ## Phase 1 — Paper Map
 

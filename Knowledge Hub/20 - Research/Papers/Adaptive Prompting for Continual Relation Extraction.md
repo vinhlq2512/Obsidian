@@ -38,7 +38,7 @@ related_concepts:
   - "[[Replay in Continual Learning]]"
   - "[[Relation Extraction]]"
 created_at: 2026-08-13
-updated_at: 2026-08-13
+updated_at: 2026-09-02
 tags:
   - paper
   - continual-learning
@@ -155,6 +155,66 @@ XW_i^Q,
 \right).
 $$
 
+#### Diễn giải học tập: prefix chen vào attention ở đâu?
+
+Self-attention bình thường lấy query, key và value đều từ input hidden states $X$:
+
+$$
+Q=XW_i^Q,\qquad K=XW_i^K,\qquad V=XW_i^V.
+$$
+
+Với scaled dot-product attention:
+
+$$
+\operatorname{Attention}(Q,K,V)=
+\operatorname{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}\right)V.
+$$
+
+Nói đơn giản: mỗi token thật dùng query của nó để hỏi các token khác trong cùng input, rồi dùng attention weights để lấy thông tin từ value vectors tương ứng.
+
+Prefix tuning thay đổi đúng phần **key/value**, không thêm query mới trong công thức này:
+
+$$
+Q=XW_i^Q,\qquad
+K'=[P_k;X]W_i^K,\qquad
+V'=[P_v;X]W_i^V.
+$$
+
+Vì vậy công thức có thể viết lại thành:
+
+$$
+\hat h_i=
+\operatorname{softmax}
+\left(
+\frac{(XW_i^Q)([P_k;X]W_i^K)^\top}{\sqrt{d_k}}
+\right)
+([P_v;X]W_i^V).
+$$
+
+Dấu `;` là nối theo chiều sequence. Nếu input có bốn token $[x_1,x_2,x_3,x_4]$ và prefix có hai vector $[p_1,p_2]$, thì key/value attention bây giờ nhìn vào $[p_1,p_2,x_1,x_2,x_3,x_4]$. Token thật vẫn là thứ đặt câu hỏi, nhưng nó được phép lấy thông tin từ cả token thật lẫn các prefix vectors đã học.
+
+Đây là lý do prefix có thể đổi output dù backbone BERT bị freeze: nếu query $q$ giống một prefix key $k_p$, attention score $q^\top k_p$ cao, attention weight nghiêng về prefix đó, và output nhận nhiều thông tin từ prefix value $v_p$. Prefix không nhất thiết là câu tiếng Anh thật; nó là vector học được, giống một hướng nhớ/bias/knowledge direction mà attention có thể gọi tới.
+
+Liên hệ với MoE nằm ở hình thức tính tổng có trọng số:
+
+$$
+h_{\text{MoE}}=\sum_j g_j(x)E_j(x),
+\qquad
+h_{\text{attention}}=\sum_j \alpha_j v_j.
+$$
+
+Nếu $v_j$ là prefix value, có thể diễn giải nó như một **lightweight expert**, còn $\alpha_j=\operatorname{softmax}(q^\top k_j)$ giống gating weight. Điểm cần giữ cẩn thận: prefix expert không phải MoE expert đầy đủ dạng neural network $E_j(x)$. Nó gần với một vector cố định đã học hơn, nên paper gọi nó là offset vector/lightweight expert.
+
+Trong WAVE-CRE, cầu nối tư duy là:
+
+```text
+prefix tuning
+-> prefix vector như lightweight expert trong self-attention
+-> nhiều prefix experts tạo thành prompt pool
+-> input khác nhau trong cùng task có thể chọn prefix khác nhau
+-> xử lý within-task variance tốt hơn một prompt cố định cho cả task
+```
+
 Theo cách diễn giải paper kế thừa, self-attention có thể xem như nhiều MoE models; mỗi prefix vector đóng vai trò một expert mới phối hợp với các experts có sẵn. Prefix experts chỉ là offset vectors, đơn giản hơn pre-trained experts vốn phụ thuộc tuyến tính vào input. Vì vậy một expert cố định khó phủ hết biến thiên của cả task. [[Adaptive Prompting for Continual Relation Extraction- A Within-Task Variance Perspective.pdf#page=3|PDF, tr. 3]]
 
 ### 2. Task-specific prompt pool
@@ -252,6 +312,129 @@ $$
 
 Hai loss giải quyết hai shared components khác nhau: $G_q^r$ giữ khả năng chọn đúng pool; $G_z^r$ giữ decision boundary của classifier trên relation cũ. [[Adaptive Prompting for Continual Relation Extraction- A Within-Task Variance Perspective.pdf#page=5|PDF, tr. 5]]
 
+#### Diễn giải học tập: không cần task ID được cấp, nhưng vẫn cần suy luận task
+
+Điểm dễ lẫn ở Section 3.3 là WAVE-CRE có **hai bài toán phân loại khác nhau**:
+
+```text
+q(x) -- task predictor g_psi --> relation tạm -> task/prompt pool
+z    -- relation classifier g_phi --> relation cuối cùng
+```
+
+Task predictor $\hat g_\psi$ nhận query representation $q(x)$, tức representation trước khi input được prompt bằng task-specific prompt pool. Output dimension của nó bằng số relation đã thấy $|\hat R_t|$, không phải số task. Vì vậy tên “task predictor” hơi gây hiểu nhầm: model dự đoán một relation tạm thời trước, rồi dùng mapping relation-to-task để chọn prompt pool:
+
+$$
+\hat g_\psi:\ q(x)\rightarrow \hat r_{\text{route}}\rightarrow \hat t\rightarrow \mathcal P_{\hat t}.
+$$
+
+Relation classifier $g_\phi$ thì nhận prompted relation representation $z=f_r(x^p)$ và dự đoán nhãn cuối:
+
+$$
+g_\phi:\ z\rightarrow \hat y.
+$$
+
+Vì vậy WAVE-CRE **không cần oracle task ID tại test time**, nhưng vẫn cần một bước task identity inference nội bộ để chọn đúng prompt pool. Đây là khác biệt quan trọng với setting task-incremental nơi task ID thật được cung cấp sẵn.
+
+##### Vì sao task predictor dự đoán relation thay vì task?
+
+Theo paper, HiDe-Prompt gộp mọi relation trong cùng task thành một class khi train task predictor. Cách này tiện nhưng task ID không có semantic meaning ổn định: nếu task order đổi, “Task 1” có thể chứa một nhóm relation hoàn toàn khác. WAVE-CRE chọn relation-level supervision để giữ semantic granularity:
+
+```text
+HiDe-Prompt: employee_of, born_in, parent_of -> Task 1
+WAVE-CRE:    employee_of -> employee_of -> Task mapping
+             born_in     -> born_in     -> Task mapping
+```
+
+Nói cách khác, WAVE-CRE học bài toán mịn hơn:
+
+$$
+q\rightarrow relation
+$$
+
+rồi mới collapse:
+
+$$
+relation\rightarrow task.
+$$
+
+Điều này giúp predictor học các lớp có ý nghĩa ngữ nghĩa thật hơn task IDs nhân tạo phụ thuộc vào cách chia stream. [[Adaptive Prompting for Continual Relation Extraction- A Within-Task Variance Perspective.pdf#page=5|PDF, tr. 5]]
+
+##### Eq. 18 và Eq. 19 khác nhau ở đâu?
+
+Eq. 18 dùng query distribution $G_q^r$ để train task predictor:
+
+$$
+\mathcal L(\psi)=
+\sum_{r\in\hat R_t}
+\sum_{q\sim G_q^r}
+-\log P_\psi(r\mid q).
+$$
+
+Eq. 19 dùng prompted-representation distribution $G_z^r$ để train relation classifier:
+
+$$
+\mathcal L(\phi)=
+\sum_{r\in\hat R_t}
+\sum_{z\sim G_z^r}
+-\log P_\phi(r\mid z).
+$$
+
+Bảng nhớ nhanh:
+
+| Representation | Distribution | Train component | Vai trò |
+|---|---|---|---|
+| $q(x)$ | $G_q^r$ | Task predictor $\hat g_\psi$ | Chọn task/prompt pool |
+| $z=f_r(x^p)$ | $G_z^r$ | Relation classifier $g_\phi$ | Dự đoán relation cuối |
+
+Điểm tinh tế: prompt pools cũ bị freeze chưa đủ để hết forgetting, vì shared classifier $g_\phi$ vẫn phải mở rộng decision boundary khi relation mới xuất hiện. Vì vậy WAVE-CRE cần generative replay cho cả task predictor lẫn relation classifier: $G_q^r$ bảo vệ routing, còn $G_z^r$ bảo vệ final classification.
+
+##### Inference có hai relation predictions
+
+Khi test một câu mới $x$, WAVE-CRE chạy:
+
+```text
+x
+-> q(x)
+-> task predictor predicts temporary relation r_route
+-> map r_route to task t
+-> select prompt pool P_t
+-> select top-K prompts inside P_t
+-> build prompted input x_p
+-> BERT encoder
+-> z
+-> relation classifier predicts final relation y
+```
+
+Hai relation predictions này không bắt buộc giống nhau. Prediction đầu chỉ là **routing signal**. Nếu true relation là `employee_of`, task predictor có thể đoán tạm `founder_of`; miễn là cả hai thuộc cùng task, prompt pool vẫn được chọn đúng và relation classifier vẫn còn cơ hội dự đoán cuối chính xác.
+
+##### Limitation rút ra từ Section 3.3
+
+Pipeline vẫn phụ thuộc vào task-defined prompt pools:
+
+$$
+x\rightarrow q(x)\rightarrow \hat r_{\text{route}}\rightarrow \hat t\rightarrow \mathcal P_{\hat t}\rightarrow z\rightarrow \hat y.
+$$
+
+Nếu task predictor map sai task:
+
+$$
+\text{wrong task}\Rightarrow \text{wrong pool}\Rightarrow \text{wrong prompts}\Rightarrow \text{potential relation error}.
+$$
+
+Vì vậy WAVE-CRE cải thiện cách **suy luận task** bằng relation semantics, nhưng chưa loại bỏ task khỏi kiến trúc. Đây là tension quan trọng khi đem paper này vào literature review: task labels là cấu trúc nhân tạo của experimental stream, còn relation labels mới là semantic classes tự nhiên hơn. WAVE++ sau đó thay learned task predictor bằng cascade voting, đúng vào failure mode này.
+
+##### Gaussian replay cũng có assumption riêng
+
+WAVE-CRE lưu:
+
+$$
+q\mid r\sim \mathcal N(\mu_q^r,\Sigma_q^r),
+\qquad
+z\mid r\sim \mathcal N(\mu_z^r,\Sigma_z^r).
+$$
+
+So với một prototype điểm, Gaussian giữ thêm covariance nên biểu diễn được variance tốt hơn. Nhưng một Gaussian/relation vẫn có thể yếu nếu relation thực sự multimodal vì lexical variation, entity subtype, syntax hoặc context variation. Một cách đọc thận trọng là: WAVE-CRE chuyển memory từ **raw examples/prototypes** sang **distributional representations + prompt pools**, nhưng vẫn cần kiểm assumption phân phối và lỗi routing.
+
 ### 7. Luồng train và inference
 
 Algorithm 1 có bốn bước chính:
@@ -309,7 +492,13 @@ Prompt pool đem lại +1,8 điểm ở $T_{10}$, là evidence trực tiếp nh�
 
 ### Số experts trong mỗi prompt
 
-Authors giữ tổng số selected experts $L\times K=8$:
+Authors giữ tổng số selected experts cố định:
+
+$$
+L\times K=8.
+$$
+
+Trong đó $L$ là số prefix experts nằm trong một prompt, còn $K$ là số prompts được chọn cho một input. Vì vậy Table 3 không đơn giản cho cấu hình cuối nhiều capacity hơn; nó giữ tổng số experts được sử dụng tương đương và thay đổi **granularity của routing**.
 
 | Expert/prompt $L$ | Prompt được chọn $K$ | TACRED $T_{10}$ |
 |---:|---:|---:|
@@ -318,7 +507,44 @@ Authors giữ tổng số selected experts $L\times K=8$:
 | 2 | 4 | 84,0 |
 | 1 | 8 | **85,2** |
 
-Một expert/prompt tốt nhất ở stage cuối. Cách hiểu là mỗi expert có key riêng và có thể được route độc lập; nhiều experts dùng chung một key làm routing thô hơn. [[Adaptive Prompting for Continual Relation Extraction- A Within-Task Variance Perspective.pdf#page=7|Table 3, PDF tr. 7]]
+Đọc từng hàng:
+
+| $L$ | $K$ | Nghĩa là |
+|---:|---:|---|
+| 8 | 1 | Chọn 1 prompt key, rồi lấy nguyên bundle 8 experts đi cùng nhau. |
+| 4 | 2 | Chọn 2 prompt keys, mỗi key kéo theo 4 experts. |
+| 2 | 4 | Chọn 4 prompt keys, mỗi key kéo theo 2 experts. |
+| 1 | 8 | Chọn 8 prompt keys, mỗi expert có key/routing riêng. |
+
+Với $L=8,K=1$, router chỉ có một quyết định ở mức bundle:
+
+```text
+k1 -> [E1 E2 E3 E4 E5 E6 E7 E8]
+```
+
+Nếu prompt đó được chọn, cả 8 experts đi cùng nhau. Input không thể tự phối hợp một vài experts từ nhiều bundles khác nhau.
+
+Với $L=1,K=8$, mỗi expert nằm trong một prompt riêng:
+
+```text
+k1 -> E1
+k2 -> E2
+k3 -> E3
+k4 -> E4
+...
+```
+
+Mỗi expert có prompt key riêng, nên query-key mechanism có thể chọn tổ hợp experts mịn hơn cho từng input. Nếu pool thực tế có $M$ prompts/experts, $K=8$ chỉ nghĩa là **mỗi input chọn Top-8 từ pool**, không nghĩa là toàn bộ pool chỉ có 8 experts.
+
+Một cách nhớ:
+
+$$
+L\uparrow \Rightarrow \text{routing granularity}\downarrow,
+\qquad
+L=1 \Rightarrow \text{routing ở mức từng expert}.
+$$
+
+Kết quả `84.2 -> 84.1 -> 84.0 -> 85.2` ở TACRED $T_{10}$ ủng hộ giả thuyết của tác giả: lợi ích không chỉ đến từ số experts được dùng, mà từ việc cho phép **fine-grained expert routing** để thích nghi với within-task variation. Không nên diễn giải mạnh thành “$L=1$ luôn tốt nhất”; đây là ablation trong task-incremental TACRED của paper, không phải định luật chung cho mọi prompt-pool architecture. [[Adaptive Prompting for Continual Relation Extraction- A Within-Task Variance Perspective.pdf#page=7|Table 3, PDF tr. 7]]
 
 ### Task predictor
 
