@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "20 - Research/Paper Reading/2026-08-21 - WAVE-CRE - Gemini Notebook Workflow.md",
+                "file": "20 - Research/Papers/WAVE++ - Capturing Within-Task Variance for Continual Relation Extraction.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-08-21 - WAVE-CRE - Gemini Notebook Workflow"
+              "title": "WAVE++ - Capturing Within-Task Variance for Continual Relation Extraction"
             }
           },
           {
@@ -125,7 +125,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "20 - Research/Paper Reading/2026-08-21 - WAVE-CRE - Gemini Notebook Workflow.md",
+                "file": "20 - Research/Papers/WAVE++ - Capturing Within-Task Variance for Continual Relation Extraction.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -144,7 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "20 - Research/Paper Reading/2026-08-21 - WAVE-CRE - Gemini Notebook Workflow.md",
+                "file": "20 - Research/Papers/WAVE++ - Capturing Within-Task Variance for Continual Relation Extraction.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -187,7 +187,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "20 - Research/Paper Reading/2026-08-21 - WAVE-CRE - Gemini Notebook Workflow.md",
+                "file": "20 - Research/Papers/WAVE++ - Capturing Within-Task Variance for Continual Relation Extraction.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -216,10 +216,11 @@
   },
   "active": "311c2b85cc9a22a4",
   "lastOpenFiles": [
+    "20 - Research/Paper Reading/2026-08-28 - CPL - Gemini Notebook Workflow.md",
+    "20 - Research/Papers/WAVE++ - Capturing Within-Task Variance for Continual Relation Extraction.md",
+    "20 - Research/Paper Reading/2026-08-21 - WAVE-CRE - Gemini Notebook Workflow.md",
     "20 - Research/Papers/Adaptive Prompting for Continual Relation Extraction.md",
     "00 - Sources/PDFs/Papers/Adaptive Prompting for Continual Relation Extraction- A Within-Task Variance Perspective.pdf",
-    "20 - Research/Paper Reading/2026-08-21 - WAVE-CRE - Gemini Notebook Workflow.md",
-    "20 - Research/Paper Reading/2026-08-28 - CPL - Gemini Notebook Workflow.md",
     "04 - Concepts/Replay in Continual Learning.md",
     "20 - Research/Papers/Making Pre-trained Language Models Better Continual Few-Shot Relation Extractors.md",
     "20 - Research/Papers/Consistent Prototype Learning for Few-Shot Continual Relation Extraction.md",
@@ -246,7 +247,6 @@
     "paper-reproductions/continual-relation-baselines/src/cl_re_baselines",
     "paper-reproductions/continual-relation-baselines/README.md",
     "20 - Research/Papers/Distilling the Knowledge in a Neural Network.md",
-    "20 - Research/Papers/WAVE++ - Capturing Within-Task Variance for Continual Relation Extraction.md",
     "20 - Research/Literature Notes/Continual Relation Extraction - Prototype, Prompt và Replay.md",
     "20 - Research/Paper Reading/2026-08-21 - CPL - Gemini Notebook Workflow.md",
     "20 - Research/Papers/FPrompt-PLM - Flexible-Prompt on Pretrained Language Model for Continual Few-Shot Relation Extraction.md",
