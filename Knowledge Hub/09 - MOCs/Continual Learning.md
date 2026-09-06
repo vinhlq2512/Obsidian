@@ -3,7 +3,7 @@ type: moc
 status: evolving
 area: continual-learning
 concepts:
-  - "[[Continual Learning]]"
+  - "[[04 - Concepts/Continual Learning]]"
   - "[[Catastrophic Forgetting]]"
   - "[[Continual Relation Extraction]]"
   - "[[Continual Few-Shot Relation Extraction]]"
@@ -15,10 +15,11 @@ concepts:
   - "[[Few-shot Learning]]"
   - "[[Contrastive Learning]]"
   - "[[Data Augmentation]]"
-syntheses: []
+syntheses:
+  - "[[Continual Relation Extraction - Prototype, Prompt và Replay]]"
 questions: []
 created_at: 2026-08-18
-updated_at: 2026-08-18
+updated_at: 2026-09-05
 tags:
   - moc
   - continual-learning
@@ -46,7 +47,7 @@ Continual Learning
 
 ## Khái niệm lõi
 
-- [[Continual Learning]] — bài toán học theo chuỗi task/data distributions, phải cân bằng stability và plasticity.
+- [[04 - Concepts/Continual Learning|Continual Learning]] — bài toán học theo chuỗi task/data distributions, phải cân bằng stability và plasticity.
 - [[Catastrophic Forgetting]] — hiện tượng học task mới làm giảm năng lực trên task cũ.
 - [[Replay in Continual Learning]] — giữ hoặc sinh lại tín hiệu từ quá khứ để chống quên.
 - [[Prototype Learning]] — biểu diễn class/relation bằng vector neo; quan trọng trong ConPL và CPL.
@@ -136,7 +137,7 @@ Mỗi mũi tên là một nơi có thể quên: representation drift, routing sa
 - [[LLM]]
 - [[Transformers]]
 - [[Relation Extraction]]
-- [[Continual Learning]]
+- [[04 - Concepts/Continual Learning|Continual Learning]]
 - [[Continual Relation Extraction]]
 - [[Continual Few-Shot Relation Extraction]]
 - [[Catastrophic Forgetting]]
