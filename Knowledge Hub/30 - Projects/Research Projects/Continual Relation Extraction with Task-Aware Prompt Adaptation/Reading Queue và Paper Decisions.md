@@ -26,15 +26,15 @@ Từ tuần 4 trở đi, đọc paper không nên tách khỏi decision. Mỗi p
 
 ## Must-read trong tháng 09/2026
 
-| Paper | Mục tiêu đọc | Decision cần rút ra |
-|---|---|---|
-| [[20 - Research/Papers/Distilling the Knowledge in a Neural Network]] | Hiểu soft target, temperature, KL-divergence | KD trong TAPTA nên distill logits hay similarity distribution? |
-| [[20 - Research/Papers/Learning without Forgetting]] | Hiểu teacher cũ trong continual learning | Teacher dùng để giữ old-label behavior như thế nào? |
-| [[20 - Research/Papers/Mean Teachers are Better Role Models]] | Hiểu EMA teacher | EMA có đáng đưa vào bản chính hay chỉ là ablation? |
-| [[20 - Research/Papers/An Ensemble-of-Experts Framework for Rehearsal-free Continual Relation Extraction]] | Hiểu decomposition TII/WTP và comparator gần WAVE | Router của mình khác EoE/WAVE ở đâu? |
-| [[20 - Research/Papers/Serial Contrastive Knowledge Distillation for Continual Few-shot Relation Extraction]] | Hiểu KD + contrastive trong FCRE | Có cần SCKD làm baseline hay chỉ dùng để biện minh KD? |
-| [[20 - Research/Papers/FewRel - A Large-Scale Supervised Few-Shot Relation Classification Dataset]] | Nắm dataset và split | Task-order files cần tạo thế nào? |
-| [[20 - Research/Papers/Re-TACRED - Addressing Shortcomings of the TACRED Dataset]] | Nắm limitation của TACRED | Có đưa Re-TACRED vào appendix hay chỉ mention limitation? |
+| Paper                                                                                                         | Mục tiêu đọc                                      | Decision cần rút ra                                            |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | -------------------------------------------------------------- |
+| [[20 - Research/Papers/Distilling the Knowledge in a Neural Network]]                                         | Hiểu soft target, temperature, KL-divergence      | KD trong TAPTA nên distill logits hay similarity distribution? |
+| [[20 - Research/Papers/Learning without Forgetting]]                                                          | Hiểu teacher cũ trong continual learning          | Teacher dùng để giữ old-label behavior như thế nào?            |
+| [[20 - Research/Papers/Mean Teachers are Better Role Models]]                                                 | Hiểu EMA teacher                                  | EMA có đáng đưa vào bản chính hay chỉ là ablation?             |
+| [[20 - Research/Papers/An Ensemble-of-Experts Framework for Rehearsal-free Continual Relation Extraction]]    | Hiểu decomposition TII/WTP và comparator gần WAVE | Router của mình khác EoE/WAVE ở đâu?                           |
+| [[20 - Research/Papers/Serial Contrastive Knowledge Distillation for Continual Few-shot Relation Extraction]] | Hiểu KD + contrastive trong FCRE                  | Có cần SCKD làm baseline hay chỉ dùng để biện minh KD?         |
+| [[20 - Research/Papers/FewRel - A Large-Scale Supervised Few-Shot Relation Classification Dataset]]           | Nắm dataset và split                              | Task-order files cần tạo thế nào?                              |
+| [[20 - Research/Papers/Re-TACRED - Addressing Shortcomings of the TACRED Dataset]]                            | Nắm limitation của TACRED                         | Có đưa Re-TACRED vào appendix hay chỉ mention limitation?      |
 
 ## Must-read trong tháng 10/2026
 
