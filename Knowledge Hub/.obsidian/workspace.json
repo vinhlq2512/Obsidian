@@ -20,8 +20,37 @@
               "icon": "lucide-file",
               "title": "Timeline cá nhân đến 2027-04-30"
             }
+          },
+          {
+            "id": "916a825f14631716",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "20 - Research/Papers/Distilling the Knowledge in a Neural Network.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Distilling the Knowledge in a Neural Network"
+            }
+          },
+          {
+            "id": "edd8911fc47d491d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "20 - Research/Papers/Re-TACRED - Addressing Shortcomings of the TACRED Dataset.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Re-TACRED - Addressing Shortcomings of the TACRED Dataset"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -96,7 +125,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "30 - Projects/Research Projects/Continual Relation Extraction with Task-Aware Prompt Adaptation/Timeline cá nhân đến 2027-04-30.md",
+                "file": "20 - Research/Papers/Distilling the Knowledge in a Neural Network.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "30 - Projects/Research Projects/Continual Relation Extraction with Task-Aware Prompt Adaptation/Timeline cá nhân đến 2027-04-30.md",
+                "file": "20 - Research/Papers/Distilling the Knowledge in a Neural Network.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -158,7 +187,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "30 - Projects/Research Projects/Continual Relation Extraction with Task-Aware Prompt Adaptation/Timeline cá nhân đến 2027-04-30.md",
+                "file": "20 - Research/Papers/Distilling the Knowledge in a Neural Network.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -185,17 +214,18 @@
       "bases:Create new base": false
     }
   },
-  "active": "49732e03473da040",
+  "active": "916a825f14631716",
   "lastOpenFiles": [
+    "30 - Projects/Research Projects/Continual Relation Extraction with Task-Aware Prompt Adaptation/Timeline cá nhân đến 2027-04-30.md",
+    "20 - Research/Papers/Re-TACRED - Addressing Shortcomings of the TACRED Dataset.md",
+    "20 - Research/Papers/Distilling the Knowledge in a Neural Network.md",
     "30 - Projects/Research Projects/Continual Relation Extraction with Task-Aware Prompt Adaptation/Literature Matrix v1, RQ và Protocol Spec.md",
+    "20 - Research/Paper Reading/2026-08-19 - Attention Is All You Need - Gemini Notebook Workflow.md",
     "30 - Projects/Research Projects/Continual Relation Extraction with Task-Aware Prompt Adaptation/Reading Queue và Paper Decisions.md",
     "AGENTS.md",
-    "20 - Research/Papers/Distilling the Knowledge in a Neural Network.md",
     "20 - Research/Papers/Learning without Forgetting.md",
     "00 - Sources/PDFs/Papers/Learning without Forgetting.pdf",
-    "30 - Projects/Research Projects/Continual Relation Extraction with Task-Aware Prompt Adaptation/Timeline cá nhân đến 2027-04-30.md",
     "30 - Projects/Research Projects/Continual Relation Extraction with Task-Aware Prompt Adaptation/Weekly Tracker.md",
-    "20 - Research/Papers/Re-TACRED - Addressing Shortcomings of the TACRED Dataset.md",
     "00 - Sources/PDFs/Papers/Re-TACRED - Addressing Shortcomings of the TACRED Dataset.pdf",
     "20 - Research/Papers/FewRel - A Large-Scale Supervised Few-Shot Relation Classification Dataset.md",
     "00 - Sources/PDFs/Papers/FewRel - A Large-Scale Supervised Few-Shot Relation Classification Dataset with State-of-the-Art Evaluation.pdf",
@@ -216,7 +246,6 @@
     "30 - Projects/Research Projects/CRE TAPTA - Reading Queue và Paper Decisions.md",
     "30 - Projects/Research Projects/CRE TAPTA - Timeline cá nhân đến 2027-04-30.md",
     "20 - Research/Papers/Few-Shot No Problem - Descriptive Continual Relation Extraction.md",
-    "20 - Research/Papers/Refining Sample Embeddings with Relation Prototypes to Enhance Continual Relation Extraction.md",
     "30 - Projects/Research Projects",
     "00 - Sources/PDFs/Papers/Adaptive Prompting for Continual Relation Extraction- A Within-Task Variance Perspective.pdf",
     "paper-reproductions/continual-relation-baselines/src/cl_re_baselines/vector.py",
